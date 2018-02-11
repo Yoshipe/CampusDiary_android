@@ -1,5 +1,6 @@
 package com.watnow.campusdiary
 
+import android.content.Context
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
@@ -13,6 +14,8 @@ import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
 class TimeTableActivity : AppCompatActivity() {
 
     private val TAG: String = "TimeTableActivity"
+
+    private val mContext: Context = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +33,7 @@ class TimeTableActivity : AppCompatActivity() {
         val bottomNavigationViewEx: BottomNavigationViewEx = findViewById(R.id.bottomNavViewBar)
         var bottomNavViewHelper: BottomNavigationViewHelper = BottomNavigationViewHelper()
         bottomNavViewHelper.setupBottomNavigationView(bottomNavigationViewEx)
-
+        bottomNavViewHelper.enableNavigation(mContext, bottomNavigationViewEx)
     }
 
 }

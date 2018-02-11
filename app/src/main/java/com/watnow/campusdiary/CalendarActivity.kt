@@ -1,5 +1,6 @@
 package com.watnow.campusdiary
 
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,8 @@ import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
 class CalendarActivity : AppCompatActivity() {
 
     private val TAG: String = "CalendarActivity"
+
+    private val mContext: Context = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +27,6 @@ class CalendarActivity : AppCompatActivity() {
         val bottomNavigationViewEx: BottomNavigationViewEx = findViewById(R.id.bottomNavViewBar)
         var bottomNavViewHelper: BottomNavigationViewHelper = BottomNavigationViewHelper()
         bottomNavViewHelper.setupBottomNavigationView(bottomNavigationViewEx)
-
-    }
+        bottomNavViewHelper.enableNavigation(mContext, bottomNavigationViewEx)
+        }
 }
