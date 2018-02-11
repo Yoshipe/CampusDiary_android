@@ -6,6 +6,10 @@ import android.util.Log
 import android.widget.Toast
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.*
+import com.watnow.campusdiary.Calendar.CalendarActivity
+import com.watnow.campusdiary.Map.MapActivity
+import com.watnow.campusdiary.Notification.NotificationActivity
+import com.watnow.campusdiary.TimeTable.TimeTableActivity
 
 /**
  * Created by saitoushunsuke on 2018/02/12.

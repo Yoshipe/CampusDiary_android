@@ -1,4 +1,4 @@
-package com.watnow.campusdiary
+package com.watnow.campusdiary.Map
 
 import android.content.Context
 import android.os.Bundle
@@ -7,22 +7,23 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+import com.watnow.campusdiary.R
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
 
 /**
  * Created by saitoushunsuke on 2018/02/12.
  */
-class TimeTableActivity : AppCompatActivity() {
+class MapActivity: AppCompatActivity() {
 
-    private val TAG: String = "TimeTableActivity"
+    private val TAG: String = "MapActivity"
 
-    private val ACTIVITY_NUM: Int = 2
+    private val ACTIVITY_NUM: Int = 1
 
     private val mContext: Context = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.time_table_activity)
+        setContentView(R.layout.map_activity)
         Log.d(TAG, "onCreate: starting")
 
         setupBottomNavigationView()

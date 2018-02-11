@@ -1,29 +1,26 @@
-package com.watnow.campusdiary
+package com.watnow.campusdiary.Calendar
 
 import android.content.Context
-import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+import com.watnow.campusdiary.R
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
 
-/**
- * Created by saitoushunsuke on 2018/02/12.
- */
-class MapActivity: AppCompatActivity() {
+class CalendarActivity : AppCompatActivity() {
 
-    private val TAG: String = "MapActivity"
+    private val TAG: String = "CalendarActivity"
 
-    private val ACTIVITY_NUM: Int = 1
+    private val ACTIVITY_NUM: Int = 0
 
     private val mContext: Context = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.map_activity)
-        Log.d(TAG, "onCreate: starting")
+        setContentView(R.layout.calendar_activity)
 
         setupBottomNavigationView()
     }
@@ -41,5 +38,4 @@ class MapActivity: AppCompatActivity() {
         val menuItem: MenuItem = menu.getItem(ACTIVITY_NUM)
         menuItem.isChecked = true
     }
-
 }
