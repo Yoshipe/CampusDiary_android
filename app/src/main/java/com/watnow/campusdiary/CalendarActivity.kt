@@ -6,13 +6,15 @@ import android.util.Log
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
 
-class MainActivity : AppCompatActivity() {
+class CalendarActivity : AppCompatActivity() {
 
-    private val TAG: String = "MainActivity"
+    private val TAG: String = "CalendarActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        setupBottomNavigationView()
     }
     /* *
      *  BottomNavigationView setup
