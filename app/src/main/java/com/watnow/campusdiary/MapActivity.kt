@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
 
@@ -14,6 +16,8 @@ import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
 class MapActivity: AppCompatActivity() {
 
     private val TAG: String = "MapActivity"
+
+    private val ACTIVITY_NUM: Int = 1
 
     private val mContext: Context = this
 
@@ -26,14 +30,17 @@ class MapActivity: AppCompatActivity() {
     }
 
     /* *
- *  BottomNavigationView setup
- */
+    *  BottomNavigationView setup
+    */
     private fun setupBottomNavigationView() {
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView")
         val bottomNavigationViewEx: BottomNavigationViewEx = findViewById(R.id.bottomNavViewBar)
         var bottomNavViewHelper: BottomNavigationViewHelper = BottomNavigationViewHelper()
         bottomNavViewHelper.setupBottomNavigationView(bottomNavigationViewEx)
         bottomNavViewHelper.enableNavigation(mContext, bottomNavigationViewEx)
+        val menu: Menu = bottomNavigationViewEx.menu
+        val menuItem: MenuItem = menu.getItem(ACTIVITY_NUM)
+        menuItem.isChecked = true
     }
 
 }
