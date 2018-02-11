@@ -26,21 +26,25 @@ open class BottomNavigationViewHelper {
     fun enableNavigation(context: Context, view: BottomNavigationViewEx) {
         view.setOnNavigationItemSelectedListener {item ->
             when (item.itemId) {
+                // ACTIVITY_NUM = 0
                 R.id.ic_calendar -> {
                     val intent1: Intent = Intent(context, CalendarActivity::class.java)
                     context.startActivity(intent1)
                     true
                 }
+                // ACTIVITY_NUM = 1
                 R.id.ic_location -> {
                     val intent2: Intent = Intent(context, MapActivity::class.java)
                     context.startActivity(intent2)
                     true
                 }
+                // ACTIVITY_NUM = 2
                 R.id.ic_timetable -> {
                     val intent3: Intent = Intent(context, TimeTableActivity::class.java)
                     context.startActivity(intent3)
                     true
                 }
+                // ACTIVITY_NUM = 3
                 R.id.ic_notification -> {
                     val intent4: Intent = Intent(context, NotificationActivity::class.java)
                     context.startActivity(intent4)
