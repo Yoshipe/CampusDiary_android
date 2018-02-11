@@ -2,7 +2,6 @@ package com.watnow.campusdiary
 
 import android.content.Context
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
@@ -23,7 +22,7 @@ class MapActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.map_activity)
         Log.d(TAG, "onCreate: starting")
 
         setupBottomNavigationView()

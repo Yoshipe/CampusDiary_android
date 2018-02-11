@@ -2,11 +2,9 @@ package com.watnow.campusdiary
 
 import android.content.Context
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
@@ -24,7 +22,7 @@ class NotificationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.notification_activity)
         Log.d(TAG, "onCreate: starting")
 
         setupBottomNavigationView()
