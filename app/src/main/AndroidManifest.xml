@@ -9,16 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".CalendarActivity" >
+        <activity android:name=".Calendar.CalendarActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MapActivity"></activity>
-        <activity android:name=".TimeTableActivity"></activity>
-        <activity android:name=".NotificationActivity"></activity>
+        <activity android:name=".Map.MapActivity"></activity>
+        <activity android:name=".TimeTable.TimeTableActivity"></activity>
+        <activity android:name=".Notification.NotificationActivity"></activity>
     </application>
 
 </manifest>

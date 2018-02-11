@@ -1,4 +1,4 @@
-package com.watnow.campusdiary
+package com.watnow.campusdiary.Calendar
 
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+import com.watnow.campusdiary.R
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
 
 class CalendarActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.watnow.campusdiary
+package com.watnow.campusdiary.Notification
 
 import android.content.Context
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+import com.watnow.campusdiary.R
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
 
 /**
