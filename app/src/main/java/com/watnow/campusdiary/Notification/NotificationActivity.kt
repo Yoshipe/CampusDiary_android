@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.R
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
@@ -27,6 +30,15 @@ class NotificationActivity : AppCompatActivity() {
         Log.d(TAG, "onCreate: starting")
 
         setupBottomNavigationView()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val search_button: Button = findViewById(R.id.search_button)
+        val search_txt: TextView = findViewById(R.id.search_txt)
+        search_button.setOnClickListener {
+            Toast.makeText(this, search_txt.text, Toast.LENGTH_SHORT).show()
+        }
     }
 
     /* *
