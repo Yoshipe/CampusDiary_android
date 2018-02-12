@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.Spinner
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.R
@@ -23,6 +24,10 @@ class MapActivity: AppCompatActivity() {
 
     private val mContext: Context = this
 
+    // these are the member used in this class
+    private lateinit var chosenCampusName: String
+    private lateinit var mapImage: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.map_activity)
@@ -37,8 +42,23 @@ class MapActivity: AppCompatActivity() {
         // set this adapter to Spinner
         val spinner: Spinner = findViewById<Spinner>(R.id.campusPicker)
         spinner.adapter = adapter
+        this.chosenCampusName = spinner.selectedItem.toString()
 
+        /*
+            ToDo1: initialize ImageView
+         */
+
+
+        // initialize BottomNavigationViewEx
         setupBottomNavigationView()
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        /*
+            ToDo2: Adjust ImageView by campusName Picker
+         */
     }
 
     /* *
@@ -54,5 +74,4 @@ class MapActivity: AppCompatActivity() {
         val menuItem: MenuItem = menu.getItem(ACTIVITY_NUM)
         menuItem.isChecked = true
     }
-
 }
