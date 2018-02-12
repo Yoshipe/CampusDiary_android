@@ -1,6 +1,8 @@
 package com.watnow.campusdiary.Map
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -9,6 +11,7 @@ import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.Spinner
+import android.widget.Toast
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.R
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
@@ -47,6 +50,18 @@ class MapActivity: AppCompatActivity() {
         /*
             ToDo1: initialize ImageView
          */
+        val option: BitmapFactory.Options = BitmapFactory.Options()
+        option.inJustDecodeBounds = true
+        BitmapFactory.decodeResource(resources, R.drawable.bkc_map, option)
+        val imageWidth: Int = option.outWidth
+        val imageHeight: Int = option.outHeight
+        val imageType: String = option.outMimeType
+        var inSampleSize: Int = 4
+        option.inSampleSize = inSampleSize
+        option.inJustDecodeBounds = false
+        val bitmap: Bitmap = BitmapFactory.decodeResource(resources, R.drawable.bkc_map, option)
+        mapImage = findViewById(R.id.mapImage)
+        mapImage.setImageBitmap(bitmap)
 
 
         // initialize BottomNavigationViewEx
