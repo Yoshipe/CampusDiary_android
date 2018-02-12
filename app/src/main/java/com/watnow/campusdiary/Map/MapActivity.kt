@@ -36,9 +36,9 @@ class MapActivity: AppCompatActivity() {
         // make adapter to set Spinner(which is a campusName picker)
         val adapter: ArrayAdapter<String> = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        adapter.add("BKC")
-        adapter.add("OIC")
-        adapter.add("KIC")
+        adapter.add("びわこ・くさつキャンパスBKC")
+        adapter.add("大阪いばらきキャンパスOIC")
+        adapter.add("衣笠キャンパスKIC")
         // set this adapter to Spinner
         val spinner: Spinner = findViewById<Spinner>(R.id.campusPicker)
         spinner.adapter = adapter
