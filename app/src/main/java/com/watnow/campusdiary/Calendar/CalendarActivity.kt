@@ -9,6 +9,7 @@ import android.view.MenuItem
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.R
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
+import kotlinx.android.synthetic.main.layout_calendar_center.*
 
 class CalendarActivity : AppCompatActivity() {
 
@@ -21,8 +22,23 @@ class CalendarActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.calendar_activity)
-
         setupBottomNavigationView()
+        val gridview = gridView_layout
+        val adapter = CalendarItemAdapter(this, R.layout.layout_calendar_item, data)
+        gridview.adapter = adapter
+    }
+
+    val data :ArrayList<CalendarItems>
+    get(){
+        val item_lists:ArrayList<CalendarItems> = ArrayList<CalendarItems>()
+
+        item_lists.add(CalendarItems("item 1"))
+        item_lists.add(CalendarItems("item 2"))
+        item_lists.add(CalendarItems("item 3"))
+        item_lists.add(CalendarItems("item 4"))
+        item_lists.add(CalendarItems("item 5"))
+        item_lists.add(CalendarItems("item 6"))
+        return item_lists
     }
 
     /* *
