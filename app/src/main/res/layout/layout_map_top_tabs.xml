@@ -19,7 +19,7 @@
                     android:id="@+id/campusPicker"
                     android:layout_width="300dp"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="40dp"/>
+                    android:layout_marginLeft="40dp" />
 
 
             </android.support.v7.widget.Toolbar>
