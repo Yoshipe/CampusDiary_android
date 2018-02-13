@@ -4,13 +4,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:text="TIME_TABLE_ACTIVITY"/>
+        <!-- Right side bar -->
+        <include layout="@layout/layout_time_table_center_right_side"/>
 
+        <!-- Top Date bar -->
+        <include layout="@layout/layout_time_table_tob_date_bar"/>
 
+        <!-- Time Table Layout -->
 
     </RelativeLayout>
 
