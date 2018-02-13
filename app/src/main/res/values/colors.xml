@@ -2,4 +2,8 @@
 <resources>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="timeTableRight">#e2e2e2</color>
+    <color name="timeTableTop">#ffdbc4</color>
+    <color name="white">#ffffff</color>
+    <color name="grey">#000000</color>
 </resources>
