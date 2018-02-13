@@ -1,11 +1,15 @@
 package com.watnow.campusdiary.TimeTable
 
 import android.content.Context
+import android.graphics.Point
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.Display
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.LinearLayout
+import android.widget.TextView
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.R
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
@@ -27,6 +31,11 @@ class TimeTableActivity : AppCompatActivity() {
         Log.d(TAG, "onCreate: starting")
 
         setupBottomNavigationView()
+
+        // setup Layout Top Bar
+        val linearLayout: LinearLayout = findViewById(R.id.time_table_top_date_bar)
+        val layoutMaker: TimeTableLayoutMaker = TimeTableLayoutMaker(this)
+        layoutMaker.setViewInLayout(linearLayout)
     }
 
     /* *
