@@ -1,0 +1,60 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <LinearLayout
+        android:id="@+id/time_table_right_side_bar"
+        android:layout_width="@dimen/time_table_right_bar_width"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/time_table_right_bar_height"
+            android:gravity="center"
+            android:background="@drawable/time_table_right_side_background"
+            android:text="1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/time_table_right_bar_height"
+            android:gravity="center"
+            android:background="@drawable/time_table_right_side_background"
+            android:text="2"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/time_table_right_bar_height"
+            android:gravity="center"
+            android:background="@drawable/time_table_right_side_background"
+            android:text="3"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/time_table_right_bar_height"
+            android:gravity="center"
+            android:background="@drawable/time_table_right_side_background"
+            android:text="4"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/time_table_right_bar_height"
+            android:gravity="center"
+            android:background="@drawable/time_table_right_side_background"
+            android:text="5"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/time_table_right_bar_height"
+            android:gravity="center"
+            android:background="@drawable/time_table_right_side_background"
+            android:text="6"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/time_table_right_bar_height"
+            android:gravity="center"
+            android:background="@drawable/time_table_right_side_background"
+            android:text="7"/>
+        
+    </LinearLayout>
+    
+    
+</merge>
