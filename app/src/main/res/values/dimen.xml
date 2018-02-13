@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="time_table_right_bar_width">20dp</dimen>
+    <dimen name="time_table_right_bar_height">80dp</dimen>
+    <dimen name="time_table_top_date_width">61dp</dimen>
+    <dimen name="time_table_top_date_height">30dp</dimen>
+
+</resources>
