@@ -3,15 +3,19 @@ package com.watnow.campusdiary.Calendar
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.R
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
 import kotlinx.android.synthetic.main.layout_calendar_center.*
 
-class CalendarActivity : AppCompatActivity() {
+class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListener {
 
     private val TAG: String = "CalendarActivity"
 
@@ -23,22 +27,15 @@ class CalendarActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.calendar_activity)
         setupBottomNavigationView()
-        val gridview = gridView_layout
-        val adapter = CalendarItemAdapter(this, R.layout.layout_calendar_item, data)
-        gridview.adapter = adapter
+        val hoges:List<String> = listOf("1","2")
+        calendarRecycleView.adapter = CalendarRecycleAdapter(this, this, hoges)
+        calendarRecycleView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+
     }
 
-    val data :ArrayList<CalendarItems>
-    get(){
-        val item_lists:ArrayList<CalendarItems> = ArrayList<CalendarItems>()
 
-        item_lists.add(CalendarItems("item 1"))
-        item_lists.add(CalendarItems("item 2"))
-        item_lists.add(CalendarItems("item 3"))
-        item_lists.add(CalendarItems("item 4"))
-        item_lists.add(CalendarItems("item 5"))
-        item_lists.add(CalendarItems("item 6"))
-        return item_lists
+    override fun onItemClick(view: View, position: Int) {
+        Toast.makeText(applicationContext, "position$position was tapped", Toast.LENGTH_SHORT).show()
     }
 
     /* *
