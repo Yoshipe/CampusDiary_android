@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CampusDiary</string>
+    <string name="MON">月</string>
+    <string name="TUE">火</string>
+    <string name="WED">水</string>
+    <string name="THU">木</string>
+    <string name="FRI">金</string>
+    <string name="SUT">土</string>
 </resources>
