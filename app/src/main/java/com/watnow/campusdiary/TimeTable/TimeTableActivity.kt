@@ -33,7 +33,7 @@ class TimeTableActivity : AppCompatActivity() {
         setupBottomNavigationView()
 
         // setup Layout Top Bar
-        val linearLayout: LinearLayout = findViewById(R.id.time_table_top_date_bar)
+        val linearLayout: LinearLayout = findViewById(R.id.time_table_top)
         val layoutMaker: TimeTableLayoutMaker = TimeTableLayoutMaker(this)
         layoutMaker.setViewInLayout(linearLayout)
     }
