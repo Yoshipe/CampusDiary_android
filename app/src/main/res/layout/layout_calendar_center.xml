@@ -4,10 +4,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
+
+        <TextView
+            android:id="@+id/select_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="2018年4月"
+            android:textColor="@color/white"
+            android:textSize="25dp" />
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/calendarRecycleView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/select_date"
             android:background="@color/grey"
             />
 
