@@ -29,19 +29,18 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
         super.onCreate(savedInstanceState)
         setContentView(R.layout.calendar_activity)
         setupBottomNavigationView()
-        var hoges:List<String>? = null
+        var hoges: List<String>? = null
         val tmpList: MutableList<String> = mutableListOf()
         val year: Int = 5
-        for (i in 1..12*year) {
+        for (i in 1..12 * year) {
             for (j in 1..31) {
                 tmpList.add(j.toString())
             }
         }
         hoges = tmpList
-        calendarRecycleView.adapter = CalendarRecycleAdapter(this, this, hoges?: listOf("error"))
-        calendarRecycleView.layoutManager = GridLayoutManager(this,7)
-        calendarRecycleView.addItemDecoration(CalenarDividerItemDecoration(7,1,true,0))
-
+        calendarRecycleView.adapter = CalendarRecycleAdapter(this, this, hoges ?: listOf("error"))
+        calendarRecycleView.layoutManager = GridLayoutManager(this, 7)
+        calendarRecycleView.addItemDecoration(CalenarDividerItemDecoration(7, 1, true, 0))
     }
 
 
