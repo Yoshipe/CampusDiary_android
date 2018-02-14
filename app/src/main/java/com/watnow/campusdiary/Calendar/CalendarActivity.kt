@@ -40,7 +40,7 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
         hoges = tmpList
         calendarRecycleView.adapter = CalendarRecycleAdapter(this, this, hoges?: listOf("error"))
         calendarRecycleView.layoutManager = GridLayoutManager(this,7)
-
+        calendarRecycleView.addItemDecoration(CalenarDividerItemDecoration(7,1,true,0))
 
     }
 
