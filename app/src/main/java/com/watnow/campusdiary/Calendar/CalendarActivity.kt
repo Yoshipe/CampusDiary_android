@@ -35,6 +35,7 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
     }
 
     override fun onItemClick(view: View, position: Int) {
+        select_date.text = CalendarDate().getday(position)
         Toast.makeText(applicationContext, "position$position was tapped", Toast.LENGTH_SHORT).show()
     }
 

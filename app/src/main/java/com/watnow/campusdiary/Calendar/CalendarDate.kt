@@ -2,6 +2,7 @@ package com.watnow.campusdiary.Calendar
 
 import me.mattak.moment.Moment
 import me.mattak.moment.TimeUnit
+import java.util.*
 
 /**
  * Created by Shogo on 2018/02/15.
@@ -36,7 +37,7 @@ class CalendarDate {
             else -> println("error")
         }
     }
-    //カレンダーに表示する全ての日を５年前から、5年後までの10年間分のListにして返すメソッド
+    // カレンダーに表示する全ての日を５年前から、5年後までの10年間分のListにして返すメソッド
     public fun getAllDays(): MutableList<String> {
         val dateList: MutableList<String> = mutableListOf()
         var tmpdate = firstDate
@@ -45,5 +46,11 @@ class CalendarDate {
             tmpdate = tmpdate.add(1, TimeUnit.DAYS)
         }
         return dateList
+    }
+    // 何個めのブロックを押したかを引数にとり、その年/月/日を返す。
+    public fun getday(position:Int) : String {
+        var tmpdate = firstDate
+        tmpdate = tmpdate.add(position.toLong(),TimeUnit.DAYS)
+        return tmpdate.format("yyyy年MM月dd日")
     }
 }
