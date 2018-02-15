@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
@@ -34,10 +35,10 @@ class NotificationActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        val search_button: Button = findViewById(R.id.search_button)
-        val search_txt: TextView = findViewById(R.id.search_txt)
-        search_button.setOnClickListener {
-            Toast.makeText(this, search_txt.text, Toast.LENGTH_SHORT).show()
+        val searchButton: Button = findViewById(R.id.search_button)
+        val searchTxt: EditText = findViewById(R.id.search_txt)
+        searchButton.setOnClickListener {
+            Toast.makeText(this, searchTxt.text, Toast.LENGTH_SHORT).show()
         }
     }
 
