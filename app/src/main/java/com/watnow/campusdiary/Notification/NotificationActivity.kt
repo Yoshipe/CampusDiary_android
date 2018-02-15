@@ -6,10 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.R
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
@@ -40,6 +37,10 @@ class NotificationActivity : AppCompatActivity() {
         searchButton.setOnClickListener {
             Toast.makeText(this, searchTxt.text, Toast.LENGTH_SHORT).show()
         }
+        // ListViewを設定
+        val notificationList: ListView = findViewById(R.id.notifications_container)
+        val listMaker: NotificationListViewAdapter = NotificationListViewAdapter(mContext, notificationList)
+
     }
 
     /* *
