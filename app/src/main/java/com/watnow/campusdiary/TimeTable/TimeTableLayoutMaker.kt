@@ -1,18 +1,18 @@
 package com.watnow.campusdiary.TimeTable
 
 import android.app.Activity
-import android.graphics.Point
-import android.util.Log
+import android.util.DisplayMetrics
 import android.widget.LinearLayout
 import android.widget.TextView
 
 /**
  * Created by saitoushunsuke on 2018/02/13.
  */
-class TimeTableLayoutMaker(activity: Activity) {
+class TimeTableLayoutMaker(private val activity: Activity) {
 
     private val TAG: String = "TimeTableLayoutMaker"
 
+    private val nullTextView: TextView = TextView(activity)
     private val MON: TextView = TextView(activity)
     private val TUE: TextView = TextView(activity)
     private val WED: TextView = TextView(activity)
@@ -20,34 +20,35 @@ class TimeTableLayoutMaker(activity: Activity) {
     private val FRI: TextView = TextView(activity)
     private val SUT: TextView = TextView(activity)
     private val date: Array<String> = arrayOf("月", "火", "水", "木", "金", "土")
-    private val screen = activity.windowManager.defaultDisplay
-    private var screenWidth: Int = 1080
+    private val metrics: DisplayMetrics = this.activity.resources.displayMetrics
 
-    fun setScreenWidth() {
-        val point: Point = Point()
-        this.screen.getSize(point)
-        screenWidth = point.x
+    // initで、全てのTextViewに曜日のテキストをセット
+    init {
+        this.MON.text = "月"
+        this.TUE.text = "火"
+        this.WED.text = "水"
+        this.THU.text = "木"
+        this.FRI.text = "金"
+        this.SUT.text = "土"
     }
 
-    fun setDateInTextView() {
-        MON.text = date[0]
-        TUE.text = date[1]
-        WED.text = date[2]
-        THU.text = date[3]
-        FRI.text = date[4]
-        SUT.text = date[5]
-    }
+    fun setDateInTimeTable(layout: LinearLayout, nullText: Boolean) {
+        var eachWidth: Int = when (nullText) {
+            true -> (this.metrics.widthPixels - this.metrics.density * 20).toInt() / date.size
+            false -> (this.metrics.widthPixels / date.size)
+        }
+        // each Height is defined as dp (current == 20dp)
+        val eachHeight: Int = (this.metrics.density * 20).toInt()
 
-    fun setViewInLayout(layout: LinearLayout) {
-        setScreenWidth()
-        setDateInTextView()
-        val eachWidth = screenWidth / date.size
-        Log.d(TAG, eachWidth.toString())
-        layout.addView(MON, eachWidth, 50)
-        layout.addView(TUE, eachWidth, 50)
-        layout.addView(WED, eachWidth, 50)
-        layout.addView(THU, eachWidth, 50)
-        layout.addView(FRI, eachWidth, 50)
-        layout.addView(SUT, eachWidth, 50)
+        if (nullText) {
+            layout.addView(nullTextView, (this.metrics.density * 20).toInt(), eachHeight)
+        }
+
+        layout.addView(MON, eachWidth, eachHeight)
+        layout.addView(TUE, eachWidth, eachHeight)
+        layout.addView(WED, eachWidth, eachHeight)
+        layout.addView(THU, eachWidth, eachHeight)
+        layout.addView(FRI, eachWidth, eachHeight)
+        layout.addView(SUT, eachWidth, eachHeight)
     }
 }
