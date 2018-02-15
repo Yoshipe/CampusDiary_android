@@ -15,11 +15,6 @@ class CalendarDate {
         firstDate = firstDate.subtract((moment.day - 1).toLong(), TimeUnit.DAYS)
         endDate = endDate.add(1, TimeUnit.MONTHS)
         endDate = endDate.subtract(moment.day.toLong(), TimeUnit.DAYS)
-        println("ここだーーーーーーーーーーーーー")
-        println(firstDate.weekdayName)
-        println(firstDate.day)
-        println(endDate.weekdayName)
-        println(endDate.day)
         when (firstDate.weekdayName) {
             "月曜日" -> firstDate = firstDate.subtract(0, TimeUnit.DAYS)
             "火曜日" -> firstDate = firstDate.subtract(1, TimeUnit.DAYS)
@@ -42,13 +37,8 @@ class CalendarDate {
         }
     }
     public fun getAllDays(): MutableList<String> {
-        println("こっちは？")
-        println(firstDate.weekdayName)
-        println(firstDate.day)
-        println(endDate.day)
         val dateList: MutableList<String> = mutableListOf()
         var tmpdate = firstDate
-        println(tmpdate.day)
         while (tmpdate != endDate.add(1,TimeUnit.DAYS)) {
             dateList.add(tmpdate.day.toString())
             tmpdate = tmpdate.add(1, TimeUnit.DAYS)

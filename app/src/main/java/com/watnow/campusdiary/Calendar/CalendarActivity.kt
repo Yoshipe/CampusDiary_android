@@ -18,13 +18,9 @@ import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
 import kotlinx.android.synthetic.main.layout_calendar_center.*
 
 class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListener {
-
     private val TAG: String = "CalendarActivity"
-
     private val ACTIVITY_NUM: Int = 0
-
     private val mContext: Context = this
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.calendar_activity)
@@ -37,7 +33,6 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
         calendarRecycleView.layoutManager = GridLayoutManager(this, 7)
         calendarRecycleView.addItemDecoration(CalenarDividerItemDecoration(7, 1, true, 0))
     }
-
 
     override fun onItemClick(view: View, position: Int) {
         Toast.makeText(applicationContext, "position$position was tapped", Toast.LENGTH_SHORT).show()
