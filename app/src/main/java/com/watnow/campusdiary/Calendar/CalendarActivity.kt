@@ -28,10 +28,12 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
         var hoges: List<String>? = null
         val tmpList: MutableList<String> = mutableListOf()
         val year: Int = 5
+        val todayPosition = CalendarDate().todayPosition()
         val dateList = CalendarDate().getAllDays()
         calendarRecycleView.adapter = CalendarRecycleAdapter(this, this, dateList)
         calendarRecycleView.layoutManager = GridLayoutManager(this, 7)
         calendarRecycleView.addItemDecoration(CalenarDividerItemDecoration(7, 1, true, 0))
+        calendarRecycleView.scrollToPosition(todayPosition.toInt())
     }
 
     override fun onItemClick(view: View, position: Int) {
