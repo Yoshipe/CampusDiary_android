@@ -1,36 +1,30 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentTop="true">
-        
-        <android.support.design.widget.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            
-            <android.support.v7.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/school_color_background_bottom"
-                android:id="@+id/tabs">
+        android:background="@drawable/school_color_background_bottom"
+        android:orientation="horizontal">
 
-                <Spinner
-                    android:id="@+id/campusPicker"
-                    android:layout_width="300dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="40dp" />
+        <EditText
+            android:id="@+id/search_txt"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/notification_search_marginTop"
+            android:layout_marginBottom="@dimen/notification_search_marginTop"
+            android:layout_weight="5"
+            android:textColorHint="@color/white"
+            android:hint="Search"/>
 
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/notification_search_marginTop"
+            android:layout_marginBottom="@dimen/notification_search_marginTop"
+            android:layout_weight="1"
+            android:text="検索"/>
 
-            </android.support.v7.widget.Toolbar>
-            
-            
-        </android.support.design.widget.AppBarLayout>
-
-
-
-    </RelativeLayout>
-
-
+    </LinearLayout>
 
 </merge>
