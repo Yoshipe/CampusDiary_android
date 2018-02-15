@@ -36,6 +36,7 @@ class CalendarDate {
             else -> println("error")
         }
     }
+    //カレンダーに表示する全ての日を５年前から、5年後までの10年間分のListにして返すメソッド
     public fun getAllDays(): MutableList<String> {
         val dateList: MutableList<String> = mutableListOf()
         var tmpdate = firstDate
