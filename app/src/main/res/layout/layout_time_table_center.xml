@@ -11,7 +11,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/time_table_top">
 
-            <include layout="@layout/layout_time_table_center_left_side" />
+            <include layout="@layout/layout_time_table_contents" />
         </RelativeLayout>
 
         <!-- Top Date bar -->
