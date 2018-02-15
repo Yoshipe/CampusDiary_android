@@ -2,6 +2,7 @@ package com.watnow.campusdiary.Calendar
 
 import android.app.Activity
 import android.content.Context
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.text.Layout
 import android.view.LayoutInflater
@@ -19,6 +20,7 @@ import java.util.ArrayList
  */
 class CalendarRecycleAdapter(private val context: Context, private val itemClickListener: CalendarViewHolder.ItemClickListener , private val itemList: List<String>)
     : RecyclerView.Adapter<CalendarViewHolder>() {
+    val todayPosition = CalendarDate().todayPosition()
     private var myRecyclerView: RecyclerView? = null
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView?) {
         super.onAttachedToRecyclerView(recyclerView)
@@ -30,9 +32,14 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
         myRecyclerView = null
     }
 
+    // １ブロック分の処理
     override fun onBindViewHolder(holder: CalendarViewHolder?, position: Int) {
         holder?.let {
             it.itemTextView.text = itemList.get(position)
+            // 今日の場合背景を変える処理
+            if (this.todayPosition.toInt() == position) {
+                it.itemTextView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent))
+            }
         }
     }
 
