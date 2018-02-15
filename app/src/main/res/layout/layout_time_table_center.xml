@@ -11,23 +11,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/time_table_top">
 
-            <include layout="@layout/layout_time_table_center_right_side" />
+            <include layout="@layout/layout_time_table_center_left_side" />
         </RelativeLayout>
 
         <!-- Top Date bar -->
-        <LinearLayout
-            android:id="@+id/time_table_top"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="@dimen/time_table_right_bar_width"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
+        <include layout="@layout/layout_time_table_center_date_bar"/>
 
         <!-- Time Table Layout -->
+        <include layout="@layout/layout_bottom_navigation_view"/>
 
     </RelativeLayout>
 
