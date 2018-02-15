@@ -1,0 +1,36 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true">
+        
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/school_color_background_bottom"
+                android:id="@+id/tabs">
+
+                <Spinner
+                    android:id="@+id/campusPicker"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="40dp" />
+
+
+            </android.support.v7.widget.Toolbar>
+            
+            
+        </android.support.design.widget.AppBarLayout>
+
+
+
+    </RelativeLayout>
+
+
+
+</merge>
