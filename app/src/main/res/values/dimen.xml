@@ -4,5 +4,5 @@
     <dimen name="time_table_left_bar_height">80dp</dimen>
     <dimen name="time_table_top_date_height">25dp</dimen>
     <dimen name="notification_search_marginTop">5dp</dimen>
-
+    <dimen name="bottomNavViewHeight">50dp</dimen>
 </resources>
