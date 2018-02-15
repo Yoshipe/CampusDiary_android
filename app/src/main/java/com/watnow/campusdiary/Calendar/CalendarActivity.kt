@@ -27,7 +27,6 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
         setupBottomNavigationView()
         var hoges: List<String>? = null
         val tmpList: MutableList<String> = mutableListOf()
-        val year: Int = 5
         val todayPosition = CalendarDate().todayPosition()
         val dateList = CalendarDate().getAllDays()
         calendarRecycleView.adapter = CalendarRecycleAdapter(this, this, dateList)
