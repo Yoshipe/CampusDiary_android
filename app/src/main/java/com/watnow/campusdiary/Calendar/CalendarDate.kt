@@ -59,9 +59,9 @@ class CalendarDate {
     }
 
     // 今日の日付が何ブロック目かを返すメソッド
-    public fun todayPosition(): Long {
+    public fun todayPosition(): Int {
         val diffTime = moment.intervalSince(firstDate).toString()
         val diffDate = diffTime.toLong() / (1000 * 60 * 60 * 24)
-        return diffDate
+        return diffDate.toInt()
     }
 }

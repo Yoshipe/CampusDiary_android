@@ -8,6 +8,7 @@ import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
+import android.util.SparseBooleanArray
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -16,11 +17,13 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.R
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
 import kotlinx.android.synthetic.main.layout_calendar_center.*
+import kotlinx.android.synthetic.main.layout_calendar_item.*
 
 class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListener {
     private val TAG: String = "CalendarActivity"
     private val ACTIVITY_NUM: Int = 0
     private val mContext: Context = this
+    private val dateList = CalendarDate().getAllDays()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.calendar_activity)
@@ -28,15 +31,16 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
         var hoges: List<String>? = null
         val tmpList: MutableList<String> = mutableListOf()
         val todayPosition = CalendarDate().todayPosition()
-        val dateList = CalendarDate().getAllDays()
         calendarRecycleView.adapter = CalendarRecycleAdapter(this, this, dateList)
-        calendarRecycleView.layoutManager = GridLayoutManager(this, 7)
+        calendarRecycleView.layoutManager = GridLayoutManager(this, 7) as RecyclerView.LayoutManager?
         calendarRecycleView.addItemDecoration(CalenarDividerItemDecoration(7, 1, true, 0))
         calendarRecycleView.scrollToPosition(todayPosition.toInt())
     }
 
+
     override fun onItemClick(view: View, position: Int) {
         select_date.text = CalendarDate().getday(position)
+        calendarRecycleView.adapter.notifyDataSetChanged()
         Toast.makeText(applicationContext, "position$position was tapped", Toast.LENGTH_SHORT).show()
     }
 

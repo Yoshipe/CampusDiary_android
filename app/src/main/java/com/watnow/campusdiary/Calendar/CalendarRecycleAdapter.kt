@@ -5,6 +5,7 @@ import android.content.Context
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.text.Layout
+import android.util.SparseBooleanArray
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,8 +21,10 @@ import java.util.ArrayList
  */
 class CalendarRecycleAdapter(private val context: Context, private val itemClickListener: CalendarViewHolder.ItemClickListener , private val itemList: List<String>)
     : RecyclerView.Adapter<CalendarViewHolder>() {
-    val todayPosition = CalendarDate().todayPosition()
+    private val todayPosition = CalendarDate().todayPosition()
+    private var selectedItem: SparseBooleanArray = SparseBooleanArray()
     private var myRecyclerView: RecyclerView? = null
+    public var prepostion = CalendarDate().todayPosition()
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView?) {
         super.onAttachedToRecyclerView(recyclerView)
         myRecyclerView = recyclerView
@@ -36,10 +39,12 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
     override fun onBindViewHolder(holder: CalendarViewHolder?, position: Int) {
         holder?.let {
             it.itemTextView.text = itemList.get(position)
+            it.itemTextView.isSelected = selectedItem.get(position, false)
             // 今日の場合背景を変える処理
             if (this.todayPosition.toInt() == position) {
                 it.itemTextView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent))
             }
+
         }
     }
 
@@ -52,7 +57,11 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
         val myView = layoutInflater.inflate(R.layout.layout_calendar_item, parent, false)
         myView.setOnClickListener { view ->
             myRecyclerView?.let {
+                val tmpPosition = it.getChildAdapterPosition(view)
+                selectedItem.put(prepostion,false)
+                selectedItem.put(tmpPosition,true)
                 itemClickListener.onItemClick(view, it.getChildAdapterPosition(view))
+                prepostion = tmpPosition
             }
         }
         return CalendarViewHolder(myView)
