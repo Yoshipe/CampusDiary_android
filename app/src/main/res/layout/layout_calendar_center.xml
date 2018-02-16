@@ -25,10 +25,10 @@
                 android:background="@color/colorAccent"
                 android:fontFamily="sans-serif-smallcaps"
                 android:gravity="center"
-                android:padding="10dp"
+                android:padding="3dp"
                 android:text="2018年4月"
                 android:textColor="@color/white"
-                android:textSize="25dp" />
+                android:textSize="20dp" />
 
             <LinearLayout
                 android:id="@+id/week_label"
