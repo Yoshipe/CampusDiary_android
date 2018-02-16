@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom"
-        sothree:umanoPanelHeight="68dp"
+        sothree:umanoPanelHeight="0dp"
         sothree:umanoShadowHeight="0dp"
         sothree:umanoFadeColor="@android:color/transparent"
         sothree:umanoScrollableView="@id/calendarRecycleView"
@@ -100,7 +100,7 @@
         </RelativeLayout>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="300dp"
             android:text="test"/>
 
     </com.sothree.slidinguppanel.SlidingUpPanelLayout>

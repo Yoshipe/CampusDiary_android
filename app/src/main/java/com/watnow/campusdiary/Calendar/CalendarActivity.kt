@@ -14,6 +14,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import com.watnow.campusdiary.R
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
 import kotlinx.android.synthetic.main.layout_calendar_center.*
@@ -41,6 +42,7 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
     override fun onItemClick(view: View, position: Int) {
         select_date.text = CalendarDate().getday(position)
         calendarRecycleView.adapter.notifyDataSetChanged()
+        sliding_layout.panelState = SlidingUpPanelLayout.PanelState.EXPANDED
         Toast.makeText(applicationContext, "position$position was tapped", Toast.LENGTH_SHORT).show()
     }
 
