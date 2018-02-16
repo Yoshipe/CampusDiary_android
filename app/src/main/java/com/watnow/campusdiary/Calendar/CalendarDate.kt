@@ -10,7 +10,7 @@ import java.util.*
  */
 class CalendarDate {
     // momentは現在時刻
-    val moment = Moment()
+    val moment = Moment(locale = Locale.JAPAN)
     var firstDate = moment.subtract(5, TimeUnit.YEARS)
     var endDate = moment.add(5, TimeUnit.YEARS)
 
