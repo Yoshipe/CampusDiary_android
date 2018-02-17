@@ -3,10 +3,7 @@ package com.watnow.campusdiary.Calendar
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.*
 import android.util.Log
 import android.util.SparseBooleanArray
 import android.view.Menu
@@ -25,24 +22,29 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
     private val ACTIVITY_NUM: Int = 0
     private val mContext: Context = this
     private val dateList = CalendarDate().getAllDays()
+    private val todayPosition = CalendarDate().todayPosition()
+    private val glmanager = GridLayoutManager(this,7)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.calendar_activity)
         setupBottomNavigationView()
         var hoges: List<String>? = null
         val tmpList: MutableList<String> = mutableListOf()
-        val todayPosition = CalendarDate().todayPosition()
         calendarRecycleView.adapter = CalendarRecycleAdapter(this, this, dateList)
-        calendarRecycleView.layoutManager = GridLayoutManager(this, 7) as RecyclerView.LayoutManager?
+        calendarRecycleView.layoutManager = glmanager
         calendarRecycleView.addItemDecoration(CalenarDividerItemDecoration(7, 1, true, 0))
-        calendarRecycleView.scrollToPosition(todayPosition.toInt())
+        calendarRecycleView.scrollToPosition(todayPosition - 7)
     }
-
 
     override fun onItemClick(view: View, position: Int) {
         select_date.text = CalendarDate().getday(position)
         calendarRecycleView.adapter.notifyDataSetChanged()
         sliding_layout.panelState = SlidingUpPanelLayout.PanelState.EXPANDED
+        calendarRecycleView.postDelayed(Runnable {
+            run() {
+                calendarRecycleView.smoothScrollBy(0,view.height*((position - glmanager.findFirstVisibleItemPosition())/7 -1 ))
+            }
+        },0)
         Toast.makeText(applicationContext, "position$position was tapped", Toast.LENGTH_SHORT).show()
     }
 
