@@ -42,13 +42,6 @@
             android:gravity="center"
             android:background="@drawable/time_table_tob_date_bar_background"
             android:text="@string/FRI"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:background="@drawable/time_table_tob_date_bar_background"
-            android:text="@string/SUT"/>
 
     </LinearLayout>
     
