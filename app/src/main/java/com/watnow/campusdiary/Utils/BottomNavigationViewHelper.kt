@@ -8,7 +8,7 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.*
 import com.watnow.campusdiary.Calendar.CalendarActivity
 import com.watnow.campusdiary.Map.MapActivity
-import com.watnow.campusdiary.Notification.NotificationActivity
+import com.watnow.campusdiary.Reference.ReferenceActivity
 import com.watnow.campusdiary.TimeTable.TimeTableActivity
 
 /**
@@ -50,7 +50,7 @@ open class BottomNavigationViewHelper {
                 }
                 // ACTIVITY_NUM = 3
                 R.id.ic_notification -> {
-                    val intent4: Intent = Intent(context, NotificationActivity::class.java)
+                    val intent4: Intent = Intent(context, ReferenceActivity::class.java)
                     context.startActivity(intent4)
                     true
                 }

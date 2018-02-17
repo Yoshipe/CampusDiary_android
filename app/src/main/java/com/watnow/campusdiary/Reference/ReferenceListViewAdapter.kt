@@ -1,14 +1,13 @@
-package com.watnow.campusdiary.Notification
+package com.watnow.campusdiary.Reference
 
 import android.content.Context
 import android.widget.ArrayAdapter
-import android.widget.ListAdapter
 import android.widget.ListView
 
 /**
  * Created by saitoushunsuke on 2018/02/15.
  */
-data class NotificationListViewAdapter(private val context: Context, private val listView: ListView) {
+data class ReferenceListViewAdapter(private val context: Context, private val listView: ListView) {
     private val notificationLists: List<String> = listOf("立命館学園の構成",
                                                         "入学から始まる立命館ファミリー",
                                                         "図書館を利用したい",

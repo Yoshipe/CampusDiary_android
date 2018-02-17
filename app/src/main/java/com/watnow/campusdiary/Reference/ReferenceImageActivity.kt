@@ -1,4 +1,4 @@
-package com.watnow.campusdiary.Notification
+package com.watnow.campusdiary.Reference
 
 import android.content.Intent
 import android.graphics.Bitmap
@@ -10,15 +10,15 @@ import android.widget.ImageView
 import com.watnow.campusdiary.R
 import java.io.InputStream
 
-class NotificationImageActivity : AppCompatActivity() {
+class ReferenceImageActivity : AppCompatActivity() {
 
-    private val TAG: String = "NotificationImageActivity"
+    private val TAG: String = "ReferenceImageActivity"
 
     private lateinit var notificationImage: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_notification_image)
+        setContentView(R.layout.activity_reference_image)
         val intent: Intent = this.intent
         val position: Int = intent.getIntExtra("position", 0)
         // initializing Views

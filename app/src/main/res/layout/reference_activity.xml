@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/relLayout1">
 
-            <include layout="@layout/layout_notification_search_bar"/>
+            <include layout="@layout/layout_reference_search_bar"/>
 
         </RelativeLayout>
 
@@ -27,7 +27,7 @@
             android:id="@+id/relLayout2"
             android:layout_below="@id/relLayout1">
 
-            <include layout="@layout/layout_notification_center"/>
+            <include layout="@layout/layout_reference_center"/>
 
 
         </RelativeLayout>
