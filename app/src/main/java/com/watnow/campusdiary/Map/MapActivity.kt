@@ -13,13 +13,17 @@ import android.widget.*
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.R
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
+import java.io.IOException
+import java.io.InputStream
 
 /**
  * Created by saitoushunsuke on 2018/02/12.
  */
 class MapActivity: AppCompatActivity() {
 
+    // TAGs for debug
     private val TAG: String = "MapActivity"
+    private val SPINNER: String = "Spinner"
 
     private val ACTIVITY_NUM: Int = 1
 
@@ -29,77 +33,32 @@ class MapActivity: AppCompatActivity() {
     private val OIC: String = "大阪いばらきキャンパスOIC"
     private val KIC: String = "衣笠キャンパスKIC"
 
-    // these are the member used in this class
+    // These are the member used in this class
     private lateinit var spinner: Spinner
-    private lateinit var chosenCampusName: String
-    private lateinit var mapImage: ImageView
+    private lateinit var mapContent: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.map_activity)
         Log.d(TAG, "onCreate: starting")
 
-        // make adapter to set Spinner(which is a campusName picker)
+        // Initializing variables which are late init
+        spinner = findViewById(R.id.campusPicker)
+        mapContent = findViewById(R.id.mapContent)
+
+        // Make adapter to set Spinner(which is a campusName picker)
         val adapter: ArrayAdapter<String> = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         adapter.add(BKC)
         adapter.add(OIC)
         adapter.add(KIC)
-        // set this adapter to Spinner
-        spinner = findViewById<Spinner>(R.id.campusPicker)
+        // Set this adapter to Spinner
         spinner.adapter = adapter
-        this.chosenCampusName = spinner.selectedItem.toString()
-
-        /*
-            ToDo1: initialize ImageView
-         */
-        mapImage = findViewById(R.id.mapImage)
-        mapImage.setImageResource(R.drawable.bkc_map)
-
-//        val option: BitmapFactory.Options = BitmapFactory.Options()
-//        option.inJustDecodeBounds = true
-//        BitmapFactory.decodeResource(resources, R.drawable.bkc_map, option)
-//        val imageWidth: Int = option.outWidth
-//        val imageHeight: Int = option.outHeight
-//        val imageType: String = option.outMimeType
-//        var inSampleSize: Int = 4
-//        option.inSampleSize = inSampleSize
-//        option.inJustDecodeBounds = false
-//        val bitmap: Bitmap = BitmapFactory.decodeResource(resources, R.drawable.bkc_map, option)
-//        mapImage.setImageBitmap(bitmap)
-
+        // initialize spinner to chose campus map
+        setupSpinnerCampusMap(spinner, mapContent)
 
         // initialize BottomNavigationViewEx
         setupBottomNavigationView()
-    }
-
-    override fun onStart() {
-        super.onStart()
-
-        /*
-            ToDo2: Adjust ImageView by campusName Picker
-         */
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                when (position) {
-                    0 -> {
-                        Toast.makeText(mContext, BKC, Toast.LENGTH_SHORT).show()
-                    }
-                    1 -> {
-                        Toast.makeText(mContext, OIC, Toast.LENGTH_SHORT).show()
-                    }
-                    2 -> {
-                        Toast.makeText(mContext, KIC, Toast.LENGTH_SHORT).show()
-                    }
-                    else -> {
-                        Toast.makeText(mContext, "Else", Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
-        }
     }
 
     /* *
@@ -114,5 +73,49 @@ class MapActivity: AppCompatActivity() {
         val menu: Menu = bottomNavigationViewEx.menu
         val menuItem: MenuItem = menu.getItem(ACTIVITY_NUM)
         menuItem.isChecked = true
+    }
+
+    /**
+     * Spinner Action Helper
+     */
+    private fun setupSpinnerCampusMap(spinner: Spinner, mapContent: ImageView) {
+        // set ItemSelectedListener to spinner
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener  {
+            var isStream: InputStream? = null
+            var bitmap: Bitmap? = null
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                 when (position) {
+                    0 -> { // Bitmap for BKC campus map is created
+                        try {
+                            isStream = resources.assets.open("bkc.png")
+                        } catch (e: IOException) {
+                            Log.d(SPINNER, e.toString())
+                        }
+                    }
+                    1 -> { // Bitmap for OIC campus map is created
+                        try {
+                            isStream = resources.assets.open("oic.png")
+                        } catch (e: IOException) {
+                            Log.d(SPINNER, e.toString())
+                        }
+                    }
+                    2 -> { // Bitmap for KIC campus map is created
+                        try {
+                            isStream = resources.assets.open("kic.png")
+                        } catch (e: IOException) {
+                            Log.d(SPINNER, e.toString())
+                        }
+                    }
+                    else -> {
+                        Log.d(SPINNER, "Else is selected")
+                    }
+                }
+                bitmap = BitmapFactory.decodeStream(isStream)
+                mapContent.setImageBitmap(null)
+                mapContent.setImageBitmap(bitmap)
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+            }
+        }
     }
 }
