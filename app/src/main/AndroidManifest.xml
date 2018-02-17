@@ -18,10 +18,10 @@
         </activity>
         <activity android:name=".Map.MapActivity" />
         <activity android:name=".TimeTable.TimeTableActivity" />
-        <activity android:name=".Notification.NotificationActivity"
+        <activity android:name=".Reference.ReferenceActivity"
             android:windowSoftInputMode="stateAlwaysHidden"/>
-        <activity android:name=".Notification.NotificationImageActivity"
-            android:parentActivityName=".Notification.NotificationActivity"></activity>
+        <activity android:name=".Reference.ReferenceImageActivity"
+            android:parentActivityName=".Reference.ReferenceActivity"></activity>
     </application>
 
 </manifest>
