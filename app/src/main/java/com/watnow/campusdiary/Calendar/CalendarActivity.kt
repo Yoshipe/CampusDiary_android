@@ -28,8 +28,6 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
         super.onCreate(savedInstanceState)
         setContentView(R.layout.calendar_activity)
         setupBottomNavigationView()
-        var hoges: List<String>? = null
-        val tmpList: MutableList<String> = mutableListOf()
         calendarRecycleView.adapter = CalendarRecycleAdapter(this, this, dateList)
         calendarRecycleView.layoutManager = glmanager
         calendarRecycleView.addItemDecoration(CalenarDividerItemDecoration(7, 1, true, 0))
@@ -45,7 +43,6 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
                 calendarRecycleView.smoothScrollBy(0,view.height*((position - glmanager.findFirstVisibleItemPosition())/7 -1 ))
             }
         },0)
-        Toast.makeText(applicationContext, "position$position was tapped", Toast.LENGTH_SHORT).show()
     }
 
     /* *
@@ -54,7 +51,7 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
     private fun setupBottomNavigationView() {
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView")
         val bottomNavigationViewEx: BottomNavigationViewEx = findViewById(R.id.bottomNavViewBar)
-        var bottomNavViewHelper: BottomNavigationViewHelper = BottomNavigationViewHelper()
+        val bottomNavViewHelper: BottomNavigationViewHelper = BottomNavigationViewHelper()
         bottomNavViewHelper.setupBottomNavigationView(bottomNavigationViewEx)
         bottomNavViewHelper.enableNavigation(mContext, bottomNavigationViewEx)
         val menu: Menu = bottomNavigationViewEx.menu
