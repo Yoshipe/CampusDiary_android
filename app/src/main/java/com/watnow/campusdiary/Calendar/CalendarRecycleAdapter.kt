@@ -2,6 +2,8 @@ package com.watnow.campusdiary.Calendar
 
 import android.app.Activity
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.text.Layout
@@ -38,13 +40,14 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
     // １ブロック分の処理
     override fun onBindViewHolder(holder: CalendarViewHolder?, position: Int) {
         holder?.let {
-            it.itemTextView.text = itemList.get(position)
-            it.itemTextView.isSelected = selectedItem.get(position, false)
             // 今日の場合背景を変える処理
             if (this.todayPosition.toInt() == position) {
-                it.itemTextView.setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent))
+                it.itemTextView.setBackgroundColor(Color.RED)
+            } else {
+                it.itemTextView.setBackgroundResource(R.drawable.color_calendar_selector)
             }
-
+            it.itemTextView.text = itemList.get(position)
+            it.itemTextView.isSelected = selectedItem.get(position, false)
         }
     }
 
