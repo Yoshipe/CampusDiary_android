@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.watnow.campusdiary" >
+    package="com.watnow.campusdiary">
 
     <application
         android:allowBackup="true"
@@ -8,17 +8,19 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".Calendar.CalendarActivity" >
+        android:theme="@style/AppTheme">
+        <activity android:name=".Calendar.CalendarActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Map.MapActivity"></activity>
-        <activity android:name=".TimeTable.TimeTableActivity"></activity>
-        <activity android:name=".Notification.NotificationActivity"></activity>
+        <activity android:name=".Map.MapActivity" />
+        <activity android:name=".TimeTable.TimeTableActivity" />
+        <activity android:name=".Notification.NotificationActivity" />
+        <activity android:name=".Notification.NotificationImageActivity"
+            android:parentActivityName=".Notification.NotificationActivity"></activity>
     </application>
 
 </manifest>
