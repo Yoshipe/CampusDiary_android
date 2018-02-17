@@ -8,7 +8,7 @@
         sothree:umanoPanelHeight="0dp"
         sothree:umanoShadowHeight="0dp"
         sothree:umanoFadeColor="@android:color/transparent"
-        sothree:umanoScrollableView="@id/calendarRecycleView"
+        sothree:umanoScrollableView="@id/calendar_oneday_list"
         >
         <RelativeLayout
             android:layout_width="match_parent"
@@ -98,10 +98,15 @@
                 android:background="@color/grey" />
 
         </RelativeLayout>
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:text="test"/>
+            android:layout_height="300dp">
+            <ListView
+                android:id="@+id/calendar_oneday_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </ListView>
+        </LinearLayout>
 
     </com.sothree.slidinguppanel.SlidingUpPanelLayout>
 

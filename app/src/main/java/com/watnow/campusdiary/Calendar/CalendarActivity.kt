@@ -9,6 +9,8 @@ import android.util.SparseBooleanArray
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import android.widget.Toast
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
@@ -32,6 +34,12 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
         calendarRecycleView.layoutManager = glmanager
         calendarRecycleView.addItemDecoration(CalenarDividerItemDecoration(7, 1, true, 0))
         calendarRecycleView.scrollToPosition(todayPosition - 7)
+        val testitems :Array<String> = arrayOf<String>("Android","iOS","Windows","macOS","Unix")
+        val testAdapter: ArrayAdapter<String> = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, testitems)
+        val testListView: ListView = calendar_oneday_list
+        testListView.adapter = testAdapter
+        testListView.setOnItemClickListener { parent, view, position, id ->
+        }
     }
 
     override fun onItemClick(view: View, position: Int) {
