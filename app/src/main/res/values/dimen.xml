@@ -5,4 +5,6 @@
     <dimen name="time_table_top_date_height">25dp</dimen>
     <dimen name="notification_search_marginTop">5dp</dimen>
     <dimen name="bottomNavViewHeight">50dp</dimen>
+    <dimen name="mapTopMargin">10dp</dimen>
+    <dimen name="mapBottomMargin">60dp</dimen>
 </resources>
