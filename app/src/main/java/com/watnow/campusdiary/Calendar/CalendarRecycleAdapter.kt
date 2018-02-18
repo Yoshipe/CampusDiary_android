@@ -23,10 +23,11 @@ import java.util.ArrayList
  */
 class CalendarRecycleAdapter(private val context: Context, private val itemClickListener: CalendarViewHolder.ItemClickListener , private val itemList: List<String>)
     : RecyclerView.Adapter<CalendarViewHolder>() {
-    private val todayPosition = CalendarDate().todayPosition()
+    private val calendarDate = CalendarDate()
+    private val todayPosition = calendarDate.todayPosition()
     private var selectedItem: SparseBooleanArray = SparseBooleanArray()
     private var myRecyclerView: RecyclerView? = null
-    public var prepostion = CalendarDate().todayPosition()
+    public var prepostion = todayPosition
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView?) {
         super.onAttachedToRecyclerView(recyclerView)
         myRecyclerView = recyclerView
@@ -48,6 +49,9 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
             }
             it.itemTextView.text = itemList.get(position)
             it.itemTextView.isSelected = selectedItem.get(position, false)
+            if(calendarDate.getMonth(position).toInt()%2 != calendarDate.getMonth(calendarDate.todayPosition()).toInt()%2) {
+                it.itemTextView.setBackgroundResource(R.drawable.color_calendar_sub_selector)
+            }
         }
     }
 

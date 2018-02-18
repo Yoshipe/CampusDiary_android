@@ -71,4 +71,10 @@ class CalendarDate {
         tmpdate = tmpdate.add(position.toLong(), TimeUnit.DAYS)
         return tmpdate.format("dd")
     }
+    // positionを引数にとり、そのMMを返すメソッド
+    public fun getMonth(position: Int): String {
+        var tmpdate = firstDate
+        tmpdate = tmpdate.add(position.toLong(), TimeUnit.DAYS)
+        return tmpdate.format("MM")
+    }
 }

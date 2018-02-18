@@ -6,4 +6,5 @@
     <color name="timeTableTop">#ffdbc4</color>
     <color name="white">#ffffff</color>
     <color name="grey">#000000</color>
+    <color name="calendarSubDate">#E6E6E6</color>
 </resources>
