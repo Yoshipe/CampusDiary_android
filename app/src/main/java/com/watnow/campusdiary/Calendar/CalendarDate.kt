@@ -51,7 +51,7 @@ class CalendarDate {
         return dateList
     }
 
-    // 何個めのブロックを押したかを引数にとり、その年/月/日を返すメソッド
+    // positionを引数にとり、そのyyyy年MM月dd日を返すメソッド
     public fun getday(position: Int): String {
         var tmpdate = firstDate
         tmpdate = tmpdate.add(position.toLong(), TimeUnit.DAYS)
@@ -63,5 +63,12 @@ class CalendarDate {
         val diffTime = moment.intervalSince(firstDate).toString()
         val diffDate = diffTime.toLong() / (1000 * 60 * 60 * 24)
         return diffDate.toInt()
+    }
+
+    // positionを引数にとり、そのddを返すメソッド
+    public fun getOnlyDate(position: Int): String {
+        var tmpdate = firstDate
+        tmpdate = tmpdate.add(position.toLong(), TimeUnit.DAYS)
+        return tmpdate.format("dd")
     }
 }
