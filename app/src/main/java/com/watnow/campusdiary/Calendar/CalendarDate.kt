@@ -62,7 +62,7 @@ class CalendarDate {
         return tmpdate.format("yyyy年MM月dd日")
     }
 
-    // 今日の日付が何ブロック目かを返すメソッド
+    // 今日のpositionを返すメソッド
     public fun todayPosition(): Int {
         val diffTime = moment.intervalSince(firstDate).toString()
         val diffDate = diffTime.toLong() / (1000 * 60 * 60 * 24)
@@ -80,5 +80,22 @@ class CalendarDate {
         var tmpdate = firstDate
         tmpdate = tmpdate.add(position.toLong(), TimeUnit.DAYS)
         return tmpdate.format("MM")
+    }
+    // positionを引数にとり、そのyyyy年MM月を返すメソッド
+    public fun getYearMonth(position: Int): String {
+        var tmpdate = firstDate
+        tmpdate = tmpdate.add(position.toLong(), TimeUnit.DAYS)
+        return tmpdate.format("yyyy年MM月")
+    }
+    //position(カレンダーの一番左の時のみ)を引数にとり、その行のYYYY年MM月を返すメソッド
+    public fun getScrollTerm(position: Int): String {
+        var tmpPosition = position
+        do {
+            if (getOnlyDate(tmpPosition).toInt() == 1){
+                return getYearMonth(position+6)
+            }
+            tmpPosition += 1
+        }while (position+7 > tmpPosition)
+        return getYearMonth(position)
     }
 }
