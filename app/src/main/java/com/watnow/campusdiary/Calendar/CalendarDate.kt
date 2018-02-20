@@ -45,7 +45,11 @@ class CalendarDate {
         val dateList: MutableList<String> = mutableListOf()
         var tmpdate = firstDate
         while (tmpdate != endDate.add(1, TimeUnit.DAYS)) {
-            dateList.add(tmpdate.day.toString())
+            if (tmpdate.day.toString() == "1"){
+                dateList.add(tmpdate.format("M/d"))
+            } else {
+                dateList.add(tmpdate.day.toString())
+            }
             tmpdate = tmpdate.add(1, TimeUnit.DAYS)
         }
         return dateList
