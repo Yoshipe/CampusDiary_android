@@ -20,24 +20,36 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
                 <Button
+                    android:id="@+id/button1_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:background="@drawable/time_table_background"
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+                <Button
+                    android:id="@+id/button2_1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/time_table_background"
+                    android:textSize="@dimen/timeTableTextSize"
                     android:layout_weight="1"/>
                 <Button
+                    android:id="@+id/button3_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:textSize="@dimen/timeTableTextSize"
                     android:layout_weight="1"/>
                 <Button
+                    android:id="@+id/button4_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:textSize="@dimen/timeTableTextSize"
                     android:layout_weight="1"/>
                 <Button
+                    android:id="@+id/button5_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:textSize="@dimen/timeTableTextSize"
                     android:layout_weight="1"/>
             </TableRow>
 
@@ -45,156 +57,246 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1">
+
                 <Button
+                    android:id="@+id/button1_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button2_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button3_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button4_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button5_2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
             </TableRow>
 
             <TableRow
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1">
+
                 <Button
+                    android:id="@+id/button1_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button2_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button3_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button4_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button5_3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
             </TableRow>
 
             <TableRow
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1">
+
                 <Button
+                    android:id="@+id/button1_4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button2_4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button3_4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button4_4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button5_4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
             </TableRow>
 
             <TableRow
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1">
+
                 <Button
+                    android:id="@+id/button1_5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button2_5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button3_5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button4_5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button5_5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
             </TableRow>
 
             <TableRow
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1">
+
                 <Button
+                    android:id="@+id/button1_6"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button2_6"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button3_6"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button4_6"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button5_6"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
             </TableRow>
 
             <TableRow
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1">
+
                 <Button
+                    android:id="@+id/button1_7"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button2_7"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button3_7"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button4_7"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
+
                 <Button
+                    android:id="@+id/button5_7"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"/>
+                    android:textSize="@dimen/timeTableTextSize"
+                    android:layout_weight="1" />
             </TableRow>
         </TableLayout>
 
