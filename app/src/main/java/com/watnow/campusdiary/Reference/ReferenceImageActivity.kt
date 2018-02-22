@@ -20,32 +20,41 @@ class ReferenceImageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reference_image)
         val intent: Intent = this.intent
-        val position: Int = intent.getIntExtra("position", 0)
+        val content: String = intent.getStringExtra("content")
         // initializing Views
         notificationImage = findViewById(R.id.notificationImage)
         // ImageView
         val notification: String = "notification"
-        val imageName: String = notification + when (position) {
-            0 -> "Component.png"
-            1 -> "Family.png"
-            2 -> "Library.png"
-            3 -> "Career.png"
-            4 -> "Language.png"
-            5 -> "General.png"
-            6 -> "StudentLearning.png"
-            7 -> "Activity.png"
-            8, 9, 10 -> "LosingRainBike.png"
-            11 -> "PC.png"
-            12, 13, 14, 15, 16 -> "ManabiStation.png"
-            17, 18 -> "StudentsOffice.png"
-            19, 20 -> "StudentsOffice.png"
-            21, 22 -> "InjureHealth.png"
-            23 -> "Future.png"
-            24 -> "Disability.png"
-            25 -> "Absent.png"
-            26 -> "Absent.png"
-            27 -> "TelNumbers.png"
-            28 -> "AccessCampus.png"
+        val imageName: String = notification + when (content) {
+            getString(R.string.Reference0) -> "Component.png"
+            getString(R.string.Reference1) -> "Family.png"
+            getString(R.string.Reference2) -> "Library.png"
+            getString(R.string.Reference3) -> "Career.png"
+            getString(R.string.Reference4) -> "Language.png"
+            getString(R.string.Reference5) -> "General.png"
+            getString(R.string.Reference6) -> "StudentLearning.png"
+            getString(R.string.Reference7) -> "Activity.png"
+            getString(R.string.Reference8),
+            getString(R.string.Reference9),
+            getString(R.string.Reference10) -> "LosingRainBike.png"
+            getString(R.string.Reference11) -> "PC.png"
+            getString(R.string.Reference12),
+            getString(R.string.Reference13),
+            getString(R.string.Reference14),
+            getString(R.string.Reference15),
+            getString(R.string.Reference16) -> "ManabiStation.png"
+            getString(R.string.Reference17),
+            getString(R.string.Reference18) -> "StudentsOffice.png"
+            getString(R.string.Reference19),
+            getString(R.string.Reference20) -> "StudentsOffice.png"
+            getString(R.string.Reference21),
+            getString(R.string.Reference22) -> "InjureHealth.png"
+            getString(R.string.Reference23) -> "Future.png"
+            getString(R.string.Reference24) -> "Disability.png"
+            getString(R.string.Reference25) -> "Absent.png"
+            getString(R.string.Reference26) -> "Absent.png"
+            getString(R.string.Reference27) -> "TelNumbers.png"
+            getString(R.string.Reference28) -> "AccessCampus.png"
             else -> Log.d("Position", "Else is selected")
         }
         Log.d("Position", imageName)
