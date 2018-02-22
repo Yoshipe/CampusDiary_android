@@ -1,17 +1,15 @@
 package com.watnow.campusdiary.TimeTable
 
 import android.content.Context
-import android.graphics.Point
+import android.content.DialogInterface
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.view.Display
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.R
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
@@ -94,7 +92,55 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View?) {
-        Toast.makeText(mContext, "$view.toString() is clicked", Toast.LENGTH_SHORT).show()
+        val customLayout = layoutInflater.inflate(R.layout.component_time_table_dialog, null)
+        val subject: EditText = customLayout.findViewById(R.id.subjectName)
+        val classRoom: EditText = customLayout.findViewById(R.id.classRoom)
+        AlertDialog.Builder(mContext).apply {
+            setView(customLayout)
+            setTitle("時間割登録")
+            setPositiveButton("登録", DialogInterface.OnClickListener { dialogInterface, which ->
+                // 登録ボタンを押した時の処理
+                val content: String = subject.text.toString() + "\n" + classRoom.text.toString()
+                when (view!!.id) {
+                    button1_1.id -> button1_1.text = content
+                    button1_2.id -> button1_2.text = content
+                    button1_3.id -> button1_3.text = content
+                    button1_4.id -> button1_4.text = content
+                    button1_5.id -> button1_5.text = content
+                    button1_6.id -> button1_6.text = content
+                    button1_7.id -> button1_7.text = content
+                    button2_1.id -> button1_1.text = content
+                    button2_2.id -> button1_2.text = content
+                    button2_3.id -> button1_3.text = content
+                    button2_4.id -> button1_4.text = content
+                    button2_5.id -> button1_5.text = content
+                    button2_6.id -> button1_6.text = content
+                    button2_7.id -> button1_7.text = content
+                    button3_1.id -> button1_1.text = content
+                    button3_2.id -> button1_2.text = content
+                    button3_3.id -> button1_3.text = content
+                    button3_4.id -> button1_4.text = content
+                    button3_5.id -> button1_5.text = content
+                    button3_6.id -> button1_6.text = content
+                    button3_7.id -> button1_7.text = content
+                    button4_1.id -> button1_1.text = content
+                    button4_2.id -> button1_2.text = content
+                    button4_3.id -> button1_3.text = content
+                    button4_4.id -> button1_4.text = content
+                    button4_5.id -> button1_5.text = content
+                    button4_6.id -> button1_6.text = content
+                    button4_7.id -> button1_7.text = content
+                    button5_1.id -> button1_1.text = content
+                    button5_2.id -> button1_2.text = content
+                    button5_3.id -> button1_3.text = content
+                    button5_4.id -> button1_4.text = content
+                    button5_5.id -> button1_5.text = content
+                    button5_6.id -> button1_6.text = content
+                    button5_7.id -> button1_7.text = content
+                }
+            })
+            setNegativeButton("取り消し", null)
+            show()
+        }
     }
-
 }
