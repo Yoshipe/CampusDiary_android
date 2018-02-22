@@ -72,9 +72,11 @@ class ReferenceActivity : AppCompatActivity() {
     private fun leadImageFromListClicked(listView: ListView) {
         val intent: Intent = Intent(mContext, ReferenceImageActivity::class.java)
         listView.setOnItemClickListener { parent, view, position, id ->
-            intent.putExtra("position", position)
+            val item: String = parent.getItemAtPosition(position).toString()
+            intent.putExtra("content", item)
             startActivity(intent)
         }
     }
 
+    // ReferenceListViewAdapterように
 }
