@@ -21,6 +21,8 @@ allprojects {
         jcenter()
         maven { url "https://jitpack.io" }
         maven { url "https://maven.google.com" }
+//        maven for pulling library for photoView
+        maven { url "https://jitpack.io" }
     }
 }
 
