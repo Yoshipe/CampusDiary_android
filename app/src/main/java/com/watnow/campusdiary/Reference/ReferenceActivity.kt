@@ -11,44 +11,47 @@ import android.widget.*
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.R
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
+// 以下kotlin-android-extensionsを用いるためのインポート
+import kotlinx.android.synthetic.main.layout_reference_center.*
+import kotlinx.android.synthetic.main.layout_reference_search_bar.*
+import kotlinx.android.synthetic.main.layout_bottom_navigation_view.*
 
 /**
  * Created by saitoushunsuke on 2018/02/12.
  */
 class ReferenceActivity : AppCompatActivity() {
 
+    // デバッグ用のTAG
     private val TAG: String = "ReferenceActivity"
 
+    // BottomNavigationViewの画面遷移でこのアクティビティが何番に値するか
     private val ACTIVITY_NUM: Int = 3
 
+    // このActivityのContext
     private val mContext: Context = this
 
-    // parameters
-    private lateinit var referenceList: ListView
-    private lateinit var searchTxt: TextView
-    private lateinit var searchButton: Button
-
+    // onCreateメソッド実行
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.reference_activity)
+        // デバッグ
         Log.d(TAG, "onCreate: starting")
 
-        // initializing all parameters
-        this.referenceList = findViewById(R.id.reference_container)
-        this.searchTxt = findViewById(R.id.search_txt)
-        this.searchButton = findViewById(R.id.search_button)
-
-        // setup BottomNavigationView
+        // BottomNavigationViewのセットアップ
         setupBottomNavigationView()
     }
 
-    override fun onStart() {
-        super.onStart()
+    // onResumeメソッド実行
+    override fun onResume() {
+        super.onResume()
+        // 検索ボタンに対するクリック処理
         searchButton.setOnClickListener {
             Toast.makeText(this, searchTxt.text, Toast.LENGTH_SHORT).show()
         }
+
         // ListViewを設定
         ReferenceListViewAdapter(mContext, referenceList)
+        // ListViewのクリックに応じて画像のアクティビティに遷移する
         leadImageFromListClicked(referenceList)
     }
 
@@ -56,18 +59,19 @@ class ReferenceActivity : AppCompatActivity() {
     *  BottomNavigationView setup
     */
     private fun setupBottomNavigationView() {
+        // デバッグ
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView")
-        val bottomNavigationViewEx: BottomNavigationViewEx = findViewById(R.id.bottomNavViewBar)
+
         var bottomNavViewHelper: BottomNavigationViewHelper = BottomNavigationViewHelper()
-        bottomNavViewHelper.setupBottomNavigationView(bottomNavigationViewEx)
-        bottomNavViewHelper.enableNavigation(mContext, bottomNavigationViewEx)
-        val menu: Menu = bottomNavigationViewEx.menu
+        bottomNavViewHelper.setupBottomNavigationView(bottomNavViewBar)
+        bottomNavViewHelper.enableNavigation(mContext, bottomNavViewBar)
+        val menu: Menu = bottomNavViewBar.menu
         val menuItem: MenuItem = menu.getItem(ACTIVITY_NUM)
         menuItem.isChecked = true
     }
 
     /**
-     * ListView StartActivity
+     * ListViewで画像のActivityに遷移させるメソッド
      */
     private fun leadImageFromListClicked(listView: ListView) {
         val intent: Intent = Intent(mContext, ReferenceImageActivity::class.java)
@@ -78,5 +82,4 @@ class ReferenceActivity : AppCompatActivity() {
         }
     }
 
-    // ReferenceListViewAdapterように
 }
