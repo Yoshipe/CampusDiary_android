@@ -11,7 +11,7 @@ import android.content.res.Resources
  * Created by saitoushunsuke on 2018/02/15.
  */
 data class ReferenceListViewAdapter(private val context: Context, private val listView: ListView) {
-    private val notificationLists: List<String> = listOf(context.getString(R.string.Reference0),
+    val notificationLists: List<String> = listOf(context.getString(R.string.Reference0),
                                                         context.getString(R.string.Reference1),
                                                         context.getString(R.string.Reference2),
                                                         context.getString(R.string.Reference3),
