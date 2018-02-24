@@ -39,15 +39,16 @@ class ReferenceActivity : AppCompatActivity() {
 
         // BottomNavigationViewのセットアップ
         setupBottomNavigationView()
+
+        // 検索ボタンに対するクリック処理
+        searchButton.setOnClickListener {
+            search()
+        }
     }
 
     // onResumeメソッド実行
     override fun onResume() {
         super.onResume()
-        // 検索ボタンに対するクリック処理
-        searchButton.setOnClickListener {
-            Toast.makeText(this, searchTxt.text, Toast.LENGTH_SHORT).show()
-        }
 
         // ListViewを設定
         ReferenceListViewAdapter(mContext, referenceList)
@@ -79,6 +80,25 @@ class ReferenceActivity : AppCompatActivity() {
             val item: String = parent.getItemAtPosition(position).toString()
             intent.putExtra("content", item)
             startActivity(intent)
+        }
+    }
+
+    // 検索ボタンを押した時の処理メソッド
+    private fun search() {
+        // searchTxtがnullなら初期状態に戻す、それ以外なら検索を行う
+        if (searchTxt.text.toString() == null) {
+            ReferenceListViewAdapter(mContext, referenceList)
+        }
+        else {
+            // ReferenceListViewAdapter data class にアクセスするためのインスタンス生成
+            val listData = ReferenceListViewAdapter(mContext, referenceList)
+
+            // ReferenceListViewAdapter Instance から検索を行った新たなリストを生成
+            val newList: List<String> = listData.notificationLists.filter { it.contains(searchTxt.text.toString()) }
+
+            // ReferenceListViewAdapter で新しく作ったListをadapterにセット
+            val newAdapter: ArrayAdapter<String> = ArrayAdapter<String>(mContext, android.R.layout.simple_list_item_1, newList)
+            referenceList.adapter = newAdapter
         }
     }
 
