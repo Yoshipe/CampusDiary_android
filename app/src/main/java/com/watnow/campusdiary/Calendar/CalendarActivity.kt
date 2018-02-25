@@ -17,6 +17,7 @@ import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import com.watnow.campusdiary.R
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
+import kotlinx.android.synthetic.main.calendar_activity.*
 import kotlinx.android.synthetic.main.layout_calendar_center.*
 import kotlinx.android.synthetic.main.layout_calendar_item.*
 
@@ -49,6 +50,11 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
         testAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, testitems)
         calendar_oneday_list.adapter = testAdapter
         calendar_oneday_list.setOnItemClickListener { parent, view, position, id ->
+        }
+
+        // FloatingActionButtonのクリック処理を記述
+        FloatingActionButton.setOnClickListener { // ここに処理を書く
+            Toast.makeText(this, "Fab is clicked", Toast.LENGTH_SHORT).show()
         }
 
     }
