@@ -41,6 +41,7 @@ data class ReferenceListViewAdapter(private val context: Context, private val li
                                                         context.getString(R.string.Reference27),
                                                         context.getString(R.string.Reference28))
 
+
     private val notificationListAdapter: ArrayAdapter<String> = ArrayAdapter(this.context, android.R.layout.simple_list_item_1, notificationLists)
     init {
         this.listView.adapter = notificationListAdapter
