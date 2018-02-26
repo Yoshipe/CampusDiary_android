@@ -9,5 +9,6 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar_add_schedule)
+        // Todo 1. 各ボタンのクリック処理を書く
     }
 }
