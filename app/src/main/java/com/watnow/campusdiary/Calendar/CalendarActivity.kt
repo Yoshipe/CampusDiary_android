@@ -1,6 +1,7 @@
 package com.watnow.campusdiary.Calendar
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.*
@@ -54,7 +55,8 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
 
         // FloatingActionButtonのクリック処理を記述
         FloatingActionButton.setOnClickListener { // ここに処理を書く
-            Toast.makeText(this, "Fab is clicked", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this@CalendarActivity, CalendarAddScheduleActivity::class.java)
+            startActivity(intent)
         }
 
     }
