@@ -24,7 +24,8 @@
         <activity
             android:name=".Reference.ReferenceImageActivity"
             android:parentActivityName=".Reference.ReferenceActivity" />
-        <activity android:name=".Calendar.CalendarAddScheduleActivity"></activity>
+        <activity android:name=".Calendar.CalendarAddScheduleActivity"
+            android:parentActivityName=".Calendar.CalendarActivity"/>
     </application>
 
 </manifest>
