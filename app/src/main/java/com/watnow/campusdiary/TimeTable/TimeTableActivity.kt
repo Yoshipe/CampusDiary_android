@@ -77,7 +77,6 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
     // 画面を表示する直前に実行する
     override fun onResume() {
         super.onResume()
-        Log.d("onResume", ": Started")
         // Realmのインスタンス取得
         realm = Realm.getDefaultInstance()
 
@@ -87,6 +86,7 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onPause() {
         super.onPause()
+        // Realmの終了
         realm.close()
     }
 
@@ -108,8 +108,10 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
         // 受け取ったビューをボタンにキャスト
         val button: Button = view as Button
         if (button.text.toString() == "") {
+            // 授業の新規追加
             addSubject(button)
         } else {
+            // 授業の修正
             changeSubject(button)
         }
     }
@@ -123,7 +125,7 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
         val classRoom: EditText = customLayout.findViewById(R.id.classRoom)
 
         // 登録済みの情報をEditTextにセット
-        val result = realm.where(TimeTableDB::class.java).equalTo("strId", getString(button.id)).findAll()
+        val result = realm.where(TimeTableDB::class.java).equalTo("intId", button.id).findAll()
         val selectedDB = result[0]
         subject.setText(selectedDB.strSubject)
         classRoom.setText(selectedDB.strClassRoom)
@@ -132,7 +134,7 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
         AlertDialog.Builder(this@TimeTableActivity).apply {
             setView(customLayout)
             setTitle("時間割登録")
-            setPositiveButton("登録", DialogInterface.OnClickListener { dialogInterface, i ->
+            setPositiveButton("登録", DialogInterface.OnClickListener { _, _ ->
                 // 修正後、登録ボタンを押したとき
                 // realm開始
                 realm.beginTransaction()
@@ -160,13 +162,12 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
         AlertDialog.Builder(this@TimeTableActivity).apply {
             setView(customLayout)
             setTitle("時間割登録")
-            setPositiveButton("登録", DialogInterface.OnClickListener { dialogInterface, i ->
-                Toast.makeText(this@TimeTableActivity, "登録", Toast.LENGTH_SHORT).show()
+            setPositiveButton("登録", DialogInterface.OnClickListener { _, _ ->
                 // 登録ボタンを押したときのDBへの登録
                 // realm開始
                 realm.beginTransaction()
                 val timeTableDB = realm.createObject(TimeTableDB::class.java)
-                timeTableDB.strId = getString(button.id)
+                timeTableDB.intId = button.id
                 timeTableDB.strSubject = subject.text.toString()
                 timeTableDB.strClassRoom = classRoom.text.toString()
                 // realm終了
@@ -181,45 +182,45 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setButtonText() {
-        val result = realm.where(TimeTableDB::class.java).findAll().sort("strId")
+        val result = realm.where(TimeTableDB::class.java).findAll().sort("intId")
         result.forEach {
             // 全てのデータをみて、合致する場所にテキストをセットする
-            when (it.strId) {
-                getString(button1_1.id) -> button1_1.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button1_2.id) -> button1_2.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button1_3.id) -> button1_3.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button1_4.id) -> button1_4.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button1_5.id) -> button1_5.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button1_6.id) -> button1_6.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button1_7.id) -> button1_7.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button2_1.id) -> button2_1.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button2_2.id) -> button2_2.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button2_3.id) -> button2_3.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button2_4.id) -> button2_4.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button2_5.id) -> button2_5.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button2_6.id) -> button2_6.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button2_7.id) -> button2_7.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button3_1.id) -> button3_1.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button3_2.id) -> button3_2.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button3_3.id) -> button3_3.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button3_4.id) -> button3_4.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button3_5.id) -> button3_5.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button3_6.id) -> button3_6.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button3_7.id) -> button3_7.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button4_1.id) -> button4_1.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button4_2.id) -> button4_2.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button4_3.id) -> button4_3.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button4_4.id) -> button4_4.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button4_5.id) -> button4_5.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button4_6.id) -> button4_6.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button4_7.id) -> button4_7.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button5_1.id) -> button5_1.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button5_2.id) -> button5_2.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button5_3.id) -> button5_3.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button5_4.id) -> button5_4.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button5_5.id) -> button5_5.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button5_6.id) -> button5_6.text = it.strSubject + "\n" + it.strClassRoom
-                getString(button5_7.id) -> button5_7.text = it.strSubject + "\n" + it.strClassRoom
+            when (it.intId) {
+                button1_1.id -> button1_1.text = it.strSubject + "\n" + it.strClassRoom
+                button1_2.id -> button1_2.text = it.strSubject + "\n" + it.strClassRoom
+                button1_3.id -> button1_3.text = it.strSubject + "\n" + it.strClassRoom
+                button1_4.id -> button1_4.text = it.strSubject + "\n" + it.strClassRoom
+                button1_5.id -> button1_5.text = it.strSubject + "\n" + it.strClassRoom
+                button1_6.id -> button1_6.text = it.strSubject + "\n" + it.strClassRoom
+                button1_7.id -> button1_7.text = it.strSubject + "\n" + it.strClassRoom
+                button2_1.id -> button2_1.text = it.strSubject + "\n" + it.strClassRoom
+                button2_2.id -> button2_2.text = it.strSubject + "\n" + it.strClassRoom
+                button2_3.id -> button2_3.text = it.strSubject + "\n" + it.strClassRoom
+                button2_4.id -> button2_4.text = it.strSubject + "\n" + it.strClassRoom
+                button2_5.id -> button2_5.text = it.strSubject + "\n" + it.strClassRoom
+                button2_6.id -> button2_6.text = it.strSubject + "\n" + it.strClassRoom
+                button2_7.id -> button2_7.text = it.strSubject + "\n" + it.strClassRoom
+                button3_1.id -> button3_1.text = it.strSubject + "\n" + it.strClassRoom
+                button3_2.id -> button3_2.text = it.strSubject + "\n" + it.strClassRoom
+                button3_3.id -> button3_3.text = it.strSubject + "\n" + it.strClassRoom
+                button3_4.id -> button3_4.text = it.strSubject + "\n" + it.strClassRoom
+                button3_5.id -> button3_5.text = it.strSubject + "\n" + it.strClassRoom
+                button3_6.id -> button3_6.text = it.strSubject + "\n" + it.strClassRoom
+                button3_7.id -> button3_7.text = it.strSubject + "\n" + it.strClassRoom
+                button4_1.id -> button4_1.text = it.strSubject + "\n" + it.strClassRoom
+                button4_2.id -> button4_2.text = it.strSubject + "\n" + it.strClassRoom
+                button4_3.id -> button4_3.text = it.strSubject + "\n" + it.strClassRoom
+                button4_4.id -> button4_4.text = it.strSubject + "\n" + it.strClassRoom
+                button4_5.id -> button4_5.text = it.strSubject + "\n" + it.strClassRoom
+                button4_6.id -> button4_6.text = it.strSubject + "\n" + it.strClassRoom
+                button4_7.id -> button4_7.text = it.strSubject + "\n" + it.strClassRoom
+                button5_1.id -> button5_1.text = it.strSubject + "\n" + it.strClassRoom
+                button5_2.id -> button5_2.text = it.strSubject + "\n" + it.strClassRoom
+                button5_3.id -> button5_3.text = it.strSubject + "\n" + it.strClassRoom
+                button5_4.id -> button5_4.text = it.strSubject + "\n" + it.strClassRoom
+                button5_5.id -> button5_5.text = it.strSubject + "\n" + it.strClassRoom
+                button5_6.id -> button5_6.text = it.strSubject + "\n" + it.strClassRoom
+                button5_7.id -> button5_7.text = it.strSubject + "\n" + it.strClassRoom
                 else -> Toast.makeText(this@TimeTableActivity, "ERROR REGISTERING", Toast.LENGTH_SHORT).show()
             }
         }
