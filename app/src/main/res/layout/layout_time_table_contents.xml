@@ -23,14 +23,12 @@
                     android:id="@+id/button1_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/time_table_background"
                     android:textSize="@dimen/timeTableTextSize"
                     android:layout_weight="1" />
                 <Button
                     android:id="@+id/button2_1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/time_table_background"
                     android:textSize="@dimen/timeTableTextSize"
                     android:layout_weight="1"/>
                 <Button
