@@ -110,13 +110,43 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
         if (button.text.toString() == "") {
             addSubject(button)
         } else {
-            changeSubject()
+            changeSubject(button)
         }
     }
 
 
-    private fun changeSubject() {
-        Toast.makeText(this@TimeTableActivity, "changeSubjec is called", Toast.LENGTH_SHORT).show()
+    private fun changeSubject(button: Button) {
+        val customLayout = layoutInflater.inflate(R.layout.component_time_table_dialog, null)
+
+        // inflateしたレイアウトから各ビューを紐付け
+        val subject: EditText = customLayout.findViewById(R.id.subjectName)
+        val classRoom: EditText = customLayout.findViewById(R.id.classRoom)
+
+        // 登録済みの情報をEditTextにセット
+        val result = realm.where(TimeTableDB::class.java).equalTo("strId", getString(button.id)).findAll()
+        val selectedDB = result[0]
+        subject.setText(selectedDB.strSubject)
+        classRoom.setText(selectedDB.strClassRoom)
+
+        // AlertDialogを生成する
+        AlertDialog.Builder(this@TimeTableActivity).apply {
+            setView(customLayout)
+            setTitle("時間割登録")
+            setPositiveButton("登録", DialogInterface.OnClickListener { dialogInterface, i ->
+                // 修正後、登録ボタンを押したとき
+                // realm開始
+                realm.beginTransaction()
+                selectedDB.strSubject = subject.text.toString()
+                selectedDB.strClassRoom = classRoom.text.toString()
+                // realm終了
+                realm.commitTransaction()
+                // 該当するボタンのテキストに登録
+                setButtonText()
+                Toast.makeText(this@TimeTableActivity, "修正完了", Toast.LENGTH_SHORT).show()
+            })
+            setNegativeButton("取り消し", null)
+            show()
+        }
     }
 
     private fun addSubject(button: Button) {
@@ -143,6 +173,7 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
                 realm.commitTransaction()
                 // 該当するボタンのテキストに登録
                 setButtonText()
+                Toast.makeText(this@TimeTableActivity, "登録完了", Toast.LENGTH_SHORT).show()
             })
             setNegativeButton("取り消し", null)
             show()
