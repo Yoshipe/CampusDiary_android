@@ -6,42 +6,105 @@
     android:layout_height="match_parent"
     tools:context="com.watnow.campusdiary.Calendar.CalendarAddScheduleActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/new_event_navigation"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/school_color_background_bottom"
-        android:paddingHorizontal="20dp"
-        app:contentInsetStart="0dp"
+        android:layout_height="match_parent"
+        android:background="#808080"
         >
-        <Button
-            android:layout_width="wrap_content"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/new_event_navigation"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:textSize="15sp"
-            android:minWidth="0dp"
-            android:text="キャンセル"
-            android:background="@android:color/transparent"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="イベントの作成"
-            android:textSize="15sp"
-            android:textColor="#ffffff"/>
+            android:layout_width="match_parent"
+            android:background="#0000ff"
+            android:paddingHorizontal="20dp"
+            app:contentInsetStart="0dp"
+            >
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:textSize="15sp"
+                android:minWidth="0dp"
+                android:text="キャンセル"
+                android:background="@android:color/transparent"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="イベントの作成"
+                android:textSize="15sp"
+                android:textColor="#ffffff"/>
 
-        <Button
-            android:layout_width="wrap_content"
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:textSize="15sp"
+                android:minWidth="0dp"
+                android:text="保存"
+                android:background="@android:color/transparent"
+                />
+        </android.support.v7.widget.Toolbar>
+        <EditText
+            android:id="@+id/new_event_title"
+            android:hint="予定を入力してください..."
+            android:textColorHint="@color/white"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:textSize="15sp"
-            android:minWidth="0dp"
-            android:text="保存"
-            android:background="@android:color/transparent"
+            android:layout_below="@id/new_event_navigation"
+            android:paddingTop="30dp"
+            android:paddingBottom="10dp"
+            android:background="#0000ff"
+            android:paddingLeft="10dp"
             />
-    </android.support.v7.widget.Toolbar>
+        <RelativeLayout
+            android:id="@+id/new_event_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/new_event_title"
+            android:paddingVertical="10dp"
+            android:background="@color/white"
+            android:layout_marginBottom="1dp"
+            android:paddingLeft="10dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="テーマ"
+                android:textSize="18sp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="2dp"
+                />
 
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:background="@color/colorAccent"
+                android:layout_marginTop="10dp"
+                />
+
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/new_event_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/new_event_theme"
+            android:gravity="top"
+            android:hint="詳細"
+            android:background="@color/white"
+            android:paddingTop="10dp"
+            android:paddingLeft="10dp"
+            />
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
