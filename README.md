@@ -14,20 +14,29 @@
  
  # ==== Realmの使い方 ====
  DBとなるクラスを作る(メンバーにDBに保存したい情報を持つ)
+ 
  ActivityクラスのonResumeメソッドでRealm.getDefaultInstance()でインスタンス取得
+ 
  同クラス内のonPauseメソッドでrealm.close()で終了させる
  
  ## 登録の方法
+ 
+ ```sample.kt
  /* Realmのインスタンスをrealmとする */
  realm.beginTransaction()
  val DB = realm.createObject(/* DBクラス::class.java */ )
  DB./* プロパティ名 */  = 保存したいデータ
  realm.commitTransaction()
+ ```
 
 realmオブジェクトのプロパティにアクセスして代入する感じ
 
 修正の場合は、
+
+```sample.kt
 val results = realm.where(/* DBクラス::class.java */).findAll().sort(/* キー名 */)
 みたいにして、Realmオブジェクトを取ってくる。これは配列だから
 results[index]
+```
+
 としてアクセスできる
