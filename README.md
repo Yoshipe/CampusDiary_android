@@ -58,7 +58,7 @@ realmオブジェクトのプロパティにアクセスして代入する感じ
 
 ```sample.kt
 val results = realm.where(/* DBクラス::class.java */).findAll().sort(/* キー名 */)
-みたいにして、Realmオブジェクトを取ってくる。これは配列だから
+//みたいにして、Realmオブジェクトを取ってくる。これは配列だから
 results[index]
 ```
 
