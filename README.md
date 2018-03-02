@@ -15,9 +15,32 @@
  # ==== Realmの使い方 ====
  DBとなるクラスを作る(メンバーにDBに保存したい情報を持つ)
  
+ ```sampleDB.kt
+ class sampleDB: RealmObject() {
+    var sampleData: String // データベースの一つのプロパティとなる
+}
+```
+ 
  ActivityクラスのonResumeメソッドでRealm.getDefaultInstance()でインスタンス取得
  
+ ```SampleActivity.kt
+ /*中略 */
+ override fun onResume() {
+    super()
+    realm = Realm.getDefaultInstance() // realmのインスタンス取得
+}
+```
+ 
  同クラス内のonPauseメソッドでrealm.close()で終了させる
+ 
+```SampleActivity.kt
+ /* 中略 */
+ override fun onPause() {
+    super()
+    realm.close() // realmの終了
+}
+```
+
  
  ## 登録の方法
  
