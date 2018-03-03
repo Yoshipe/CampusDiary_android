@@ -13,15 +13,16 @@
  📝  ドキュメント更新  
  
  # ==== Realmの使い方 ====
- DBとなるクラスを作る(メンバーにDBに保存したい情報を持つ)
+ ##  RealmObjectを継承したクラスを作る
  
  ```sampleDB.kt
  class sampleDB: RealmObject() {
-    var sampleData: String // データベースの一つのプロパティとなる
+    var sampleData: String // データベースの一つの要素となる
 }
 ```
- 
- ActivityクラスのonResumeメソッドでRealm.getDefaultInstance()でインスタンス取得
+
+## Realmのインスタンス取得と、終了について
+onResumeメソッドでRealm.getDefaultInstance()でインスタンス取得
  
  ```SampleActivity.kt
  /*中略 */
@@ -31,7 +32,7 @@
 }
 ```
  
- 同クラス内のonPauseメソッドでrealm.close()で終了させる
+onPauseメソッドでrealm.close()で終了させる
  
 ```SampleActivity.kt
  /* 中略 */
@@ -52,14 +53,5 @@
  realm.commitTransaction()
  ```
 
-realmオブジェクトのプロパティにアクセスして代入する感じ
+beginTransactionとcommitTransactioで挟んだ中でDB処理
 
-修正の場合は、
-
-```sample.kt
-val results = realm.where(/* DBクラス::class.java */).findAll().sort(/* キー名 */)
-//みたいにして、Realmオブジェクトを取ってくる。これは配列だから
-results[index]
-```
-
-としてアクセスできる
