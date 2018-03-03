@@ -1,44 +1,57 @@
 # ==== Realmの使い方 ====
-##  RealmObjectを継承したクラスを作る
 
-```sampleDB.kt
-class sampleDB: RealmObject() {
-var sampleData: String // データベースの一つの要素となる
+## DBクラスの作り方
+
+```
+CalendarDB.kt
+class CalendarDB: RealmObject() {
+var strEvent: String = ""
+var intDate: Int = 0
+var strDetail: String = ""
 }
 ```
-
-## Realmのインスタンス取得と、終了について
-onResumeメソッドでRealm.getDefaultInstance()でインスタンス取得
-onPauseメソッドでrealm.close()で終了させる
-
-
-```SampleActivity.kt
-/*中略 */
-override fun onResume() {
-super()
-realm = Realm.getDefaultInstance() // realmのインスタンス取得
-}
-
-
-override fun onPause() {
-super()
-realm.close() // realmの終了
-}
-```
-
 
 ## 登録の方法
 
-```sample.kt
-/* Realmのインスタンスをrealmとする */
-realm.beginTransaction()
-val DB = realm.createObject(SampleDB::class.java)
-DB.sampleData = "登録データ"
-realm.commitTransaction()
 ```
+HogeActivity.kt
+class HogeActivity: AppCompatActivity() {
+/* 中略 */
 
-これで、データベースの
-sampleDataに"登録データ"という文字列が保存できる
+realm.beginTransaction()
+calendarDB.strEvent = "予定1"
+calendarDB.intDate = 1201
+calendarDB.strDetail = "詳細"
+realm.commitTransaction()
+/*
+この時点で、CalendarDBのrealmデータベースには、配列の0番目に
+strEvent = "予定1"
+intDate = 1201
+strDetail = "詳細"
+が保存された
+*/
 
-beginTransactionとcommitTransactioで挟んだ中でDB処理
+realm.beginTransaction()
+calendarDB.strEvent = "予定2"
+calendarDB.intDate = 1220
+calendarDB.strDetail = "詳細2"
+realm.commitTransaction()
+/*
+この時点で、CalendarDBのrealmデータベースには、配列の1番目に
+strEvent = "予定2"
+intDate = 1220
+strDetail = "詳細2"
+が保存された
+*/
 
+CalendarDBに保存されているデータを全て取ってくる
+val results = realm.where(CalendarDB::class.java).findAll().sort(intDate) // intDateの値にソートして取得
+/*
+resultsは配列となっていて、中身は
+results[0].strEvent = "予定1"
+results[0].strEvent = "予定2"
+results.size == 2
+となっている
+*/
+}
+```
