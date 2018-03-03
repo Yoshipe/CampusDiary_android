@@ -1,42 +1,44 @@
-# Realmの使い方
+# ==== Realmの使い方 ====
+##  RealmObjectを継承したクラスを作る
 
-### Realmをプロジェクト内で一番に初期化する
-git init 的な感じ
-1. 任意のクラスを作成し、Applicationクラスを継承
-2. onCreateメソッドをオーバーライドし、メソッド内で
-```Application.kt
-class MyApplication: Application() {
-override fun onCreate() {
-    super()
-    Realm.init() // Realmの初期化作業
-}
+```sampleDB.kt
+class sampleDB: RealmObject() {
+var sampleData: String // データベースの一つの要素となる
 }
 ```
 
-3. AndroidManifestに追記し、アプリが起動する一番最初にApplication.ktを実行するように設定する
+## Realmのインスタンス取得と、終了について
+onResumeメソッドでRealm.getDefaultInstance()でインスタンス取得
+onPauseメソッドでrealm.close()で終了させる
 
-以上の手順で、プロジェクト内でのRealmの初期化は完了
+
+```SampleActivity.kt
+/*中略 */
+override fun onResume() {
+super()
+realm = Realm.getDefaultInstance() // realmのインスタンス取得
+}
 
 
-### DBに保存したい情報をメンバとして持ったクラスを作成、RealmObjectクラスを継承
-
-``` SampleDB.kt
-class SampleDB: RealmObject() {
-/* メンバを記載 */
-    var sampleString: String = ""
+override fun onPause() {
+super()
+realm.close() // realmの終了
 }
 ```
 
-これで、Realmの初期化、RealmDBの作成が完了した
 
+## 登録の方法
 
-### コード内で用いる方法
-RealmObjectを取得しなければならない（DBのクラスの型となる）
-
-``` SampleActivity.kt
-val realm = Realm.getDefaultInstance()
+```sample.kt
+/* Realmのインスタンスをrealmとする */
 realm.beginTransaction()
-/* データベース保存 */
-relam.commitTransaction()
+val DB = realm.createObject(SampleDB::class.java)
+DB.sampleData = "登録データ"
+realm.commitTransaction()
 ```
+
+これで、データベースの
+sampleDataに"登録データ"という文字列が保存できる
+
+beginTransactionとcommitTransactioで挟んだ中でDB処理
 
