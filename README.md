@@ -23,6 +23,8 @@
 
 ## Realmのインスタンス取得と、終了について
 onResumeメソッドでRealm.getDefaultInstance()でインスタンス取得
+onPauseメソッドでrealm.close()で終了させる
+
  
  ```SampleActivity.kt
  /*中略 */
@@ -30,12 +32,8 @@ onResumeメソッドでRealm.getDefaultInstance()でインスタンス取得
     super()
     realm = Realm.getDefaultInstance() // realmのインスタンス取得
 }
-```
- 
-onPauseメソッドでrealm.close()で終了させる
- 
-```SampleActivity.kt
- /* 中略 */
+
+
  override fun onPause() {
     super()
     realm.close() // realmの終了
@@ -48,10 +46,13 @@ onPauseメソッドでrealm.close()で終了させる
  ```sample.kt
  /* Realmのインスタンスをrealmとする */
  realm.beginTransaction()
- val DB = realm.createObject(/* DBクラス::class.java */ )
- DB./* プロパティ名 */  = 保存したいデータ
+ val DB = realm.createObject(SampleDB::class.java)
+ DB.sampleData = "登録データ"
  realm.commitTransaction()
  ```
+ 
+ これで、データベースの
+ sampleDataに"登録データ"という文字列が保存できる
 
 beginTransactionとcommitTransactioで挟んだ中でDB処理
 
