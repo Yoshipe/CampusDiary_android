@@ -1,4 +1,4 @@
-package com.watnow.campusdiary.TimeTable
+package com.watnow.campusdiary.RealmDB
 
 import io.realm.RealmObject
 
