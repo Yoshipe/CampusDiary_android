@@ -12,6 +12,7 @@ import android.view.View
 import android.widget.*
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.R
+import com.watnow.campusdiary.RealmDB.TimeTableDB
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
 import io.realm.Realm
 import kotlinx.android.synthetic.main.layout_time_table_contents.*
