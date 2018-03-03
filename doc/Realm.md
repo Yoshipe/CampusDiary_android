@@ -1,5 +1,8 @@
 # ==== Realmの使い方 ====
 
+## RealmDBファイルへのパス
+CampusDiary_android/app/src/main/java/com/watnow/campusdiary/RealmDB
+
 ## DBクラスの作り方
 
 ```
