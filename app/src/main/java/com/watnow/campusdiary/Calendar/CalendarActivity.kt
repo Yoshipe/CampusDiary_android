@@ -49,7 +49,9 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
             }
         })
         testAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, testitems)
-        calendar_oneday_list.adapter = testAdapter
+        testAdapter?.let {
+            calendar_oneday_list.adapter = it
+        }
         calendar_oneday_list.setOnItemClickListener { parent, view, position, id ->
         }
 
