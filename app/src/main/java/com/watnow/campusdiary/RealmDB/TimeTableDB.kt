@@ -13,4 +13,6 @@ open class TimeTableDB: RealmObject() {
     var strSubject: String = ""
     // 教室名を保存するプロパティ
     var strClassRoom: String = ""
+    // 新規か追加かを判断する true -> 新規追加 false -> 編集
+    var isFirst: Boolean = true
 }
