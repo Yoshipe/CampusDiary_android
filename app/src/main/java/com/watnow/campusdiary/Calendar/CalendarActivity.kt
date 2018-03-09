@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.NavigationView
 import android.support.v7.widget.*
 import android.util.Log
 import android.util.SparseBooleanArray
@@ -17,12 +18,15 @@ import android.widget.Toast
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import com.watnow.campusdiary.R
+import com.watnow.campusdiary.RegulationActivity
+import com.watnow.campusdiary.SchoolYearActivity
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
 import kotlinx.android.synthetic.main.calendar_activity.*
 import kotlinx.android.synthetic.main.layout_calendar_center.*
 import kotlinx.android.synthetic.main.layout_calendar_item.*
 
-class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListener {
+class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListener, NavigationView.OnNavigationItemSelectedListener {
+
     private val TAG: String = "CalendarActivity"
     private val ACTIVITY_NUM: Int = 0
     private val mContext: Context = this
@@ -61,6 +65,9 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
             startActivity(intent)
         }
 
+        // NavigationDrawerのクリック処理
+        navigatoinView.setNavigationItemSelectedListener(this)
+
     }
 
     override fun onItemClick(view: View, position: Int) {
@@ -85,5 +92,28 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
         val menu: Menu = bottomNavigationViewEx.menu
         val menuItem: MenuItem = menu.getItem(ACTIVITY_NUM)
         menuItem.isChecked = true
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        if (item.toString() == getString(R.string.nav_Calendar)) {
+            Log.d("TAG", "item = ${item.toString()}")
+            return true
+        }
+
+        when (item.itemId) {
+            R.id.nav_school_year -> {
+                val intent = Intent(this@CalendarActivity, SchoolYearActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.nav_Todo -> {
+                val intent = Intent(this@CalendarActivity, RegulationActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.nav_agreement -> {
+                val intent = Intent(this@CalendarActivity, RegulationActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return true
     }
 }
