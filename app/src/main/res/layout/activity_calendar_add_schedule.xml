@@ -21,13 +21,10 @@
             >
             <Button
                 android:id="@+id/new_event_cancel_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="left"
-                android:textSize="15sp"
-                android:minWidth="0dp"
-                android:text="キャンセル"
-                android:background="@android:color/transparent"
+                android:background="@drawable/ic_arrow_back_white_24dp"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -40,13 +37,10 @@
 
             <Button
                 android:id="@+id/new_event_save_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="right"
-                android:textSize="15sp"
-                android:minWidth="0dp"
-                android:text="保存"
-                android:background="@android:color/transparent"
+                android:background="@drawable/ic_check_white_24dp"
                 />
         </android.support.v7.widget.Toolbar>
         <EditText
