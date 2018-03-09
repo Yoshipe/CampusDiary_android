@@ -19,36 +19,167 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1">
-                <Button
+
+                <android.support.v7.widget.CardView
                     android:id="@+id/button1_1"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
-                <Button
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/subjectName1_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="英語"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom1_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button2_1"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1"/>
-                <Button
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/subjectName2_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom2_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button3_1"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1"/>
-                <Button
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/subjectName3_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom3_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button4_1"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1"/>
-                <Button
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/subjectName4_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom4_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button5_1"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/subjectName5_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom5_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
             </TableRow>
 
             <TableRow
@@ -56,40 +187,166 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-                <Button
+                <android.support.v7.widget.CardView
                     android:id="@+id/button1_2"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName1_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom1_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button2_2"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName2_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom2_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button3_2"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName3_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom3_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button4_2"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName4_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom4_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button5_2"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/subjectName5_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom5_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
             </TableRow>
 
             <TableRow
@@ -97,40 +354,166 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-                <Button
+                <android.support.v7.widget.CardView
                     android:id="@+id/button1_3"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName1_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom1_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button2_3"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName2_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom2_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button3_3"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName3_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom3_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button4_3"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName4_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom4_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button5_3"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/subjectName5_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom5_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
             </TableRow>
 
             <TableRow
@@ -138,40 +521,166 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-                <Button
+                <android.support.v7.widget.CardView
                     android:id="@+id/button1_4"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName1_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom1_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button2_4"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName2_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom2_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button3_4"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName3_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom3_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button4_4"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName4_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom4_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button5_4"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/subjectName5_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom5_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
             </TableRow>
 
             <TableRow
@@ -179,40 +688,166 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-                <Button
+                <android.support.v7.widget.CardView
                     android:id="@+id/button1_5"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName1_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom1_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button2_5"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName2_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom2_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button3_5"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName3_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom3_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button4_5"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName4_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom4_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button5_5"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/subjectName5_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom5_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
             </TableRow>
 
             <TableRow
@@ -220,40 +855,166 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-                <Button
+                <android.support.v7.widget.CardView
                     android:id="@+id/button1_6"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName1_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom1_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button2_6"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName2_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom2_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button3_6"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName3_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom3_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button4_6"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName4_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom4_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button5_6"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/subjectName5_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom5_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
             </TableRow>
 
             <TableRow
@@ -261,40 +1022,166 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-                <Button
+                <android.support.v7.widget.CardView
                     android:id="@+id/button1_7"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName1_7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom1_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button2_7"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName2_7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom2_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button3_7"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName3_7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom3_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button4_7"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
 
-                <Button
+                    <TextView
+                        android:id="@+id/subjectName4_7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情報基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom4_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
                     android:id="@+id/button5_7"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:textSize="@dimen/timeTableTextSize"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_margin="1dp"
+                    card_view:cardCornerRadius="4dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/subjectName5_7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="10sp"
+                        android:text="情弱基礎演習"
+                        />
+
+                    <TextView
+                        android:id="@+id/classRoom5_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|bottom"
+                        android:gravity="center"
+                        android:background="@color/TimeTableClassRoom"
+                        android:textSize="10sp"
+                        android:text="C202"
+                        />
+
+                </android.support.v7.widget.CardView>
             </TableRow>
         </TableLayout>
 
