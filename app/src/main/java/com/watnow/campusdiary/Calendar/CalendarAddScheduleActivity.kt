@@ -1,19 +1,12 @@
 package com.watnow.campusdiary.Calendar
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.widget.AdapterView
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.TextView
+import android.widget.*
 import com.watnow.campusdiary.R
 import kotlinx.android.synthetic.main.activity_calendar_add_schedule.*
-import kotlinx.android.synthetic.main.activity_calendar_add_schedule.view.*
 
 class CalendarAddScheduleActivity : AppCompatActivity() {
 
@@ -31,6 +24,8 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
                     val selectedButton = view.findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
                     colorId = getSelectedColor(selectedButton)
                     buttonColorSelect.setBackgroundResource(colorId)
+                    new_event_navigation.setBackgroundResource(colorId)
+                    new_event_title.setBackgroundResource(colorId)
                 }
                 show()
             }
@@ -41,10 +36,11 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
         new_event_save_btn.setOnClickListener {
             // Todo Realmに保存
             finish()
+            Toast.makeText(this@CalendarAddScheduleActivity, "登録しました", Toast.LENGTH_SHORT).show()
         }
     }
 
-    fun getSelectedColor(selectedButton: RadioButton): Int {
+    private fun getSelectedColor(selectedButton: RadioButton): Int {
         var selectedColorId: Int = 0
         when (selectedButton.id) {
             R.id.radioDiamond -> selectedColorId = R.color.diamond
