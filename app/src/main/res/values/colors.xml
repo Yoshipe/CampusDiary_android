@@ -7,4 +7,16 @@
     <color name="white">#ffffff</color>
     <color name="grey">#000000</color>
     <color name="calendarSubDate">#E6E6E6</color>
+    
+    
+    <!-- Calendar Label Colors --> 
+    <color name="ruby">#ff0000</color>
+    <color name="sapphire">#0000ff</color>
+    <color name="emerald">#98fb98</color>
+    <color name="gold">#ffff00</color>
+    <color name="perl">#ffb6c1</color>
+    <color name="amethyst">#8b008b</color>
+    <color name="tigerEye">#a0522d</color>
+    <color name="topaz">#00ffff</color>
+    <color name="diamond">#808080</color>
 </resources>

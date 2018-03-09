@@ -44,4 +44,16 @@
 
     <!-- Layoutで使うStrings -->
     <string name="regulation_title">利用規約</string>
+
+    <!-- Calendar Label Tags -->
+    <string name="ruby">ルビー</string>
+    <string name="sapphire">サファイア</string>
+    <string name="emerald">エメラルド</string>
+    <string name="gold">ゴールド</string>
+    <string name="perl">パール</string>
+    <string name="amethyst">アメジスト</string>
+    <string name="tigerEye">タイガーアイ</string>
+    <string name="diamond">ダイヤモンド</string>
+    <string name="topaz">トパーズ</string>
+
 </resources>
