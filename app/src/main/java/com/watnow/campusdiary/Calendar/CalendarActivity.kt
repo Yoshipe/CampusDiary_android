@@ -38,7 +38,7 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
         setupBottomNavigationView()
         select_date.text = calendarDate.getScrollTerm(todayPosition)
         calendarRecycleView.adapter = CalendarRecycleAdapter(this, this, dateList)
-        calendarRecycleView.layoutManager = glmanager
+        calendarRecycleView.layoutManager = glmanager as RecyclerView.LayoutManager?
         calendarRecycleView.addItemDecoration(CalenarDividerItemDecoration(7, 1, true, 0))
         calendarRecycleView.scrollToPosition(todayPosition - 7)
         calendarRecycleView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
