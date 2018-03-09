@@ -7,19 +7,19 @@
         <item
             android:id="@+id/nav_calendar"
             android:icon="@color/grey"
-            android:title="カレンダー"/>
+            android:title="@string/nav_Calendar"/>
         <item
             android:id="@+id/nav_school_year"
             android:icon="@color/grey"
-            android:title="学年暦"/>
+            android:title="@string/nav_SchoolYear"/>
         <item
             android:id="@+id/nav_Todo"
             android:icon="@color/grey"
-            android:title="Todoリスト"/>
+            android:title="@string/nav_Todo"/>
         <item
             android:id="@+id/nav_agreement"
             android:icon="@color/grey"
-            android:title="利用規約"/>
+            android:title="@string/nav_regulation"/>
 
     </group>
 
