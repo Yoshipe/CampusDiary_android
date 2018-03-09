@@ -5,6 +5,7 @@ import android.content.DialogInterface
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.CardView
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -22,20 +23,14 @@ import kotlinx.android.synthetic.main.layout_time_table_contents.*
  */
 class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
 
-    private val TAG: String = "TimeTableActivity"
-
     private val ACTIVITY_NUM: Int = 2
-
     private val mContext: Context = this@TimeTableActivity
-
     lateinit var realm: Realm
 
     // 画面立ち上げ時に１回だけ実行する
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.time_table_activity)
-        Log.d(TAG, "onCreate: starting")
-
         setupBottomNavigationView()
         // ボタン全てにクリック処理を書く (コールバックメソッドを使って同一処理)
         button1_1.setOnClickListener(this)
@@ -75,10 +70,8 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
         button5_7.setOnClickListener(this)
     }
 
-    // 画面を表示する直前に実行する
     override fun onResume() {
         super.onResume()
-        // Realmのインスタンス取得
         realm = Realm.getDefaultInstance()
 
         // DBより時間割を作成
@@ -87,28 +80,13 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onPause() {
         super.onPause()
-        // Realmの終了
         realm.close()
-    }
-
-    /* *
-    *  BottomNavigationView setup
-    */
-    private fun setupBottomNavigationView() {
-        Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView")
-        val bottomNavigationViewEx: BottomNavigationViewEx = findViewById(R.id.bottomNavViewBar)
-        var bottomNavViewHelper: BottomNavigationViewHelper = BottomNavigationViewHelper()
-        bottomNavViewHelper.setupBottomNavigationView(bottomNavigationViewEx)
-        bottomNavViewHelper.enableNavigation(mContext, bottomNavigationViewEx)
-        val menu: Menu = bottomNavigationViewEx.menu
-        val menuItem: MenuItem = menu.getItem(ACTIVITY_NUM)
-        menuItem.isChecked = true
     }
 
     override fun onClick(view: View?) {
         // 受け取ったビューをボタンにキャスト
-        val button: Button = view as Button
-        if (button.text.toString() == "") {
+        val button: CardView = view as CardView
+        if (isFirstRealm(button)) {
             // 授業の新規追加
             addSubject(button)
         } else {
@@ -117,8 +95,43 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    private fun isFirstRealm(button: CardView): Boolean {
+        if (realm.where(TimeTableDB::class.java).equalTo("intId", button.id).findFirst() == null)
+            return true
+        return false
+    }
 
-    private fun changeSubject(button: Button) {
+    private fun addSubject(button: CardView) {
+        val customLayout = layoutInflater.inflate(R.layout.component_time_table_dialog, null)
+
+        // inflateしたレイアウトから各ビューを紐付け
+        val subject: EditText = customLayout.findViewById(R.id.subjectName)
+        val classRoom: EditText = customLayout.findViewById(R.id.classRoom)
+
+        // AlertDialogを生成する
+        AlertDialog.Builder(this@TimeTableActivity).apply {
+            setView(customLayout)
+            setTitle("時間割登録")
+            setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
+                // 登録ボタンを押したときのDBへの登録
+                realm.beginTransaction()
+                val timeTableDB = realm.createObject(TimeTableDB::class.java)
+                timeTableDB.intId = button.id
+                timeTableDB.strSubject = subject.text.toString()
+                timeTableDB.strClassRoom = classRoom.text.toString()
+                timeTableDB.isFirst = false
+                realm.commitTransaction()
+                // 該当するボタンのテキストに登録
+                setButtonText()
+                Toast.makeText(this@TimeTableActivity, "登録完了", Toast.LENGTH_SHORT).show()
+            })
+            setNegativeButton("取り消し", null)
+            show()
+        }
+    }
+
+
+    private fun changeSubject(button: CardView) {
         val customLayout = layoutInflater.inflate(R.layout.component_time_table_dialog, null)
 
         // inflateしたレイアウトから各ビューを紐付け
@@ -126,56 +139,23 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
         val classRoom: EditText = customLayout.findViewById(R.id.classRoom)
 
         // 登録済みの情報をEditTextにセット
-        val result = realm.where(TimeTableDB::class.java).equalTo("intId", button.id).findAll()
-        val selectedDB = result[0]
-        subject.setText(selectedDB.strSubject)
-        classRoom.setText(selectedDB.strClassRoom)
+        val result = realm.where(TimeTableDB::class.java).equalTo("intId", button.id).findFirst()
+        subject.setText(result.strSubject)
+        classRoom.setText(result.strClassRoom)
 
         // AlertDialogを生成する
         AlertDialog.Builder(this@TimeTableActivity).apply {
             setView(customLayout)
-            setTitle("時間割登録")
-            setPositiveButton("登録", DialogInterface.OnClickListener { _, _ ->
+            setTitle("時間割編集")
+            setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
                 // 修正後、登録ボタンを押したとき
-                // realm開始
                 realm.beginTransaction()
-                selectedDB.strSubject = subject.text.toString()
-                selectedDB.strClassRoom = classRoom.text.toString()
-                // realm終了
+                result.strSubject = subject.text.toString()
+                result.strClassRoom = classRoom.text.toString()
                 realm.commitTransaction()
                 // 該当するボタンのテキストに登録
                 setButtonText()
                 Toast.makeText(this@TimeTableActivity, "修正完了", Toast.LENGTH_SHORT).show()
-            })
-            setNegativeButton("取り消し", null)
-            show()
-        }
-    }
-
-    private fun addSubject(button: Button) {
-        val customLayout = layoutInflater.inflate(R.layout.component_time_table_dialog, null)
-
-        // inflateしたレイアウトから各ビューを紐付け
-        val subject: EditText = customLayout.findViewById(R.id.subjectName)
-        val classRoom: EditText = customLayout.findViewById(R.id.classRoom)
-
-        // AlertDialogを生成する
-        AlertDialog.Builder(this@TimeTableActivity).apply {
-            setView(customLayout)
-            setTitle("時間割登録")
-            setPositiveButton("登録", DialogInterface.OnClickListener { _, _ ->
-                // 登録ボタンを押したときのDBへの登録
-                // realm開始
-                realm.beginTransaction()
-                val timeTableDB = realm.createObject(TimeTableDB::class.java)
-                timeTableDB.intId = button.id
-                timeTableDB.strSubject = subject.text.toString()
-                timeTableDB.strClassRoom = classRoom.text.toString()
-                // realm終了
-                realm.commitTransaction()
-                // 該当するボタンのテキストに登録
-                setButtonText()
-                Toast.makeText(this@TimeTableActivity, "登録完了", Toast.LENGTH_SHORT).show()
             })
             setNegativeButton("取り消し", null)
             show()
@@ -330,5 +310,18 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
                 else -> Toast.makeText(this@TimeTableActivity, "ERROR REGISTERING", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    /* *
+    *  BottomNavigationView setup
+    */
+    private fun setupBottomNavigationView() {
+        val bottomNavigationViewEx: BottomNavigationViewEx = findViewById(R.id.bottomNavViewBar)
+        var bottomNavViewHelper: BottomNavigationViewHelper = BottomNavigationViewHelper()
+        bottomNavViewHelper.setupBottomNavigationView(bottomNavigationViewEx)
+        bottomNavViewHelper.enableNavigation(mContext, bottomNavigationViewEx)
+        val menu: Menu = bottomNavigationViewEx.menu
+        val menuItem: MenuItem = menu.getItem(ACTIVITY_NUM)
+        menuItem.isChecked = true
     }
 }
