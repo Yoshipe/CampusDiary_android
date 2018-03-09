@@ -35,4 +35,13 @@
     <string name="Reference26">公欠・出席停止などの授業の欠席に関する取り扱いについて知りたい</string>
     <string name="Reference27">窓口時間・電話番号</string>
     <string name="Reference28">アクセスマップ</string>
+
+    <!-- NavigationDrawerのItemになる文字列 -->
+    <string name="nav_Calendar">カレンダー</string>
+    <string name="nav_SchoolYear">学年暦</string>
+    <string name="nav_Todo">Todoリスト</string>
+    <string name="nav_regulation">利用規約</string>
+
+    <!-- Layoutで使うStrings -->
+    <string name="regulation_title">利用規約</string>
 </resources>
