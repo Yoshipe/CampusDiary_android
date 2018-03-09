@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="timeTableRight">#e2e2e2</color>
+    <color name="timeTableRight">#FFA726</color>
     <color name="timeTableTop">#ffdbc4</color>
     <color name="white">#ffffff</color>
     <color name="grey">#000000</color>
@@ -19,4 +19,6 @@
     <color name="tigerEye">#a0522d</color>
     <color name="topaz">#00bfff</color>
     <color name="diamond">#808080</color>
+
+    <color name="TimeTableClassRoom">#7FD3D3D3</color>
 </resources>
