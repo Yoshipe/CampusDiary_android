@@ -187,41 +187,146 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
         result.forEach {
             // 全てのデータをみて、合致する場所にテキストをセットする
             when (it.intId) {
-                button1_1.id -> button1_1.text = it.strSubject + "\n" + it.strClassRoom
-                button1_2.id -> button1_2.text = it.strSubject + "\n" + it.strClassRoom
-                button1_3.id -> button1_3.text = it.strSubject + "\n" + it.strClassRoom
-                button1_4.id -> button1_4.text = it.strSubject + "\n" + it.strClassRoom
-                button1_5.id -> button1_5.text = it.strSubject + "\n" + it.strClassRoom
-                button1_6.id -> button1_6.text = it.strSubject + "\n" + it.strClassRoom
-                button1_7.id -> button1_7.text = it.strSubject + "\n" + it.strClassRoom
-                button2_1.id -> button2_1.text = it.strSubject + "\n" + it.strClassRoom
-                button2_2.id -> button2_2.text = it.strSubject + "\n" + it.strClassRoom
-                button2_3.id -> button2_3.text = it.strSubject + "\n" + it.strClassRoom
-                button2_4.id -> button2_4.text = it.strSubject + "\n" + it.strClassRoom
-                button2_5.id -> button2_5.text = it.strSubject + "\n" + it.strClassRoom
-                button2_6.id -> button2_6.text = it.strSubject + "\n" + it.strClassRoom
-                button2_7.id -> button2_7.text = it.strSubject + "\n" + it.strClassRoom
-                button3_1.id -> button3_1.text = it.strSubject + "\n" + it.strClassRoom
-                button3_2.id -> button3_2.text = it.strSubject + "\n" + it.strClassRoom
-                button3_3.id -> button3_3.text = it.strSubject + "\n" + it.strClassRoom
-                button3_4.id -> button3_4.text = it.strSubject + "\n" + it.strClassRoom
-                button3_5.id -> button3_5.text = it.strSubject + "\n" + it.strClassRoom
-                button3_6.id -> button3_6.text = it.strSubject + "\n" + it.strClassRoom
-                button3_7.id -> button3_7.text = it.strSubject + "\n" + it.strClassRoom
-                button4_1.id -> button4_1.text = it.strSubject + "\n" + it.strClassRoom
-                button4_2.id -> button4_2.text = it.strSubject + "\n" + it.strClassRoom
-                button4_3.id -> button4_3.text = it.strSubject + "\n" + it.strClassRoom
-                button4_4.id -> button4_4.text = it.strSubject + "\n" + it.strClassRoom
-                button4_5.id -> button4_5.text = it.strSubject + "\n" + it.strClassRoom
-                button4_6.id -> button4_6.text = it.strSubject + "\n" + it.strClassRoom
-                button4_7.id -> button4_7.text = it.strSubject + "\n" + it.strClassRoom
-                button5_1.id -> button5_1.text = it.strSubject + "\n" + it.strClassRoom
-                button5_2.id -> button5_2.text = it.strSubject + "\n" + it.strClassRoom
-                button5_3.id -> button5_3.text = it.strSubject + "\n" + it.strClassRoom
-                button5_4.id -> button5_4.text = it.strSubject + "\n" + it.strClassRoom
-                button5_5.id -> button5_5.text = it.strSubject + "\n" + it.strClassRoom
-                button5_6.id -> button5_6.text = it.strSubject + "\n" + it.strClassRoom
-                button5_7.id -> button5_7.text = it.strSubject + "\n" + it.strClassRoom
+                button1_1.id -> {
+                    subjectName1_1.text = it.strSubject
+                    classRoom1_1.text = it.strClassRoom
+                }
+                button1_2.id -> {
+                    subjectName1_2.text = it.strSubject
+                    classRoom1_2.text = it.strClassRoom
+                }
+                button1_3.id -> {
+                    subjectName1_3.text = it.strSubject
+                    classRoom1_3.text = it.strClassRoom
+                }
+                button1_4.id -> {
+                    subjectName1_4.text = it.strSubject
+                    classRoom1_4.text = it.strClassRoom
+                }
+                button1_5.id -> {
+                    subjectName1_5.text = it.strSubject
+                    classRoom1_5.text = it.strClassRoom
+                }
+                button1_6.id -> {
+                    subjectName1_6.text = it.strSubject
+                    classRoom1_6.text = it.strClassRoom
+                }
+                button1_7.id -> {
+                    subjectName1_7.text = it.strSubject
+                    classRoom1_7.text = it.strClassRoom
+                }
+                button2_1.id -> {
+                    subjectName2_1.text = it.strSubject
+                    classRoom2_1.text = it.strClassRoom
+                }
+                button2_2.id -> {
+                    subjectName2_2.text = it.strSubject
+                    classRoom2_2.text = it.strClassRoom
+                }
+                button2_3.id -> {
+                    subjectName2_3.text = it.strSubject
+                    classRoom2_3.text = it.strClassRoom
+                }
+                button2_4.id -> {
+                    subjectName2_4.text = it.strSubject
+                    classRoom2_4.text = it.strClassRoom
+                }
+                button2_5.id -> {
+                    subjectName2_5.text = it.strSubject
+                    classRoom2_5.text = it.strClassRoom
+                }
+                button2_6.id -> {
+                    subjectName2_6.text = it.strSubject
+                    classRoom2_6.text = it.strClassRoom
+                }
+                button2_7.id -> {
+                    subjectName2_7.text = it.strSubject
+                    classRoom2_7.text = it.strClassRoom
+                }
+                button3_1.id -> {
+                    subjectName3_1.text = it.strSubject
+                    classRoom3_1.text = it.strClassRoom
+                }
+                button3_2.id -> {
+                    subjectName3_2.text = it.strSubject
+                    classRoom3_2.text = it.strClassRoom
+                }
+                button3_3.id -> {
+                    subjectName3_3.text = it.strSubject
+                    classRoom3_3.text = it.strClassRoom
+                }
+                button3_4.id -> {
+                    subjectName3_4.text = it.strSubject
+                    classRoom3_4.text = it.strClassRoom
+                }
+                button3_5.id -> {
+                    subjectName3_5.text = it.strSubject
+                    classRoom3_5.text = it.strClassRoom
+                }
+                button3_6.id -> {
+                    subjectName3_6.text = it.strSubject
+                    classRoom3_6.text = it.strClassRoom
+                }
+                button3_7.id -> {
+                    subjectName3_7.text = it.strSubject
+                    classRoom3_7.text = it.strClassRoom
+                }
+                button4_1.id -> {
+                    subjectName4_1.text = it.strSubject
+                    classRoom4_1.text = it.strClassRoom
+                }
+                button4_2.id -> {
+                    subjectName4_2.text = it.strSubject
+                    classRoom4_2.text = it.strClassRoom
+                }
+                button4_3.id -> {
+                    subjectName4_3.text = it.strSubject
+                    classRoom4_3.text = it.strClassRoom
+                }
+                button4_4.id -> {
+                    subjectName4_4.text = it.strSubject
+                    classRoom4_4.text = it.strClassRoom
+                }
+                button4_5.id -> {
+                    subjectName4_5.text = it.strSubject
+                    classRoom4_5.text = it.strClassRoom
+                }
+                button4_6.id -> {
+                    subjectName4_6.text = it.strSubject
+                    classRoom4_6.text = it.strClassRoom
+                }
+                button4_7.id -> {
+                    subjectName4_7.text = it.strSubject
+                    classRoom4_7.text = it.strClassRoom
+                }
+                button5_1.id -> {
+                    subjectName5_1.text = it.strSubject
+                    classRoom5_1.text = it.strClassRoom
+                }
+                button5_2.id -> {
+                    subjectName5_2.text = it.strSubject
+                    classRoom5_2.text = it.strClassRoom
+                }
+                button5_3.id -> {
+                    subjectName5_3.text = it.strSubject
+                    classRoom5_3.text = it.strClassRoom
+                }
+                button5_4.id -> {
+                    subjectName5_4.text = it.strSubject
+                    classRoom5_4.text = it.strClassRoom
+                }
+                button5_5.id -> {
+                    subjectName5_5.text = it.strSubject
+                    classRoom5_5.text = it.strClassRoom
+                }
+                button5_6.id -> {
+                    subjectName5_6.text = it.strSubject
+                    classRoom5_6.text = it.strClassRoom
+                }
+                button5_7.id -> {
+                    subjectName5_7.text = it.strSubject
+                    classRoom5_7.text = it.strClassRoom
+                }
                 else -> Toast.makeText(this@TimeTableActivity, "ERROR REGISTERING", Toast.LENGTH_SHORT).show()
             }
         }
