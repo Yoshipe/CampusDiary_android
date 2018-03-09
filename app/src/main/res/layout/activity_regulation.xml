@@ -26,7 +26,7 @@
                     android:id="@+id/buttonArrowBack"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/ic_arrow_white_black_24dp" />
+                    android:background="@drawable/ic_arrow_back_white_24dp" />
 
                 <TextView
                     android:layout_width="match_parent"
