@@ -119,7 +119,6 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
                 timeTableDB.intId = button.id
                 timeTableDB.strSubject = subject.text.toString()
                 timeTableDB.strClassRoom = classRoom.text.toString()
-                timeTableDB.isFirst = false
                 realm.commitTransaction()
                 // 該当するボタンのテキストに登録
                 setButtonText()

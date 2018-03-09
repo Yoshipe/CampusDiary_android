@@ -1,21 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+
+<android.support.design.widget.CoordinatorLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 
-    <EditText
-        android:id="@+id/subjectName"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="教科名"
-        />
+        android:layout_height="match_parent"
+        >
 
-    <EditText
-        android:id="@+id/classRoom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="教室名"
-        />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
 
-</LinearLayout>
+            <EditText
+            android:id="@+id/subjectName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="教科名"
+            />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <EditText
+            android:id="@+id/classRoom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="教室名"
+            />
+
+        </android.support.design.widget.TextInputLayout>
+        
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
