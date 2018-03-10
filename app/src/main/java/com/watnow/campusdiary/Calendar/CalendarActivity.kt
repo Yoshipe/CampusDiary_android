@@ -33,6 +33,7 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
     private val glmanager = GridLayoutManager(this,7)
     private val testitems :Array<String> = arrayOf<String>("Android","iOS","Windows","macOS","Unix")
     private var testAdapter: ArrayAdapter<String>? = null
+    private var selectedPositon = todayPosition
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.calendar_activity)
@@ -59,8 +60,7 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
         // FloatingActionButtonのクリック処理を記述
         FloatingActionButton.setOnClickListener { // ここに処理を書く
             val intent = Intent(this@CalendarActivity, CalendarAddScheduleActivity::class.java)
-            // Todo Intentに選択されている日付を追加する
-            intent.putExtra(Constant.INTENT_KEY_DATE.name, "1")
+            intent.putExtra(Constant.INTENT_KEY_DATE.name, calendarDate.getday(selectedPositon))
             startActivity(intent)
         }
 
@@ -82,6 +82,7 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
                 calendarRecycleView.smoothScrollBy(0,view.height*((position - glmanager.findFirstVisibleItemPosition())/7 -1 ))
             }
         },0)
+        selectedPositon = position
     }
 
     /* *
