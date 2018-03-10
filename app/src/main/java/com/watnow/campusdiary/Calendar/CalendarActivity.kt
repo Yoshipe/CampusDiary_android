@@ -71,7 +71,7 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
 
     override fun onResume() {
         super.onResume()
-        // Todo RecyclerViewに予定をセットする
+        calendarRecycleView.adapter.notifyDataSetChanged()
     }
 
     override fun onItemClick(view: View, position: Int) {
