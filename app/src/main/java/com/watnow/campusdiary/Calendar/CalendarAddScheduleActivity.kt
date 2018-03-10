@@ -34,7 +34,7 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
                 setPositiveButton("OK") {dialogInterface, i ->
                     val selectedButton = inflatedView.findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
                     colorId = getSelectedColor(selectedButton)
-                    buttonColorSelect.setBackgroundResource(colorId)
+                    button_color_select.setBackgroundResource(colorId)
                     new_event_navigation.setBackgroundResource(colorId)
                     new_event_title.setBackgroundResource(colorId)
                 }

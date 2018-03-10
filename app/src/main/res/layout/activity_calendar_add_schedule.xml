@@ -15,7 +15,7 @@
             android:id="@+id/new_event_navigation"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:background="#0000ff"
+            android:background="@color/diamond"
             android:paddingHorizontal="20dp"
             app:contentInsetStart="0dp"
             >
@@ -52,7 +52,7 @@
             android:layout_below="@id/new_event_navigation"
             android:paddingTop="30dp"
             android:paddingBottom="10dp"
-            android:background="#0000ff"
+            android:background="@color/diamond"
             android:paddingLeft="10dp"
             />
         <RelativeLayout
@@ -76,14 +76,14 @@
                 />
 
             <Button
-                android:id="@+id/buttonColorSelect"
+                android:id="@+id/button_color_select"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="20dp"
-                android:background="@color/ruby"
+                android:background="@color/diamond"
                 android:layout_marginTop="10dp"
                 android:enabled="false"
                 />
