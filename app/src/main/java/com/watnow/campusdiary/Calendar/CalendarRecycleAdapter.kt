@@ -21,6 +21,8 @@ import android.widget.LinearLayout
 import android.widget.TextClock
 import android.widget.TextView
 import com.watnow.campusdiary.R
+import com.watnow.campusdiary.RealmDB.CalendarDB
+import io.realm.Realm
 import kotlinx.android.synthetic.main.layout_calendar_item.view.*
 import java.util.ArrayList
 
@@ -33,6 +35,7 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
     private val todayPosition = calendarDate.todayPosition()
     private var selectedItem: SparseBooleanArray = SparseBooleanArray()
     private var myRecyclerView: RecyclerView? = null
+    lateinit var realm: Realm
     public var prepostion = todayPosition
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView?) {
         super.onAttachedToRecyclerView(recyclerView)
@@ -58,37 +61,41 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
             if(calendarDate.getMonth(position).toInt()%2 != calendarDate.getMonth(calendarDate.todayPosition()).toInt()%2) {
                 it.parentLayout.setBackgroundResource(R.drawable.color_calendar_sub_selector)
             }
-            //ToDo イベントがあれば以下の処理をする条件分岐
+
+            //ToDo その日にイベントがあれば以下の処理をする条件分岐
             it.showEventlayout.removeAllViews()
-            val eventNames = listOf<String>("りんご","ゴリラ","ラッfffffffffコ","a","test","わーー")
-            val eventThemes = listOf<String>("diamond","topaz","ruby","sapphire","perl","tigerEye")
-            for(i in 0..eventNames.size-1) {
-                val textView: TextView = TextView(context)
-                textView.setTextColor(Color.WHITE)
-                textView.setTextSize(9F)
-                textView.setText(eventNames[i])
-                val drawable = GradientDrawable().apply {
-                    cornerRadius = 7F
-                    when (eventThemes[i]) {
-                        "ruby" -> setColor(ContextCompat.getColor(context, R.color.ruby))
-                        "sapphire" -> setColor(ContextCompat.getColor(context, R.color.sapphire))
-                        "emerald" -> setColor(ContextCompat.getColor(context, R.color.emerald))
-                        "gold" -> setColor(ContextCompat.getColor(context, R.color.gold))
-                        "perl" -> setColor(ContextCompat.getColor(context, R.color.perl))
-                        "amethyst" -> setColor(ContextCompat.getColor(context, R.color.amethyst))
-                        "tigerEye" -> setColor(ContextCompat.getColor(context, R.color.tigerEye))
-                        "topaz" -> setColor(ContextCompat.getColor(context, R.color.topaz))
-                        "diamond" -> setColor(ContextCompat.getColor(context, R.color.diamond))
-                        else -> setColor(ContextCompat.getColor(context, R.color.diamond))
+            realm = Realm.getDefaultInstance()
+            val todayData = realm.where(CalendarDB::class.java).equalTo("date",calendarDate.getday(position)).findAll()
+            if (todayData != null) {
+                for(i in 0..todayData.size-1) {
+                    val textView: TextView = TextView(context)
+                    textView.setTextColor(Color.WHITE)
+                    textView.setTextSize(9F)
+                    textView.setText(todayData[i].title)
+                    val drawable = GradientDrawable().apply {
+                        cornerRadius = 7F
+                        when (todayData[i].theme) {
+                            "ルビー" -> setColor(ContextCompat.getColor(context, R.color.ruby))
+                            "サファイア" -> setColor(ContextCompat.getColor(context, R.color.sapphire))
+                            "エメラルド" -> setColor(ContextCompat.getColor(context, R.color.emerald))
+                            "ゴールド" -> setColor(ContextCompat.getColor(context, R.color.gold))
+                            "パール" -> setColor(ContextCompat.getColor(context, R.color.perl))
+                            "アメジスト" -> setColor(ContextCompat.getColor(context, R.color.amethyst))
+                            "タイガーアイ" -> setColor(ContextCompat.getColor(context, R.color.tigerEye))
+                            "トパーズ" -> setColor(ContextCompat.getColor(context, R.color.topaz))
+                            "ダイヤモンド" -> setColor(ContextCompat.getColor(context, R.color.diamond))
+                            else -> setColor(ContextCompat.getColor(context, R.color.diamond))
+                        }
                     }
+                    textView.background = drawable
+                    val llp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+                    llp.setMargins(7,7,7,0)
+                    textView.layoutParams = llp
+                    textView.ellipsize = TextUtils.TruncateAt.END
+                    textView.setHorizontallyScrolling(true)
+                    it.showEventlayout.addView(textView)
                 }
-                textView.background = drawable
-                val llp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-                llp.setMargins(7,7,7,0)
-                textView.layoutParams = llp
-                textView.ellipsize = TextUtils.TruncateAt.END
-                textView.setHorizontallyScrolling(true)
-                it.showEventlayout.addView(textView)
+            realm.close()
             }
         }
     }
