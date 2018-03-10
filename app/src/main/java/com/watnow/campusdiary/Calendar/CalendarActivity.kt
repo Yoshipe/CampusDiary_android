@@ -15,10 +15,12 @@ import android.widget.*
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import com.watnow.campusdiary.R
+import com.watnow.campusdiary.RealmDB.CalendarDB
 import com.watnow.campusdiary.RegulationActivity
 import com.watnow.campusdiary.SchoolYearActivity
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
 import com.watnow.campusdiary.Utils.Constant
+import io.realm.Realm
 import kotlinx.android.synthetic.main.calendar_activity.*
 import kotlinx.android.synthetic.main.layout_calendar_center.*
 import kotlinx.android.synthetic.main.layout_calendar_item.*
@@ -31,9 +33,9 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
     private val dateList = calendarDate.getAllDays()
     private val todayPosition = calendarDate.todayPosition()
     private val glmanager = GridLayoutManager(this,7)
-    private val testitems :Array<String> = arrayOf<String>("Android","iOS","Windows","macOS","Unix")
-    private var testAdapter: ArrayAdapter<String>? = null
+    private var eventListAdapter: ArrayAdapter<String>? = null
     private var selectedPositon = todayPosition
+    lateinit var realm: Realm
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.calendar_activity)
@@ -50,10 +52,7 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
                 select_date.text = calendarDate.getScrollTerm(leftPosition)
             }
         })
-        testAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, testitems)
-        testAdapter?.let {
-            calendar_oneday_list.adapter = it
-        }
+
         calendar_oneday_list.setOnItemClickListener { parent, view, position, id ->
         }
 
@@ -72,10 +71,31 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
     override fun onResume() {
         super.onResume()
         calendarRecycleView.adapter.notifyDataSetChanged()
+        realm = Realm.getDefaultInstance()
     }
 
+    override fun onPause() {
+        super.onPause()
+        realm.close()
+    }
+
+    // RecyclerViewのクリック処理
     override fun onItemClick(view: View, position: Int) {
         calendarRecycleView.adapter.notifyDataSetChanged()
+        val eventListitems :MutableList<String> = mutableListOf()
+        val date = calendarDate.getday(position)
+        val events = realm.where(CalendarDB::class.java).equalTo("date",calendarDate.getday(position)).findAll()
+        if (events != null) {
+            for(i in 0..events.size-1) {
+                eventListitems.add(events[i].title)
+            }
+        }
+        eventListAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, eventListitems)
+        eventListAdapter?.let {
+            calendar_oneday_list.adapter = it
+        }
+
+        eventListAdapter?.notifyDataSetChanged()
         sliding_layout.panelState = SlidingUpPanelLayout.PanelState.EXPANDED
         calendarRecycleView.postDelayed(Runnable {
             run() {
