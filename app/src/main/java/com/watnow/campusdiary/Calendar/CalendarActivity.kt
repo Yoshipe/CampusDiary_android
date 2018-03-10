@@ -18,13 +18,13 @@ import com.watnow.campusdiary.R
 import com.watnow.campusdiary.RegulationActivity
 import com.watnow.campusdiary.SchoolYearActivity
 import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
+import com.watnow.campusdiary.Utils.Constant
 import kotlinx.android.synthetic.main.calendar_activity.*
 import kotlinx.android.synthetic.main.layout_calendar_center.*
 import kotlinx.android.synthetic.main.layout_calendar_item.*
 
 class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListener, NavigationView.OnNavigationItemSelectedListener {
 
-    private val TAG: String = "CalendarActivity"
     private val ACTIVITY_NUM: Int = 0
     private val mContext: Context = this
     private val calendarDate = CalendarDate()
@@ -59,12 +59,19 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
         // FloatingActionButtonのクリック処理を記述
         FloatingActionButton.setOnClickListener { // ここに処理を書く
             val intent = Intent(this@CalendarActivity, CalendarAddScheduleActivity::class.java)
+            // Todo Intentに選択されている日付を追加する
+            intent.putExtra(Constant.INTENT_KEY_DATE.name, "1")
             startActivity(intent)
         }
 
         // NavigationDrawerのクリック処理
         navigatoinView.setNavigationItemSelectedListener(this)
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Todo RecyclerViewに予定をセットする
     }
 
     override fun onItemClick(view: View, position: Int) {
@@ -81,7 +88,6 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
     *  BottomNavigationView setup
     */
     private fun setupBottomNavigationView() {
-        Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView")
         val bottomNavigationViewEx: BottomNavigationViewEx = findViewById(R.id.bottomNavViewBar)
         val bottomNavViewHelper: BottomNavigationViewHelper = BottomNavigationViewHelper()
         bottomNavViewHelper.setupBottomNavigationView(bottomNavigationViewEx)
@@ -93,7 +99,6 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         if (item.toString() == getString(R.string.nav_Calendar)) {
-            Log.d("TAG", "item = ${item.toString()}")
             return true
         }
 
