@@ -50,27 +50,35 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
     // １ブロック分の処理
     override fun onBindViewHolder(holder: CalendarViewHolder?, position: Int) {
         holder?.let {
-            // 今日の場合背景を変える処理
+            // 今日の場合背景を変える
             if (this.todayPosition.toInt() == position) {
                 it.parentLayout.setBackgroundColor(Color.RED)
             } else {
                 it.parentLayout.setBackgroundResource(R.drawable.color_calendar_selector)
             }
+            // 日付
             it.itemTextView.text = itemList.get(position)
+            // 選択されているアイテムを、選択されている状態にする
             it.parentLayout.isSelected = selectedItem.get(position, false)
+            // 月のbackgroundを交互に色を変える
             if(calendarDate.getMonth(position).toInt()%2 != calendarDate.getMonth(calendarDate.todayPosition()).toInt()%2) {
                 it.parentLayout.setBackgroundResource(R.drawable.color_calendar_sub_selector)
             }
 
+            // showEventlayoutに含まれる全てのViewを消す
             it.showEventlayout.removeAllViews()
             realm = Realm.getDefaultInstance()
+            // アイテムの日付と同じデータをDBから取ってくる
             val todayData = realm.where(CalendarDB::class.java).equalTo("date",calendarDate.getday(position)).findAll()
+            // データがあればTextViewを追加する処理
             if (todayData != null) {
+                // データのサイズ回TextViewを表示
                 for(i in 0..todayData.size-1) {
                     val textView: TextView = TextView(context)
                     textView.setTextColor(Color.WHITE)
-                    textView.setTextSize(9F)
+                    textView.setTextSize(8F)
                     textView.setText(todayData[i].title)
+                    // Textviewの角を丸めるためにbackgroundをGradientDrawableをセットする
                     val drawable = GradientDrawable().apply {
                         cornerRadius = 7F
                         when (todayData[i].theme) {
@@ -87,14 +95,39 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
                         }
                     }
                     textView.background = drawable
+                    // 左と上と右に7、余白を開ける
                     val llp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
                     llp.setMargins(7,7,7,0)
                     textView.layoutParams = llp
+                    // paddingの設定
+                    textView.setPadding(5,3,3,5)
+                    // 文字列がTextViewの幅を超えた場合...で表す
                     textView.ellipsize = TextUtils.TruncateAt.END
                     textView.setHorizontallyScrolling(true)
                     it.showEventlayout.addView(textView)
                 }
             realm.close()
+            }
+            // 学年暦、祝日のデータを取ってくる
+            val publicDataNames = calendarDate.getPublicDataNames(position)
+            if (publicDataNames.isNotEmpty()) {
+                for(i in 0..publicDataNames.size-1) {
+                    val textView: TextView = TextView(context)
+                    textView.setTextColor(Color.WHITE)
+                    textView.setTextSize(8F)
+                    textView.setText(publicDataNames[i])
+                    val drawable = GradientDrawable().apply {
+                        cornerRadius = 7F
+                        setColor(ContextCompat.getColor(context, R.color.schoolEvent))
+                    }
+
+                    textView.background = drawable
+                    val llp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+                    llp.setMargins(7, 7, 7, 0)
+                    textView.layoutParams = llp
+                    textView.setPadding(5,3,3,5)
+                    it.showEventlayout.addView(textView)
+                }
             }
         }
     }
