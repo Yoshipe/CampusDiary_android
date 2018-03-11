@@ -62,7 +62,6 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
                 it.parentLayout.setBackgroundResource(R.drawable.color_calendar_sub_selector)
             }
 
-            //ToDo その日にイベントがあれば以下の処理をする条件分岐
             it.showEventlayout.removeAllViews()
             realm = Realm.getDefaultInstance()
             val todayData = realm.where(CalendarDB::class.java).equalTo("date",calendarDate.getday(position)).findAll()

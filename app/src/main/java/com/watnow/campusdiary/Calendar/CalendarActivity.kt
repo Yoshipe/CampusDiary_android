@@ -53,11 +53,8 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
             }
         })
 
-        calendar_oneday_list.setOnItemClickListener { parent, view, position, id ->
-        }
-
         // FloatingActionButtonのクリック処理を記述
-        FloatingActionButton.setOnClickListener { // ここに処理を書く
+        FloatingActionButton.setOnClickListener {
             val intent = Intent(this@CalendarActivity, CalendarAddScheduleActivity::class.java)
             intent.putExtra(Constant.INTENT_KEY_DATE.name, calendarDate.getday(selectedPositon))
             startActivity(intent)
@@ -70,8 +67,9 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
 
     override fun onResume() {
         super.onResume()
-        calendarRecycleView.adapter.notifyDataSetChanged()
         realm = Realm.getDefaultInstance()
+        calendarRecycleView.adapter.notifyDataSetChanged()
+        reloadItemList(selectedPositon)
     }
 
     override fun onPause() {
@@ -82,20 +80,7 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
     // RecyclerViewのクリック処理
     override fun onItemClick(view: View, position: Int) {
         calendarRecycleView.adapter.notifyDataSetChanged()
-        val eventListitems :MutableList<String> = mutableListOf()
-        val date = calendarDate.getday(position)
-        val events = realm.where(CalendarDB::class.java).equalTo("date",calendarDate.getday(position)).findAll()
-        if (events != null) {
-            for(i in 0..events.size-1) {
-                eventListitems.add(events[i].title)
-            }
-        }
-        eventListAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, eventListitems)
-        eventListAdapter?.let {
-            calendar_oneday_list.adapter = it
-        }
-
-        eventListAdapter?.notifyDataSetChanged()
+        reloadItemList(position)
         sliding_layout.panelState = SlidingUpPanelLayout.PanelState.EXPANDED
         calendarRecycleView.postDelayed(Runnable {
             run() {
@@ -103,6 +88,13 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
             }
         },0)
         selectedPositon = position
+        calendar_oneday_list.setOnItemClickListener { parent, onedayView, i, id ->
+            val intent = Intent(this@CalendarActivity, CalendarAddScheduleActivity::class.java)
+            intent.putExtra(Constant.INTENT_KEY_DATE.name, calendarDate.getday(selectedPositon))
+            intent.putExtra("listPosition",i)
+            intent.putExtra("date", calendarDate.getday(position))
+            startActivity(intent)
+        }
     }
 
     /* *
@@ -138,5 +130,21 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
             }
         }
         return true
+    }
+    private fun reloadItemList (position: Int){
+        val date = calendarDate.getday(position)
+        val eventListitems :MutableList<String> = mutableListOf()
+        val events = realm.where(CalendarDB::class.java).equalTo("date",date).findAll()
+        if (events != null) {
+            for(i in 0..events.size-1) {
+                eventListitems.add(events[i].title)
+            }
+        }
+        eventListAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, eventListitems)
+        eventListAdapter?.let {
+            calendar_oneday_list.adapter = it
+        }
+
+        eventListAdapter?.notifyDataSetChanged()
     }
 }
