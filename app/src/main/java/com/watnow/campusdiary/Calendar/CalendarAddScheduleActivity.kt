@@ -113,15 +113,15 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
     private fun getColorFromString(colorName: String): Int {
         var selectedColorId: Int = 0
         when (colorName) {
-            "ルビー" -> selectedColorId = ContextCompat.getColor(this, R.color.ruby)
-            "サファイア" -> selectedColorId = ContextCompat.getColor(this, R.color.sapphire)
-            "エメラルド" -> selectedColorId = ContextCompat.getColor(this, R.color.emerald)
-            "ゴールド" -> selectedColorId = ContextCompat.getColor(this, R.color.gold)
-            "パール" -> selectedColorId = ContextCompat.getColor(this, R.color.perl)
-            "アメジスト" -> selectedColorId = ContextCompat.getColor(this, R.color.amethyst)
-            "タイガーアイ" -> selectedColorId = ContextCompat.getColor(this, R.color.tigerEye)
-            "トパーズ" -> selectedColorId = ContextCompat.getColor(this, R.color.topaz)
-            "ダイヤモンド" -> selectedColorId = ContextCompat.getColor(this, R.color.diamond)
+            getString(R.string.ruby) -> selectedColorId = ContextCompat.getColor(this, R.color.ruby)
+            getString(R.string.sapphire) -> selectedColorId = ContextCompat.getColor(this, R.color.sapphire)
+            getString(R.string.emerald) -> selectedColorId = ContextCompat.getColor(this, R.color.emerald)
+            getString(R.string.gold) -> selectedColorId = ContextCompat.getColor(this, R.color.gold)
+            getString(R.string.perl) -> selectedColorId = ContextCompat.getColor(this, R.color.perl)
+            getString(R.string.amethyst) -> selectedColorId = ContextCompat.getColor(this, R.color.amethyst)
+            getString(R.string.tigerEye) -> selectedColorId = ContextCompat.getColor(this, R.color.tigerEye)
+            getString(R.string.topaz) -> selectedColorId = ContextCompat.getColor(this, R.color.topaz)
+            getString(R.string.diamond) -> selectedColorId = ContextCompat.getColor(this, R.color.diamond)
         }
         return selectedColorId
     }
