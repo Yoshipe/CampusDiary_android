@@ -62,24 +62,29 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
         }
 
         new_event_save_btn.setOnClickListener {
-            realm.beginTransaction()
-            val targetDB: CalendarDB
-            if (isUpdate) {
-                val updateDate: String = intent.extras.getString("date")
-                targetDB = realm.where(CalendarDB::class.java).equalTo("date",updateDate).findAll()[updateDateNum]
+            try {
+                realm.beginTransaction()
+                val targetDB: CalendarDB
+                if (isUpdate) {
+                    val updateDate: String = intent.extras.getString("date")
+                    targetDB = realm.where(CalendarDB::class.java).equalTo("date", updateDate).findAll()[updateDateNum]
 
-            } else {
-                targetDB = realm.createObject(CalendarDB::class.java)
+                } else {
+                    targetDB = realm.createObject(CalendarDB::class.java)
+                }
+
+                targetDB.title = new_event_title.text.toString()
+                val radioGroup = inflatedView.findViewById<RadioGroup>(R.id.radioGroup)
+                targetDB.theme = inflatedView.findViewById<RadioButton>(radioGroup.checkedRadioButtonId).text.toString()
+                targetDB.detail = new_event_detail.text.toString()
+                targetDB.date = date
+                realm.commitTransaction()
+                finish()
+                Toast.makeText(this@CalendarAddScheduleActivity, "登録しました", Toast.LENGTH_SHORT).show()
+            } catch (e: UninitializedPropertyAccessException) {
+                Toast.makeText(this@CalendarAddScheduleActivity, "未入力の欄があります", Toast.LENGTH_SHORT).show()
+                realm.cancelTransaction()
             }
-
-            targetDB.title = new_event_title.text.toString()
-            val radioGroup = inflatedView.findViewById<RadioGroup>(R.id.radioGroup)
-            targetDB.theme = inflatedView.findViewById<RadioButton>(radioGroup.checkedRadioButtonId).text.toString()
-            targetDB.detail = new_event_detail.text.toString()
-            targetDB.date = date
-            realm.commitTransaction()
-            finish()
-            Toast.makeText(this@CalendarAddScheduleActivity, "登録しました", Toast.LENGTH_SHORT).show()
         }
     }
 
