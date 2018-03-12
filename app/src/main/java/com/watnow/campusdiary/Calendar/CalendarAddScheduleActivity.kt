@@ -39,9 +39,9 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
             new_event_title.setBackgroundColor(getColorFromString(updateInfo.theme))
             new_event_detail.setText(updateInfo.detail)
         }
+        inflatedView = layoutInflater.inflate(R.layout.layout_calendar_add_alert_dialog, null)
 
         new_event_theme.setOnClickListener {
-            inflatedView = layoutInflater.inflate(R.layout.layout_calendar_add_alert_dialog, null)
             val radioGroup = inflatedView.findViewById<RadioGroup>(R.id.radioGroup)
             val dialog = AlertDialog.Builder(this@CalendarAddScheduleActivity).apply {
                 setView(inflatedView)
@@ -62,17 +62,19 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
         }
 
         new_event_save_btn.setOnClickListener {
-            try {
-                realm.beginTransaction()
-                val targetDB: CalendarDB
-                if (isUpdate) {
-                    val updateDate: String = intent.extras.getString("date")
-                    targetDB = realm.where(CalendarDB::class.java).equalTo("date", updateDate).findAll()[updateDateNum]
+            realm.beginTransaction()
+            val targetDB: CalendarDB
+            if (isUpdate) {
+                val updateDate: String = intent.extras.getString("date")
+                targetDB = realm.where(CalendarDB::class.java).equalTo("date", updateDate).findAll()[updateDateNum]
 
-                } else {
-                    targetDB = realm.createObject(CalendarDB::class.java)
-                }
-
+            } else {
+                targetDB = realm.createObject(CalendarDB::class.java)
+            }
+            if (new_event_title.text.toString() == "") {
+                realm.cancelTransaction()
+                Toast.makeText(this@CalendarAddScheduleActivity, "タイトルが未入力です", Toast.LENGTH_SHORT).show()
+            } else {
                 targetDB.title = new_event_title.text.toString()
                 val radioGroup = inflatedView.findViewById<RadioGroup>(R.id.radioGroup)
                 targetDB.theme = inflatedView.findViewById<RadioButton>(radioGroup.checkedRadioButtonId).text.toString()
@@ -81,9 +83,6 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
                 realm.commitTransaction()
                 finish()
                 Toast.makeText(this@CalendarAddScheduleActivity, "登録しました", Toast.LENGTH_SHORT).show()
-            } catch (e: UninitializedPropertyAccessException) {
-                Toast.makeText(this@CalendarAddScheduleActivity, "未入力の欄があります", Toast.LENGTH_SHORT).show()
-                realm.cancelTransaction()
             }
         }
     }
