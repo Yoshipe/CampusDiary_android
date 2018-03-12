@@ -2,6 +2,7 @@ package com.watnow.campusdiary.Calendar
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.annotation.IdRes
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.util.Log
@@ -21,6 +22,7 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
 
     lateinit var realm: Realm
     private lateinit var inflatedView: View
+    private lateinit var radioGroup: RadioGroup
     private var date: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +31,8 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
         date = intent.extras.getString(Constant.INTENT_KEY_DATE.name)
         val updateDateNum: Int = intent.extras.getInt("listPosition")
         val isUpdate: Boolean = intent.hasExtra("listPosition")
+        inflatedView = layoutInflater.inflate(R.layout.layout_calendar_add_alert_dialog, null)
+        radioGroup = inflatedView.findViewById<RadioGroup>(R.id.radioGroup)
         if (isUpdate) {
             val updateDate: String = intent.extras.getString("date")
             realm = Realm.getDefaultInstance()
@@ -36,13 +40,14 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
             new_event_title.setText(updateInfo.title)
             button_color_select.setBackgroundColor(getColorFromString(updateInfo.theme))
             new_event_navigation.setBackgroundColor(getColorFromString(updateInfo.theme))
+            Log.d("TAG", updateInfo.theme)
             new_event_title.setBackgroundColor(getColorFromString(updateInfo.theme))
             new_event_detail.setText(updateInfo.detail)
+            radioGroup.check(convertToRadioButtonId(updateInfo.theme))
         }
-        inflatedView = layoutInflater.inflate(R.layout.layout_calendar_add_alert_dialog, null)
+
 
         new_event_theme.setOnClickListener {
-            val radioGroup = inflatedView.findViewById<RadioGroup>(R.id.radioGroup)
             val dialog = AlertDialog.Builder(this@CalendarAddScheduleActivity).apply {
                 setView(inflatedView)
                 setPositiveButton("OK") {dialogInterface, i ->
@@ -76,7 +81,6 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
                 Toast.makeText(this@CalendarAddScheduleActivity, "タイトルが未入力です", Toast.LENGTH_SHORT).show()
             } else {
                 targetDB.title = new_event_title.text.toString()
-                val radioGroup = inflatedView.findViewById<RadioGroup>(R.id.radioGroup)
                 targetDB.theme = inflatedView.findViewById<RadioButton>(radioGroup.checkedRadioButtonId).text.toString()
                 targetDB.detail = new_event_detail.text.toString()
                 targetDB.date = date
@@ -128,5 +132,20 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
             getString(R.string.diamond) -> selectedColorId = ContextCompat.getColor(this, R.color.diamond)
         }
         return selectedColorId
+    }
+    private fun convertToRadioButtonId(colorName: String): Int {
+        val radioButtonId: Int = when (colorName) {
+            getString(R.string.ruby) -> R.id.radioRuby
+            getString(R.string.sapphire) -> R.id.radioSapphire
+            getString(R.string.emerald) -> R.id.radioEmerald
+            getString(R.string.gold) -> R.id.radioGold
+            getString(R.string.perl) -> R.id.radioPerl
+            getString(R.string.amethyst) -> R.id.radioAmethyst
+            getString(R.string.tigerEye) -> R.id.radioTigerEye
+            getString(R.string.topaz) -> R.id.radioTopaz
+            getString(R.string.diamond) -> R.id.radioDiamond
+            else -> R.id.radioDiamond
+        }
+        return radioButtonId
     }
 }
