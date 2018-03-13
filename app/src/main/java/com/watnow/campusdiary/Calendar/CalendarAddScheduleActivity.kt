@@ -1,8 +1,8 @@
 package com.watnow.campusdiary.Calendar
 
+import android.app.ProgressDialog.show
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.annotation.IdRes
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.util.Log
@@ -15,15 +15,18 @@ import io.realm.Realm
 import io.realm.RealmObject
 import kotlinx.android.synthetic.main.activity_calendar_add_schedule.*
 import kotlinx.android.synthetic.main.layout_calendar_add_alert_dialog.*
+import kotlinx.android.synthetic.main.layout_calendar_add_alert_dialog.view.*
 
 class CalendarAddScheduleActivity : AppCompatActivity() {
 
-    var colorId: Int = R.color.ruby
+    private var colorId: Int = R.color.diamond
 
     lateinit var realm: Realm
-    private lateinit var inflatedView: View
-    private lateinit var radioGroup: RadioGroup
     private var date: String = ""
+
+    private var currentTitle: String = ""
+    private var currentTheme: String = ""
+    private var currentDetail: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,33 +34,19 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
         date = intent.extras.getString(Constant.INTENT_KEY_DATE.name)
         val updateDateNum: Int = intent.extras.getInt("listPosition")
         val isUpdate: Boolean = intent.hasExtra("listPosition")
-        inflatedView = layoutInflater.inflate(R.layout.layout_calendar_add_alert_dialog, null)
-        radioGroup = inflatedView.findViewById<RadioGroup>(R.id.radioGroup)
         if (isUpdate) {
-            val updateDate: String = intent.extras.getString("date")
-            realm = Realm.getDefaultInstance()
-            val updateInfo = realm.where(CalendarDB::class.java).equalTo("date",updateDate).findAll()[updateDateNum]
-            new_event_title.setText(updateInfo.title)
-            button_color_select.setBackgroundColor(getColorFromString(updateInfo.theme))
-            new_event_navigation.setBackgroundColor(getColorFromString(updateInfo.theme))
-            Log.d("TAG", updateInfo.theme)
-            new_event_title.setBackgroundColor(getColorFromString(updateInfo.theme))
-            new_event_detail.setText(updateInfo.detail)
-            radioGroup.check(convertToRadioButtonId(updateInfo.theme))
+            setupInfo(updateDateNum)
         }
 
-
         new_event_theme.setOnClickListener {
+            val customView = createCustomView(isUpdate, updateDateNum)
             val dialog = AlertDialog.Builder(this@CalendarAddScheduleActivity).apply {
-                setView(inflatedView)
-                setPositiveButton("OK") {dialogInterface, i ->
-                    val selectedButton = inflatedView.findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
-                    colorId = getSelectedColorFromRadio(selectedButton)
-                    button_color_select.setBackgroundResource(colorId)
-                    new_event_navigation.setBackgroundResource(colorId)
-                    new_event_title.setBackgroundResource(colorId)
+                setView(customView)
+                setPositiveButton("OK") { _, _ ->
+                    val selectedButton: RadioButton = customView.findViewById<RadioButton>(customView.radioGroup.checkedRadioButtonId)
+                    Log.d("DEBUG", "selectedButton.text == " + selectedButton.text.toString())
+                    updateUiColor(selectedButton)
                 }
-
                 show()
             }
         }
@@ -67,22 +56,25 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
         }
 
         new_event_save_btn.setOnClickListener {
+            currentTitle = new_event_title.text.toString()
+            // currentThemeだけupdateUiColorで文字列を取得している
+            // 文字列の取得にradioButtonがいるため、updateUiColorメソッドの引数より参照した
+            currentDetail = new_event_detail.text.toString()
             realm.beginTransaction()
             val targetDB: CalendarDB
             if (isUpdate) {
                 val updateDate: String = intent.extras.getString("date")
                 targetDB = realm.where(CalendarDB::class.java).equalTo("date", updateDate).findAll()[updateDateNum]
-
             } else {
                 targetDB = realm.createObject(CalendarDB::class.java)
             }
-            if (new_event_title.text.toString() == "") {
+            if (currentTitle == "") {
                 realm.cancelTransaction()
                 Toast.makeText(this@CalendarAddScheduleActivity, "タイトルが未入力です", Toast.LENGTH_SHORT).show()
             } else {
-                targetDB.title = new_event_title.text.toString()
-                targetDB.theme = inflatedView.findViewById<RadioButton>(radioGroup.checkedRadioButtonId).text.toString()
-                targetDB.detail = new_event_detail.text.toString()
+                targetDB.title = currentTitle
+                targetDB.theme = currentTheme
+                targetDB.detail = currentDetail
                 targetDB.date = date
                 realm.commitTransaction()
                 finish()
@@ -101,21 +93,31 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
         realm.close()
     }
 
-    private fun getSelectedColorFromRadio(selectedButton: RadioButton): Int {
-        var selectedColorId: Int = 0
-        when (selectedButton.id) {
-            R.id.radioDiamond -> selectedColorId = R.color.diamond
-            R.id.radioPerl -> selectedColorId = R.color.perl
-            R.id.radioRuby -> selectedColorId = R.color.ruby
-            R.id.radioSapphire -> selectedColorId = R.color.sapphire
-            R.id.radioTopaz -> selectedColorId = R.color.topaz
-            R.id.radioEmerald -> selectedColorId = R.color.emerald
-            R.id.radioGold -> selectedColorId = R.color.gold
-            R.id.radioAmethyst -> selectedColorId = R.color.amethyst
-            R.id.radioTigerEye -> selectedColorId = R.color.tigerEye
-        }
+    private fun createCustomView(isUpdate: Boolean, updateDateNum: Int): View {
+        val view = layoutInflater.inflate(R.layout.layout_calendar_add_alert_dialog, null)
+        if (currentTheme != "")
+            view.radioGroup.check(convertToRadioButtonId(currentTheme))
+        return view
+    }
 
-        return selectedColorId
+    private fun updateUiColor(selectedButton: RadioButton) {
+        val colorId: Int = getColorFromString(selectedButton.text.toString())
+        button_color_select.setBackgroundColor(colorId)
+        new_event_navigation.setBackgroundColor(colorId)
+        new_event_title.setBackgroundColor(colorId)
+        currentTheme = selectedButton.text.toString()
+    }
+
+    private fun setupInfo(updateDateNum: Int) {
+        val updateDate: String = intent.extras.getString("date")
+        realm = Realm.getDefaultInstance()
+        val updateInfo = realm.where(CalendarDB::class.java).equalTo("date",updateDate).findAll()[updateDateNum]
+        new_event_title.setText(updateInfo.title)
+        button_color_select.setBackgroundColor(getColorFromString(updateInfo.theme))
+        new_event_navigation.setBackgroundColor(getColorFromString(updateInfo.theme))
+        new_event_title.setBackgroundColor(getColorFromString(updateInfo.theme))
+        new_event_detail.setText(updateInfo.detail)
+        currentTheme = updateInfo.theme
     }
 
     private fun getColorFromString(colorName: String): Int {
@@ -148,4 +150,5 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
         }
         return radioButtonId
     }
+
 }
