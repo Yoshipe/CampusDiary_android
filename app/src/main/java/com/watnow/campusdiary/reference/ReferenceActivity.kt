@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.*
@@ -19,12 +18,8 @@ import kotlinx.android.synthetic.main.layout_bottom_navigation_view.*
  * Created by saitoushunsuke on 2018/02/12.
  */
 class ReferenceActivity : AppCompatActivity() {
-
-    // デバッグ用のTAG
-    private val TAG: String = "ReferenceActivity"
-
     // BottomNavigationViewの画面遷移でこのアクティビティが何番に値するか
-    private val ACTIVITY_NUM: Int = 3
+    private val activityNum: Int = 3
 
     // このActivityのContext
     private val mContext: Context = this
@@ -33,12 +28,8 @@ class ReferenceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.reference_activity)
-        // デバッグ
-        Log.d(TAG, "onCreate: starting")
-
         // BottomNavigationViewのセットアップ
         setupBottomNavigationView()
-
         // 検索ボタンに対するクリック処理
         searchButton.setOnClickListener {
             search()
@@ -59,14 +50,11 @@ class ReferenceActivity : AppCompatActivity() {
     *  BottomNavigationView setup
     */
     private fun setupBottomNavigationView() {
-        // デバッグ
-        Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView")
-
-        var bottomNavViewHelper: BottomNavigationViewHelper = BottomNavigationViewHelper()
+        val bottomNavViewHelper = BottomNavigationViewHelper()
         bottomNavViewHelper.setupBottomNavigationView(bottomNavViewBar)
         bottomNavViewHelper.enableNavigation(mContext, bottomNavViewBar)
         val menu: Menu = bottomNavViewBar.menu
-        val menuItem: MenuItem = menu.getItem(ACTIVITY_NUM)
+        val menuItem: MenuItem = menu.getItem(activityNum)
         menuItem.isChecked = true
     }
 
@@ -74,7 +62,7 @@ class ReferenceActivity : AppCompatActivity() {
      * ListViewで画像のActivityに遷移させるメソッド
      */
     private fun leadImageFromListClicked(listView: ListView) {
-        val intent: Intent = Intent(mContext, ReferenceImageActivity::class.java)
+        val intent = Intent(mContext, ReferenceImageActivity::class.java)
         listView.setOnItemClickListener { parent, view, position, id ->
             val item: String = parent.getItemAtPosition(position).toString()
             intent.putExtra("content", item)
@@ -96,7 +84,7 @@ class ReferenceActivity : AppCompatActivity() {
             val newList: List<String> = listData.notificationLists.filter { it.contains(searchTxt.text.toString()) }
 
             // ReferenceListViewAdapter で新しく作ったListをadapterにセット
-            val newAdapter: ArrayAdapter<String> = ArrayAdapter<String>(mContext, android.R.layout.simple_list_item_1, newList)
+            val newAdapter: ArrayAdapter<String> = ArrayAdapter(mContext, android.R.layout.simple_list_item_1, newList)
             referenceList.adapter = newAdapter
         }
     }

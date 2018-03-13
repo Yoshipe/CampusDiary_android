@@ -13,7 +13,7 @@ import android.widget.*
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import com.watnow.campusdiary.R
-import com.watnow.campusdiary.realm_db.CalendarDB
+import com.watnow.campusdiary.realmdb.CalendarDB
 import com.watnow.campusdiary.RegulationActivity
 import com.watnow.campusdiary.SchoolYearActivity
 import com.watnow.campusdiary.utils.BottomNavigationViewHelper
@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.layout_calendar_center.*
 
 class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListener, NavigationView.OnNavigationItemSelectedListener {
 
-    private val ACTIVITY_NUM: Int = 0
+    private val activityNum: Int = 0
     private val mContext: Context = this
     private val calendarDate = CalendarDate()
     private val dateList = calendarDate.getAllDays()
@@ -79,7 +79,7 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
         calendarRecycleView.adapter.notifyDataSetChanged()
         reloadItemList(position)
         sliding_layout.panelState = SlidingUpPanelLayout.PanelState.EXPANDED
-        calendarRecycleView.postDelayed(Runnable {
+        calendarRecycleView.postDelayed({
             run {
                 calendarRecycleView.smoothScrollBy(0,view.height*((position - glmanager.findFirstVisibleItemPosition())/7 -1 ))
             }
@@ -99,11 +99,11 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
     */
     private fun setupBottomNavigationView() {
         val bottomNavigationViewEx: BottomNavigationViewEx = findViewById(R.id.bottomNavViewBar)
-        val bottomNavViewHelper: BottomNavigationViewHelper = BottomNavigationViewHelper()
+        val bottomNavViewHelper = BottomNavigationViewHelper()
         bottomNavViewHelper.setupBottomNavigationView(bottomNavigationViewEx)
         bottomNavViewHelper.enableNavigation(mContext, bottomNavigationViewEx)
         val menu: Menu = bottomNavigationViewEx.menu
-        val menuItem: MenuItem = menu.getItem(ACTIVITY_NUM)
+        val menuItem: MenuItem = menu.getItem(activityNum)
         menuItem.isChecked = true
     }
 
@@ -133,11 +133,11 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
         val eventListitems :MutableList<String> = mutableListOf()
         val events = realm.where(CalendarDB::class.java).equalTo("date",date).findAll()
         if (events != null) {
-            for(i in 0..events.size-1) {
+            for(i in 0 until events.size-1) {
                 eventListitems.add(events[i].title)
             }
         }
-        eventListAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, eventListitems)
+        eventListAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, eventListitems)
         eventListAdapter?.let {
             calendar_oneday_list.adapter = it
         }

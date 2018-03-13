@@ -8,16 +8,13 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import com.watnow.campusdiary.R
-import com.watnow.campusdiary.realm_db.CalendarDB
+import com.watnow.campusdiary.realmdb.CalendarDB
 import com.watnow.campusdiary.utils.Constant
 import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_calendar_add_schedule.*
 import kotlinx.android.synthetic.main.layout_calendar_add_alert_dialog.view.*
 
 class CalendarAddScheduleActivity : AppCompatActivity() {
-
-    private var colorId: Int = R.color.diamond
-
     lateinit var realm: Realm
     private var date: String = ""
 
@@ -40,7 +37,7 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
             val dialog = AlertDialog.Builder(this@CalendarAddScheduleActivity).apply {
                 setView(customView)
                 setPositiveButton("OK") { _, _ ->
-                    val selectedButton: RadioButton = customView.findViewById<RadioButton>(customView.radioGroup.checkedRadioButtonId)
+                    val selectedButton: RadioButton = customView.findViewById(customView.radioGroup.checkedRadioButtonId)
                     Log.d("DEBUG", "selectedButton.text == " + selectedButton.text.toString())
                     updateUiColor(selectedButton)
                 }
@@ -59,11 +56,11 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
             currentDetail = new_event_detail.text.toString()
             realm.beginTransaction()
             val targetDB: CalendarDB
-            if (isUpdate) {
+            targetDB = if (isUpdate) {
                 val updateDate: String = intent.extras.getString("date")
-                targetDB = realm.where(CalendarDB::class.java).equalTo("date", updateDate).findAll()[updateDateNum]
+                realm.where(CalendarDB::class.java).equalTo("date", updateDate).findAll()[updateDateNum]
             } else {
-                targetDB = realm.createObject(CalendarDB::class.java)
+                realm.createObject(CalendarDB::class.java)
             }
             if (currentTitle == "") {
                 realm.cancelTransaction()
@@ -91,7 +88,7 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
     }
 
     private fun createCustomView(isUpdate: Boolean, updateDateNum: Int): View {
-        val view = layoutInflater.inflate(R.layout.layout_calendar_add_alert_dialog, null)
+        val view = View.inflate(this, R.layout.layout_calendar_add_alert_dialog, null)
         if (currentTheme != "")
             view.radioGroup.check(convertToRadioButtonId(currentTheme))
         return view
@@ -118,7 +115,7 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
     }
 
     private fun getColorFromString(colorName: String): Int {
-        var selectedColorId: Int = 0
+        var selectedColorId = 0
         when (colorName) {
             getString(R.string.ruby) -> selectedColorId = ContextCompat.getColor(this, R.color.ruby)
             getString(R.string.sapphire) -> selectedColorId = ContextCompat.getColor(this, R.color.sapphire)
@@ -133,7 +130,8 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
         return selectedColorId
     }
     private fun convertToRadioButtonId(colorName: String): Int {
-        val radioButtonId: Int = when (colorName) {
+        var radioButtonId = 0
+        radioButtonId = when (colorName) {
             getString(R.string.ruby) -> R.id.radioRuby
             getString(R.string.sapphire) -> R.id.radioSapphire
             getString(R.string.emerald) -> R.id.radioEmerald

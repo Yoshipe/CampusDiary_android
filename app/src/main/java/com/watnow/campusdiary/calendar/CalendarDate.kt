@@ -9,9 +9,9 @@ import java.util.*
  */
 class CalendarDate {
     // momentは現在時刻
-    val moment = Moment(locale = Locale.JAPAN)
-    var firstDate = moment.subtract(5, TimeUnit.YEARS)
-    var endDate = moment.add(5, TimeUnit.YEARS)
+    private val moment = Moment(locale = Locale.JAPAN)
+    private var firstDate = moment.subtract(5, TimeUnit.YEARS)
+    private var endDate = moment.add(5, TimeUnit.YEARS)
 
     init {
         firstDate = firstDate.subtract((moment.day - 1).toLong(), TimeUnit.DAYS)
@@ -83,7 +83,7 @@ class CalendarDate {
     }
 
     // positionを引数にとり、そのyyyy年MM月を返すメソッド
-    fun getYearMonth(position: Int): String {
+    private fun getYearMonth(position: Int): String {
         var tmpdate = firstDate
         tmpdate = tmpdate.add(position.toLong(), TimeUnit.DAYS)
         return tmpdate.format("yyyy年MM月")

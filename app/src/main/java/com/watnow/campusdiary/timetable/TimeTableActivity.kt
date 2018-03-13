@@ -1,7 +1,6 @@
-package com.watnow.campusdiary.time_table
+package com.watnow.campusdiary.timetable
 
 import android.content.Context
-import android.content.DialogInterface
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
@@ -12,7 +11,7 @@ import android.view.View
 import android.widget.*
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.R
-import com.watnow.campusdiary.realm_db.TimeTableDB
+import com.watnow.campusdiary.realmdb.TimeTableDB
 import com.watnow.campusdiary.utils.BottomNavigationViewHelper
 import io.realm.Realm
 import kotlinx.android.synthetic.main.layout_time_table_contents.*
@@ -22,7 +21,7 @@ import kotlinx.android.synthetic.main.layout_time_table_contents.*
  */
 class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
 
-    private val ACTIVITY_NUM: Int = 2
+    private val activityNum: Int = 2
     private val mContext: Context = this@TimeTableActivity
     lateinit var realm: Realm
 
@@ -111,7 +110,7 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
         AlertDialog.Builder(this@TimeTableActivity).apply {
             setView(customLayout)
             setTitle("時間割登録")
-            setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
+            setPositiveButton("OK", { _, _ ->
                 // 登録ボタンを押したときのDBへの登録
                 realm.beginTransaction()
                 val timeTableDB = realm.createObject(TimeTableDB::class.java)
@@ -130,7 +129,7 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
 
 
     private fun changeSubject(button: CardView) {
-        val customLayout = layoutInflater.inflate(R.layout.component_time_table_dialog, null)
+        val customLayout = View.inflate(this, R.layout.component_time_table_dialog, null)
 
         // inflateしたレイアウトから各ビューを紐付け
         val subject: EditText = customLayout.findViewById(R.id.subjectName)
@@ -145,7 +144,7 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
         AlertDialog.Builder(this@TimeTableActivity).apply {
             setView(customLayout)
             setTitle("時間割編集")
-            setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
+            setPositiveButton("OK", { _, _ ->
                 // 修正後、登録ボタンを押したとき
                 realm.beginTransaction()
                 result.strSubject = subject.text.toString()
@@ -315,11 +314,11 @@ class TimeTableActivity : AppCompatActivity(), View.OnClickListener {
     */
     private fun setupBottomNavigationView() {
         val bottomNavigationViewEx: BottomNavigationViewEx = findViewById(R.id.bottomNavViewBar)
-        var bottomNavViewHelper: BottomNavigationViewHelper = BottomNavigationViewHelper()
+        val bottomNavViewHelper = BottomNavigationViewHelper()
         bottomNavViewHelper.setupBottomNavigationView(bottomNavigationViewEx)
         bottomNavViewHelper.enableNavigation(mContext, bottomNavigationViewEx)
         val menu: Menu = bottomNavigationViewEx.menu
-        val menuItem: MenuItem = menu.getItem(ACTIVITY_NUM)
+        val menuItem: MenuItem = menu.getItem(activityNum)
         menuItem.isChecked = true
     }
 }

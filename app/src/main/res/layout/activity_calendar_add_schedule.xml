@@ -84,7 +84,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="2dp"
                 android:layout_marginStart="2dp"
-                />
+                tools:ignore="RelativeOverlap" />
 
             <Button
                 android:id="@+id/button_color_select"

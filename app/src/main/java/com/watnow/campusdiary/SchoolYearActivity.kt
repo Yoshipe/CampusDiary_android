@@ -2,7 +2,6 @@ package com.watnow.campusdiary
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_regulation.*
 import kotlinx.android.synthetic.main.activity_school_year.*
 
 class SchoolYearActivity : AppCompatActivity() {

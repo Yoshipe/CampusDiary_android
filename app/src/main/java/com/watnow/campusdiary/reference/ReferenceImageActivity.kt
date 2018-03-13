@@ -11,11 +11,7 @@ import com.watnow.campusdiary.R
 import java.io.InputStream
 
 class ReferenceImageActivity : AppCompatActivity() {
-
-    private val TAG: String = "ReferenceImageActivity"
-
     private lateinit var notificationImage: ImageView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reference_image)
@@ -24,7 +20,7 @@ class ReferenceImageActivity : AppCompatActivity() {
         // initializing Views
         notificationImage = findViewById(R.id.notificationImage)
         // ImageView
-        val notification: String = "notification"
+        val notification = "notification"
         val imageName: String = notification + when (content) {
             getString(R.string.Reference0) -> "Component.png"
             getString(R.string.Reference1) -> "Family.png"
@@ -57,7 +53,7 @@ class ReferenceImageActivity : AppCompatActivity() {
             getString(R.string.Reference28) -> "AccessCampus.png"
             else -> Log.d("Position", "Else is selected")
         }
-        Log.d("Position", imageName)
+
         val isStream: InputStream = resources.assets.open(imageName)
         val bitmap: Bitmap = BitmapFactory.decodeStream(isStream)
         notificationImage.setImageBitmap(null)

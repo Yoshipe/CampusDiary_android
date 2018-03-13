@@ -3,10 +3,8 @@ package com.watnow.campusdiary
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import kotlinx.android.synthetic.main.activity_regulation.*
 import java.io.BufferedReader
-import java.io.File
 import java.io.IOException
 import java.io.InputStreamReader
 
@@ -21,7 +19,7 @@ class RegulationActivity : AppCompatActivity() {
         }
 
         var tmp: List<String>? = null
-        val newLineTag: String = "***"
+        val newLineTag = "***"
         try {
             val fileInput = assets.open("regulation.txt")
             val reader = BufferedReader(InputStreamReader(fileInput))
@@ -30,12 +28,12 @@ class RegulationActivity : AppCompatActivity() {
             Log.d("IOException", "ERROR LAUNCHING: $e")
         }
 
-        var allText: String = ""
+        var allText = ""
         tmp?.forEach {
-            if (it == newLineTag) {
-                allText += "\n\n"
+            allText += if (it == newLineTag) {
+                "\n\n"
             } else {
-                allText += it
+                it
             }
         }
 

@@ -8,7 +8,7 @@ import android.view.View
  * Created by Shogo on 2018/02/14.
  */
 class CalenarDividerItemDecoration(private val spanCount: Int, private val spacing: Int, private val includeEdge: Boolean, private val headerNum: Int): RecyclerView.ItemDecoration() {
-    val calendarDate: CalendarDate = CalendarDate()
+    private val calendarDate: CalendarDate = CalendarDate()
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         val position = parent.getChildAdapterPosition(view) - headerNum
         val isFirstDate: String = calendarDate.getOnlyDate(position)

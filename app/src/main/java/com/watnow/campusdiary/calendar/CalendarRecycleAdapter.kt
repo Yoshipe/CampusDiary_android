@@ -13,7 +13,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.watnow.campusdiary.R
-import com.watnow.campusdiary.realm_db.CalendarDB
+import com.watnow.campusdiary.realmdb.CalendarDB
 import io.realm.Realm
 
 /**
@@ -26,7 +26,7 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
     private var selectedItem: SparseBooleanArray = SparseBooleanArray()
     private var myRecyclerView: RecyclerView? = null
     lateinit var realm: Realm
-    var prepostion = todayPosition
+    private var prepostion = todayPosition
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
         super.onAttachedToRecyclerView(recyclerView)
         myRecyclerView = recyclerView
@@ -41,21 +41,19 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
     override fun onBindViewHolder(holder: CalendarViewHolder, position: Int) {
         holder.let {
             // 今日の場合背景を変える
-            if (this.todayPosition.toInt() == position) {
+            if (this.todayPosition == position) {
                 it.parentLayout.setBackgroundColor(Color.RED)
             } else {
                 it.parentLayout.setBackgroundResource(R.drawable.color_calendar_selector)
             }
             // 日付
-            it.itemTextView.text = itemList.get(position)
+            it.itemTextView.text = itemList[position]
             val row = calendarDate.getRow(position)
             it.itemTextView.apply {
-                if (row == 6) {
-                    setTextColor(ContextCompat.getColor(context, R.color.saturday))
-                } else if (row == 7) {
-                    setTextColor(ContextCompat.getColor(context, R.color.sunday))
-                } else {
-                    setTextColor(ContextCompat.getColor(context, R.color.weekday))
+                when (row) {
+                    6 -> setTextColor(ContextCompat.getColor(context, R.color.saturday))
+                    7 -> setTextColor(ContextCompat.getColor(context, R.color.sunday))
+                    else -> setTextColor(ContextCompat.getColor(context, R.color.weekday))
                 }
             }
             // 選択されているアイテムを、選択されている状態にする
@@ -73,8 +71,8 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
             // データがあればTextViewを追加する処理
             if (todayData != null) {
                 // データのサイズ回TextViewを表示
-                for(i in 0..todayData.size-1) {
-                    val textView: TextView = TextView(context)
+                for(i in 0 until todayData.size-1) {
+                    val textView = TextView(context)
                     textView.setTextColor(Color.WHITE)
                     textView.textSize = 8F
                     textView.text = todayData[i].title
@@ -115,8 +113,8 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
             // 学年暦、祝日のデータを取ってくる
             val publicDataNames = calendarDate.getPublicDataNames(position)
             if (publicDataNames.isNotEmpty()) {
-                for(i in 0..publicDataNames.size-1) {
-                    val textView: TextView = TextView(context)
+                for(i in 0 until publicDataNames.size-1) {
+                    val textView = TextView(context)
                     textView.setTextColor(Color.WHITE)
                     textView.textSize = 8F
                     textView.text = publicDataNames[i]
