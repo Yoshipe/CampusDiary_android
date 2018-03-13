@@ -89,6 +89,12 @@ class CalendarDate {
         tmpdate = tmpdate.add(position.toLong(), TimeUnit.DAYS)
         return tmpdate.format("yyyy年MM月")
     }
+
+    // positionを引数にとり、何列目かを返すメソッド
+    public fun getRow(position: Int): Int {
+        return position % 7 + 1
+    }
+
     //position(カレンダーの一番左の時のみ)を引数にとり、その行のYYYY年MM月を返すメソッド
     public fun getScrollTerm(position: Int): String {
         var tmpPosition = position
