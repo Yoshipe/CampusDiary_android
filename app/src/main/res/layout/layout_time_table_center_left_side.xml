@@ -12,49 +12,49 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:background="@drawable/time_table_left_bar"
-                android:text="1"/>
+                android:text="@string/one"/>
             <TextView
                 android:layout_width="@dimen/time_table_left_bar_width"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:background="@drawable/time_table_left_bar"
-                android:text="2"/>
+                android:text="@string/two"/>
             <TextView
                 android:layout_width="@dimen/time_table_left_bar_width"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:background="@drawable/time_table_left_bar"
-                android:text="3"/>
+                android:text="@string/three"/>
             <TextView
                 android:layout_width="@dimen/time_table_left_bar_width"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:background="@drawable/time_table_left_bar"
-                android:text="4"/>
+                android:text="@string/four"/>
             <TextView
                 android:layout_width="@dimen/time_table_left_bar_width"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:background="@drawable/time_table_left_bar"
-                android:text="5"/>
+                android:text="@string/five"/>
             <TextView
                 android:layout_width="@dimen/time_table_left_bar_width"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:background="@drawable/time_table_left_bar"
-                android:text="6"/>
+                android:text="@string/six"/>
             <TextView
                 android:layout_width="@dimen/time_table_left_bar_width"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:background="@drawable/time_table_left_bar"
-                android:text="7"/>
+                android:text="@string/seven"/>
 
     </LinearLayout>
 

@@ -1,4 +1,4 @@
-package com.watnow.campusdiary.Map
+package com.watnow.campusdiary.map
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -12,7 +12,7 @@ import android.view.View
 import android.widget.*
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.R
-import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
+import com.watnow.campusdiary.utils.BottomNavigationViewHelper
 import java.io.IOException
 import java.io.InputStream
 

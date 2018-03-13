@@ -1,11 +1,9 @@
-package com.watnow.campusdiary.Reference
+package com.watnow.campusdiary.reference
 
 import android.content.Context
-import android.support.v7.app.AppCompatActivity
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import com.watnow.campusdiary.R
-import android.content.res.Resources
 
 /**
  * Created by saitoushunsuke on 2018/02/15.

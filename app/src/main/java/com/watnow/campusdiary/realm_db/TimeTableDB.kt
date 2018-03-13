@@ -1,4 +1,4 @@
-package com.watnow.campusdiary.RealmDB
+package com.watnow.campusdiary.realm_db
 
 import io.realm.RealmObject
 

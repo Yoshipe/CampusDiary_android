@@ -1,4 +1,4 @@
-package com.watnow.campusdiary.Utils
+package com.watnow.campusdiary.utils
 
 /**
  * Created by saitoushunsuke on 2018/03/10.

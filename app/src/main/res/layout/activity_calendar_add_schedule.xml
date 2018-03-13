@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.watnow.campusdiary.Calendar.CalendarAddScheduleActivity">
+    tools:context="com.watnow.campusdiary.calendar.CalendarAddScheduleActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,14 +16,17 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:background="@color/diamond"
-            android:paddingHorizontal="20dp"
+            android:paddingStart="20dp"
+            android:paddingLeft="20dp"
+            android:paddingEnd="20dp"
+            android:paddingRight="20dp"
             app:contentInsetStart="0dp"
             >
             <Button
                 android:id="@+id/new_event_cancel_btn"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_gravity="left"
+                android:layout_gravity="start"
                 android:background="@drawable/ic_arrow_back_white_24dp"
                 />
             <TextView
@@ -31,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="イベントの作成"
+                android:text="@string/new_event"
                 android:textSize="15sp"
                 android:textColor="#ffffff"/>
 
@@ -39,13 +42,13 @@
                 android:id="@+id/new_event_save_btn"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_gravity="right"
+                android:layout_gravity="end"
                 android:background="@drawable/ic_check_white_24dp"
                 />
         </android.support.v7.widget.Toolbar>
         <EditText
             android:id="@+id/new_event_title"
-            android:hint="予定を入力してください..."
+            android:hint="@string/new_event_name"
             android:textColorHint="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,6 +57,8 @@
             android:paddingBottom="10dp"
             android:background="@color/diamond"
             android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingRight="10dp"
             android:inputType="text"
             />
         <RelativeLayout
@@ -61,19 +66,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
+            android:focusable="true"
             android:layout_below="@id/new_event_title"
-            android:paddingVertical="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:background="@color/white"
             android:layout_marginBottom="1dp"
             android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingRight="10dp"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="テーマ"
+                android:text="@string/new_event_theme"
                 android:textSize="18sp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="2dp"
+                android:layout_marginStart="2dp"
                 />
 
             <Button
@@ -84,6 +94,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp"
                 android:background="@color/diamond"
                 android:layout_marginTop="10dp"
                 android:enabled="false"
@@ -100,10 +111,12 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/new_event_theme"
             android:gravity="top"
-            android:hint="詳細"
+            android:hint="@string/new_event_detail"
             android:background="@color/white"
             android:paddingTop="10dp"
             android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingRight="10dp"
             />
 
         <Button
@@ -114,7 +127,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:background="@color/diamond"
-            android:text="削除"
+            android:text="@string/new_event_discard"
             android:textColor="@color/white"
             android:visibility="invisible"
             />

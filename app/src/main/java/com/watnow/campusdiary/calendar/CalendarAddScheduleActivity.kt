@@ -1,6 +1,5 @@
-package com.watnow.campusdiary.Calendar
+package com.watnow.campusdiary.calendar
 
-import android.app.ProgressDialog.show
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -9,12 +8,10 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import com.watnow.campusdiary.R
-import com.watnow.campusdiary.RealmDB.CalendarDB
-import com.watnow.campusdiary.Utils.Constant
+import com.watnow.campusdiary.realm_db.CalendarDB
+import com.watnow.campusdiary.utils.Constant
 import io.realm.Realm
-import io.realm.RealmObject
 import kotlinx.android.synthetic.main.activity_calendar_add_schedule.*
-import kotlinx.android.synthetic.main.layout_calendar_add_alert_dialog.*
 import kotlinx.android.synthetic.main.layout_calendar_add_alert_dialog.view.*
 
 class CalendarAddScheduleActivity : AppCompatActivity() {

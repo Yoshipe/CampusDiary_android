@@ -3,6 +3,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:baselineAligned="false"
         android:orientation="horizontal">
 
         <include
@@ -36,7 +37,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -46,7 +47,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -66,7 +67,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -76,7 +77,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -96,7 +97,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -106,7 +107,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -126,7 +127,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -136,7 +137,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -156,7 +157,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -166,7 +167,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -193,7 +194,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -203,7 +204,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -223,7 +224,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -233,7 +234,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -253,7 +254,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -263,7 +264,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -283,7 +284,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -293,7 +294,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -313,7 +314,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -323,7 +324,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -350,7 +351,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -360,7 +361,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -380,7 +381,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -390,7 +391,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -410,7 +411,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -420,7 +421,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -440,7 +441,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -450,7 +451,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -470,7 +471,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -480,7 +481,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -507,7 +508,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -517,7 +518,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -537,7 +538,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -547,7 +548,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -567,7 +568,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -577,7 +578,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -597,7 +598,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -607,7 +608,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -627,7 +628,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -637,7 +638,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -664,7 +665,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -674,7 +675,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -694,7 +695,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -704,7 +705,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -724,7 +725,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -734,7 +735,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -754,7 +755,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -764,7 +765,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -784,7 +785,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -794,7 +795,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -821,7 +822,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -831,7 +832,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -851,7 +852,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -861,7 +862,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -881,7 +882,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -891,7 +892,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -911,7 +912,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -921,7 +922,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -941,7 +942,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -951,7 +952,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -978,7 +979,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -988,7 +989,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -1008,7 +1009,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -1018,7 +1019,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -1038,7 +1039,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -1048,7 +1049,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -1068,7 +1069,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -1078,7 +1079,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>
@@ -1098,7 +1099,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                     <TextView
@@ -1108,7 +1109,7 @@
                         android:layout_gravity="center_horizontal|bottom"
                         android:gravity="center"
                         android:background="@color/TimeTableClassRoom"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         />
 
                 </android.support.v7.widget.CardView>

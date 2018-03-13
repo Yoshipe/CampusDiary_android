@@ -1,4 +1,4 @@
-package com.watnow.campusdiary.Utils
+package com.watnow.campusdiary.utils
 
 import android.app.Application
 import io.realm.Realm

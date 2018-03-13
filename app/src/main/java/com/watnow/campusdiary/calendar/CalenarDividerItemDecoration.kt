@@ -1,17 +1,13 @@
-package com.watnow.campusdiary.Calendar
+package com.watnow.campusdiary.calendar
 
-import android.content.Context
-import android.graphics.Canvas
 import android.graphics.Rect
-import android.graphics.drawable.Drawable
-import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.RecyclerView
 import android.view.View
 
 /**
  * Created by Shogo on 2018/02/14.
  */
-public class CalenarDividerItemDecoration(private val spanCount: Int, private val spacing: Int, private val includeEdge: Boolean, private val headerNum: Int): RecyclerView.ItemDecoration() {
+class CalenarDividerItemDecoration(private val spanCount: Int, private val spacing: Int, private val includeEdge: Boolean, private val headerNum: Int): RecyclerView.ItemDecoration() {
     val calendarDate: CalendarDate = CalendarDate()
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         val position = parent.getChildAdapterPosition(view) - headerNum

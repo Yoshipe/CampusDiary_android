@@ -1,30 +1,20 @@
-package com.watnow.campusdiary.Calendar
+package com.watnow.campusdiary.calendar
 
-import android.app.Activity
 import android.content.Context
 import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
+import android.os.Build
 import android.support.v4.content.ContextCompat
-import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
-import android.text.Layout
 import android.text.TextUtils
-import android.util.Log
 import android.util.SparseBooleanArray
-import android.util.TypedValue
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.LinearLayout
-import android.widget.TextClock
 import android.widget.TextView
 import com.watnow.campusdiary.R
-import com.watnow.campusdiary.RealmDB.CalendarDB
+import com.watnow.campusdiary.realm_db.CalendarDB
 import io.realm.Realm
-import kotlinx.android.synthetic.main.layout_calendar_item.view.*
-import java.util.ArrayList
 
 /**
  * Created by Shogo on 2018/02/12.
@@ -36,20 +26,20 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
     private var selectedItem: SparseBooleanArray = SparseBooleanArray()
     private var myRecyclerView: RecyclerView? = null
     lateinit var realm: Realm
-    public var prepostion = todayPosition
-    override fun onAttachedToRecyclerView(recyclerView: RecyclerView?) {
+    var prepostion = todayPosition
+    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
         super.onAttachedToRecyclerView(recyclerView)
         myRecyclerView = recyclerView
     }
 
-    override fun onDetachedFromRecyclerView(recyclerView: RecyclerView?) {
+    override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
         super.onDetachedFromRecyclerView(recyclerView)
         myRecyclerView = null
     }
 
     // １ブロック分の処理
-    override fun onBindViewHolder(holder: CalendarViewHolder?, position: Int) {
-        holder?.let {
+    override fun onBindViewHolder(holder: CalendarViewHolder, position: Int) {
+        holder.let {
             // 今日の場合背景を変える
             if (this.todayPosition.toInt() == position) {
                 it.parentLayout.setBackgroundColor(Color.RED)
@@ -86,8 +76,8 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
                 for(i in 0..todayData.size-1) {
                     val textView: TextView = TextView(context)
                     textView.setTextColor(Color.WHITE)
-                    textView.setTextSize(8F)
-                    textView.setText(todayData[i].title)
+                    textView.textSize = 8F
+                    textView.text = todayData[i].title
                     // Textviewの角を丸めるためにbackgroundをGradientDrawableをセットする
                     val drawable = GradientDrawable().apply {
                         cornerRadius = 7F
@@ -104,7 +94,11 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
                             else -> setColor(ContextCompat.getColor(context, R.color.diamond))
                         }
                     }
-                    textView.background = drawable
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        textView.background = drawable
+                    } else {
+                        textView.setBackgroundDrawable(drawable)
+                    }
                     // 左と上と右に7、余白を開ける
                     val llp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
                     llp.setMargins(7,7,7,0)
@@ -124,14 +118,18 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
                 for(i in 0..publicDataNames.size-1) {
                     val textView: TextView = TextView(context)
                     textView.setTextColor(Color.WHITE)
-                    textView.setTextSize(8F)
-                    textView.setText(publicDataNames[i])
+                    textView.textSize = 8F
+                    textView.text = publicDataNames[i]
                     val drawable = GradientDrawable().apply {
                         cornerRadius = 7F
                         setColor(ContextCompat.getColor(context, R.color.schoolEvent))
                     }
 
-                    textView.background = drawable
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        textView.background = drawable
+                    } else {
+                        textView.setBackgroundDrawable(drawable)
+                    }
                     val llp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
                     llp.setMargins(7, 7, 7, 0)
                     textView.layoutParams = llp
@@ -145,7 +143,7 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
     override fun getItemCount(): Int {
         return itemList.size
     }
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CalendarViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CalendarViewHolder {
         val layoutInflater = LayoutInflater.from(context)
         val myView = layoutInflater.inflate(R.layout.layout_calendar_item, parent, false)
         myView.setOnClickListener { view ->

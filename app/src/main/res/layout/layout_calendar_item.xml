@@ -11,8 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/date_txt"
-        android:textSize="10sp"
+        android:textSize="12sp"
         android:layout_marginLeft="2dp"
+        android:layout_marginStart="2dp"
         />
     <LinearLayout
         android:id="@+id/calendar_item_show_event"

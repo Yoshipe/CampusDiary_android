@@ -1,25 +1,21 @@
-package com.watnow.campusdiary.Utils
+package com.watnow.campusdiary.utils
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.widget.Toast
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.*
-import com.watnow.campusdiary.Calendar.CalendarActivity
-import com.watnow.campusdiary.Map.MapActivity
-import com.watnow.campusdiary.Reference.ReferenceActivity
-import com.watnow.campusdiary.TimeTable.TimeTableActivity
+import com.watnow.campusdiary.calendar.CalendarActivity
+import com.watnow.campusdiary.map.MapActivity
+import com.watnow.campusdiary.reference.ReferenceActivity
+import com.watnow.campusdiary.time_table.TimeTableActivity
 
 /**
  * Created by saitoushunsuke on 2018/02/12.
  */
 open class BottomNavigationViewHelper {
-    private val TAG: String = "BottomNavigationViewHelper"
-
     // setup BottomNavView without any animations
     fun setupBottomNavigationView(bottomNavigationViewEx: BottomNavigationViewEx) {
-        Log.d(TAG, "setupBottomNavigationView: Setting up BottomNavigationView")
         bottomNavigationViewEx.enableAnimation(false)
         bottomNavigationViewEx.enableItemShiftingMode(false)
         bottomNavigationViewEx.enableShiftingMode(false)

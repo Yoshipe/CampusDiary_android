@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.watnow.campusdiary.Calendar.CalendarActivity"
+    tools:context="com.watnow.campusdiary.calendar.CalendarActivity"
     tools:openDrawer="start">
 
     <FrameLayout
@@ -40,6 +40,7 @@
             android:layout_gravity="bottom|end"
             android:layout_marginBottom="60dp"
             android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:src="@drawable/ic_fab"
             />
 

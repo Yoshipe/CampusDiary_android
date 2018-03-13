@@ -21,7 +21,7 @@
             android:id="@+id/subjectName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="教科名"
+            android:hint="@string/subject_name"
             />
 
         </android.support.design.widget.TextInputLayout>
@@ -35,7 +35,7 @@
             android:id="@+id/classRoom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="教室名"
+            android:hint="@string/class_room_name"
             />
 
         </android.support.design.widget.TextInputLayout>

@@ -1,10 +1,9 @@
-package com.watnow.campusdiary.Calendar
+package com.watnow.campusdiary.calendar
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.watnow.campusdiary.R
 import kotlinx.android.synthetic.main.layout_calendar_item.view.*
 
 /**

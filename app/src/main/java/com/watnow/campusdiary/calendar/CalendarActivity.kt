@@ -1,4 +1,4 @@
-package com.watnow.campusdiary.Calendar
+package com.watnow.campusdiary.calendar
 
 import android.content.Context
 import android.content.Intent
@@ -6,8 +6,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v7.widget.*
-import android.util.Log
-import android.util.SparseBooleanArray
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -15,15 +13,14 @@ import android.widget.*
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
 import com.watnow.campusdiary.R
-import com.watnow.campusdiary.RealmDB.CalendarDB
+import com.watnow.campusdiary.realm_db.CalendarDB
 import com.watnow.campusdiary.RegulationActivity
 import com.watnow.campusdiary.SchoolYearActivity
-import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
-import com.watnow.campusdiary.Utils.Constant
+import com.watnow.campusdiary.utils.BottomNavigationViewHelper
+import com.watnow.campusdiary.utils.Constant
 import io.realm.Realm
 import kotlinx.android.synthetic.main.calendar_activity.*
 import kotlinx.android.synthetic.main.layout_calendar_center.*
-import kotlinx.android.synthetic.main.layout_calendar_item.*
 
 class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListener, NavigationView.OnNavigationItemSelectedListener {
 
@@ -42,7 +39,7 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
         setupBottomNavigationView()
         select_date.text = calendarDate.getScrollTerm(todayPosition)
         calendarRecycleView.adapter = CalendarRecycleAdapter(this, this, dateList)
-        calendarRecycleView.layoutManager = glmanager as RecyclerView.LayoutManager?
+        calendarRecycleView.layoutManager = glmanager
         calendarRecycleView.addItemDecoration(CalenarDividerItemDecoration(7, 1, true, 0))
         calendarRecycleView.scrollToPosition(todayPosition - 7)
         calendarRecycleView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -83,7 +80,7 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
         reloadItemList(position)
         sliding_layout.panelState = SlidingUpPanelLayout.PanelState.EXPANDED
         calendarRecycleView.postDelayed(Runnable {
-            run() {
+            run {
                 calendarRecycleView.smoothScrollBy(0,view.height*((position - glmanager.findFirstVisibleItemPosition())/7 -1 ))
             }
         },0)

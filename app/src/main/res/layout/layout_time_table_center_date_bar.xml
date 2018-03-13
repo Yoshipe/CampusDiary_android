@@ -5,6 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/time_table_top_date_height"
         android:layout_marginLeft="@dimen/time_table_left_bar_width"
+        android:layout_marginStart="@dimen/time_table_left_bar_width"
         android:orientation="horizontal">
 
         <TextView

@@ -1,10 +1,8 @@
-package com.watnow.campusdiary.Calendar
+package com.watnow.campusdiary.calendar
 
-import me.mattak.moment.Duration
 import me.mattak.moment.Moment
 import me.mattak.moment.TimeUnit
 import java.util.*
-import kotlin.collections.HashMap
 
 /**
  * Created by Shogo on 2018/02/15.
@@ -42,7 +40,7 @@ class CalendarDate {
     }
 
     // カレンダーに表示する全ての日を５年前から、5年後までの10年間分のListにして返すメソッド
-    public fun getAllDays(): MutableList<String> {
+    fun getAllDays(): MutableList<String> {
         val dateList: MutableList<String> = mutableListOf()
         var tmpdate = firstDate
         while (tmpdate != endDate.add(1, TimeUnit.DAYS)) {
@@ -57,46 +55,47 @@ class CalendarDate {
     }
 
     // positionを引数にとり、そのyyyy年MM月dd日を返すメソッド
-    public fun getday(position: Int): String {
+    fun getday(position: Int): String {
         var tmpdate = firstDate
         tmpdate = tmpdate.add(position.toLong(), TimeUnit.DAYS)
         return tmpdate.format("yyyy年MM月dd日")
     }
 
     // 今日のpositionを返すメソッド
-    public fun todayPosition(): Int {
+    fun todayPosition(): Int {
         val diffTime = moment.intervalSince(firstDate).toString()
         val diffDate = diffTime.toLong() / (1000 * 60 * 60 * 24)
         return diffDate.toInt()
     }
 
     // positionを引数にとり、そのddを返すメソッド
-    public fun getOnlyDate(position: Int): String {
+    fun getOnlyDate(position: Int): String {
         var tmpdate = firstDate
         tmpdate = tmpdate.add(position.toLong(), TimeUnit.DAYS)
         return tmpdate.format("dd")
     }
+
     // positionを引数にとり、そのMMを返すメソッド
-    public fun getMonth(position: Int): String {
+    fun getMonth(position: Int): String {
         var tmpdate = firstDate
         tmpdate = tmpdate.add(position.toLong(), TimeUnit.DAYS)
         return tmpdate.format("MM")
     }
 
     // positionを引数にとり、そのyyyy年MM月を返すメソッド
-    public fun getYearMonth(position: Int): String {
+    fun getYearMonth(position: Int): String {
         var tmpdate = firstDate
         tmpdate = tmpdate.add(position.toLong(), TimeUnit.DAYS)
         return tmpdate.format("yyyy年MM月")
     }
 
     // positionを引数にとり、何列目かを返すメソッド
-    public fun getRow(position: Int): Int {
+    fun getRow(position: Int): Int {
         return position % 7 + 1
     }
 
     //position(カレンダーの一番左の時のみ)を引数にとり、その行のYYYY年MM月を返すメソッド
-    public fun getScrollTerm(position: Int): String {
+    fun getScrollTerm(position: Int): String {
         var tmpPosition = position
         do {
             if (getOnlyDate(tmpPosition).toInt() == 1){
@@ -108,7 +107,7 @@ class CalendarDate {
     }
 
     //positionからその日の学年暦、祝日の配列を返す
-    public fun getPublicDataNames(position: Int): MutableList<String> {
+    fun getPublicDataNames(position: Int): MutableList<String> {
         val publicDataNames: MutableList<String> = mutableListOf()
         val day: String = getday(position)
         when (day) {

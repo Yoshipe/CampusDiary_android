@@ -1,4 +1,4 @@
-package com.watnow.campusdiary.Reference
+package com.watnow.campusdiary.reference
 
 import android.content.Context
 import android.content.Intent
@@ -8,9 +8,8 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.*
-import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.watnow.campusdiary.R
-import com.watnow.campusdiary.Utils.BottomNavigationViewHelper
+import com.watnow.campusdiary.utils.BottomNavigationViewHelper
 // 以下kotlin-android-extensionsを用いるためのインポート
 import kotlinx.android.synthetic.main.layout_reference_center.*
 import kotlinx.android.synthetic.main.layout_reference_search_bar.*

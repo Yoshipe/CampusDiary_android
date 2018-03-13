@@ -23,12 +23,10 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:background="@color/colorAccent"
-                android:fontFamily="sans-serif-smallcaps"
                 android:gravity="center"
                 android:padding="3dp"
-                android:text="2018年4月"
                 android:textColor="@color/white"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <LinearLayout
                 android:id="@+id/week_label"
@@ -42,49 +40,49 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textAlignment="center"
-                    android:text="月"
+                    android:text="@string/MON"
                     />
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textAlignment="center"
-                    android:text="火"
+                    android:text="@string/TUE"
                     />
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textAlignment="center"
-                    android:text="水"
+                    android:text="@string/WED"
                     />
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textAlignment="center"
-                    android:text="木"
+                    android:text="@string/THU"
                     />
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textAlignment="center"
-                    android:text="金"
+                    android:text="@string/FRI"
                     />
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textAlignment="center"
-                    android:text="土"
+                    android:text="@string/SAT"
                     />
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textAlignment="center"
-                    android:text="日"
+                    android:text="@string/SUN"
                     />
             </LinearLayout>
 

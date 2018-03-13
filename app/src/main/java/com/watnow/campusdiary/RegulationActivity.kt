@@ -27,7 +27,7 @@ class RegulationActivity : AppCompatActivity() {
             val reader = BufferedReader(InputStreamReader(fileInput))
             tmp = reader.readLines()
         } catch (e: IOException) {
-            Log.d("IOException", "ERROR LAUNCHING: ${e.toString()}")
+            Log.d("IOException", "ERROR LAUNCHING: $e")
         }
 
         var allText: String = ""

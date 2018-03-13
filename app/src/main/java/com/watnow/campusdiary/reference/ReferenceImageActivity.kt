@@ -1,4 +1,4 @@
-package com.watnow.campusdiary.Reference
+package com.watnow.campusdiary.reference
 
 import android.content.Intent
 import android.graphics.Bitmap
