@@ -38,9 +38,21 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
                 setView(customView)
                 setPositiveButton("OK") { _, _ ->
                     val selectedButton: RadioButton = customView.findViewById(customView.radioGroup.checkedRadioButtonId)
-                    Log.d("DEBUG", "selectedButton.text == " + selectedButton.text.toString())
                     updateUiColor(selectedButton)
                 }
+                show()
+            }
+        }
+
+        discard_btn.setOnClickListener{
+            val dialog = AlertDialog.Builder(this@CalendarAddScheduleActivity).apply {
+                setMessage("この予定を削除しますか？")
+                setPositiveButton("削除") { _, _ ->
+                    discardDate(updateDateNum)
+                    finish()
+                    Toast.makeText(this@CalendarAddScheduleActivity, "削除しました", Toast.LENGTH_SHORT).show()
+                }
+                setNegativeButton("キャンセル",null)
                 show()
             }
         }
@@ -94,11 +106,21 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
         return view
     }
 
+    private fun discardDate(i:Int) {
+        realm.beginTransaction()
+        val targetDB: CalendarDB
+        val updateDate: String = intent.extras.getString("date")
+        targetDB = realm.where(CalendarDB::class.java).equalTo("date", updateDate).findAll()[i]
+        targetDB.deleteFromRealm()
+        realm.commitTransaction()
+    }
+
     private fun updateUiColor(selectedButton: RadioButton) {
         val colorId: Int = getColorFromString(selectedButton.text.toString())
         button_color_select.setBackgroundColor(colorId)
         new_event_navigation.setBackgroundColor(colorId)
         new_event_title.setBackgroundColor(colorId)
+        discard_btn.setBackgroundColor(colorId)
         currentTheme = selectedButton.text.toString()
     }
 
@@ -110,7 +132,9 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
         button_color_select.setBackgroundColor(getColorFromString(updateInfo.theme))
         new_event_navigation.setBackgroundColor(getColorFromString(updateInfo.theme))
         new_event_title.setBackgroundColor(getColorFromString(updateInfo.theme))
+        discard_btn.setBackgroundColor(getColorFromString(updateInfo.theme))
         new_event_detail.setText(updateInfo.detail)
+        discard_btn.visibility = View.VISIBLE
         currentTheme = updateInfo.theme
     }
 
