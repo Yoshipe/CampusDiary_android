@@ -58,6 +58,16 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
             }
             // 日付
             it.itemTextView.text = itemList.get(position)
+            val row = calendarDate.getRow(position)
+            it.itemTextView.apply {
+                if (row == 6) {
+                    setTextColor(ContextCompat.getColor(context, R.color.saturday))
+                } else if (row == 7) {
+                    setTextColor(ContextCompat.getColor(context, R.color.sunday))
+                } else {
+                    setTextColor(ContextCompat.getColor(context, R.color.weekday))
+                }
+            }
             // 選択されているアイテムを、選択されている状態にする
             it.parentLayout.isSelected = selectedItem.get(position, false)
             // 月のbackgroundを交互に色を変える
