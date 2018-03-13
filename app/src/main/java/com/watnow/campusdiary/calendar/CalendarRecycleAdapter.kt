@@ -71,7 +71,7 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
             // データがあればTextViewを追加する処理
             if (todayData != null) {
                 // データのサイズ回TextViewを表示
-                for(i in 0 until todayData.size-1) {
+                for(i in 0 until todayData.size) {
                     val textView = TextView(context)
                     textView.setTextColor(Color.WHITE)
                     textView.textSize = 8F
@@ -113,7 +113,7 @@ class CalendarRecycleAdapter(private val context: Context, private val itemClick
             // 学年暦、祝日のデータを取ってくる
             val publicDataNames = calendarDate.getPublicDataNames(position)
             if (publicDataNames.isNotEmpty()) {
-                for(i in 0 until publicDataNames.size-1) {
+                for(i in 0 until publicDataNames.size) {
                     val textView = TextView(context)
                     textView.setTextColor(Color.WHITE)
                     textView.textSize = 8F

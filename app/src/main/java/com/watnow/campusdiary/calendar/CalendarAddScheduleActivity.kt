@@ -79,7 +79,9 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
                 Toast.makeText(this@CalendarAddScheduleActivity, "タイトルが未入力です", Toast.LENGTH_SHORT).show()
             } else {
                 targetDB.title = currentTitle
-                targetDB.theme = currentTheme
+                if (currentTheme == "") {
+                    targetDB.theme = getString(R.string.diamond)
+                }
                 targetDB.detail = currentDetail
                 targetDB.date = date
                 realm.commitTransaction()
@@ -150,6 +152,7 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
             getString(R.string.tigerEye) -> selectedColorId = ContextCompat.getColor(this, R.color.tigerEye)
             getString(R.string.topaz) -> selectedColorId = ContextCompat.getColor(this, R.color.topaz)
             getString(R.string.diamond) -> selectedColorId = ContextCompat.getColor(this, R.color.diamond)
+            else -> selectedColorId = ContextCompat.getColor(this, R.color.diamond)
         }
         return selectedColorId
     }

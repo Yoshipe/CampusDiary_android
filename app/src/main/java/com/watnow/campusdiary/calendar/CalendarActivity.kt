@@ -133,7 +133,7 @@ class CalendarActivity : AppCompatActivity(), CalendarViewHolder.ItemClickListen
         val eventListitems :MutableList<String> = mutableListOf()
         val events = realm.where(CalendarDB::class.java).equalTo("date",date).findAll()
         if (events != null) {
-            for(i in 0 until events.size-1) {
+            for(i in 0 until events.size) {
                 eventListitems.add(events[i].title)
             }
         }
