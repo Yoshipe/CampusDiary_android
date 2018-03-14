@@ -81,6 +81,8 @@ class CalendarAddScheduleActivity : AppCompatActivity() {
                 targetDB.title = currentTitle
                 if (currentTheme == "") {
                     targetDB.theme = getString(R.string.diamond)
+                } else {
+                    targetDB.theme = currentTheme
                 }
                 targetDB.detail = currentDetail
                 targetDB.date = date
